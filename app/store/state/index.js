@@ -1,5 +1,5 @@
 import BudgetState from './BudgetState'
 
-export default State = {
+export type State = {
   budget: BudgetState
 }

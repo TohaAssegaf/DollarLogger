@@ -1,10 +1,9 @@
 import actions from '/app/actions'
 import reducer from '/app/reducers'
 import State from '/app/store/state'
-import BudgetState from '/app/store/state/BudgetState'
 
-const LARGE_BUDGET = 35000
-const SMALL_BUDGET = 25000
+const LARGE_BUDGET: number = 35000
+const SMALL_BUDGET: number = 25000
 
 describe('BudgetReducer', () => {
   it('should decrease budget', () => {
@@ -34,6 +33,8 @@ function testBudgetTotalChange(
 
 function createStateWithBudgetTotal(total: number): State {
   return {
-    budget : new BudgetState(total)
+    budget: {
+      total
+    }
   }
 }

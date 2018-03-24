@@ -1,11 +1,3 @@
-export default class BudgetState {
+export type BudgetState = {
   total: number
-  
-  constructor(total) {
-    this.total = total
-  }
-
-  getTotal() {
-    return this.total
-  }
 }
