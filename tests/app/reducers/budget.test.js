@@ -1,5 +1,7 @@
 import actions from '/app/actions'
 import reducer from '/app/reducers'
+import State from '/app/store/state'
+import BudgetState from '/app/store/state/BudgetState'
 
 const LARGE_BUDGET = 35000
 const SMALL_BUDGET = 25000
@@ -22,16 +24,16 @@ describe('BudgetReducer', () => {
   })
 })
 
-function testBudgetTotalChange(oldBudgetTotal: number, actionBudgetTotal: number, expectedBudgetTotal: number) {
-  originalState = createStateWithBudgetTotal(oldBudgetTotal)
-  expectedState = createStateWithBudgetTotal(expectedBudgetTotal)
+function testBudgetTotalChange(
+    oldBudgetTotal: number, actionBudgetTotal: number, expectedBudgetTotal: number) {
+  const originalState: State = createStateWithBudgetTotal(oldBudgetTotal)
+  const expectedState: State =
+      createStateWithBudgetTotal(expectedBudgetTotal)
   expect(reducer(originalState, actions.setBudgetTotal(actionBudgetTotal))).toEqual(expectedState)
 }
 
-function createStateWithBudgetTotal(total: number) {
+function createStateWithBudgetTotal(total: number): State {
   return {
-    budget : {
-      total
-    }
+    budget : new BudgetState(total)
   }
 }
