@@ -36,13 +36,17 @@
 <PROJECT_ROOT>/node_modules/xdl/.*
 <PROJECT_ROOT>/node_modules/reqwest/.*
 <PROJECT_ROOT>/node_modules/metro-bundler/.*
+<PROJECT_ROOT>/node_modules/metro/.*
+<PROJECT_ROOT>/node_modules/react-native/.*
 
 [include]
 
 [libs]
+./libdefs.js
+app/
 node_modules/react-native/Libraries/react-native/react-native-interface.js
 node_modules/react-native/flow/
-node_modules/expo/flow/
+tests/
 
 [options]
 emoji=true

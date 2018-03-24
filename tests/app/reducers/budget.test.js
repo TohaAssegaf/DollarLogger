@@ -1,8 +1,9 @@
 import actions from '/app/actions'
 import reducer from '/app/reducers'
+import State from '/app/store/state'
 
-const LARGE_BUDGET = 35000
-const SMALL_BUDGET = 25000
+const LARGE_BUDGET: number = 35000
+const SMALL_BUDGET: number = 25000
 
 describe('BudgetReducer', () => {
   it('should decrease budget', () => {
@@ -22,15 +23,17 @@ describe('BudgetReducer', () => {
   })
 })
 
-function testBudgetTotalChange(oldBudgetTotal, actionBudgetTotal, expectedBudgetTotal) {
-  originalState = createStateWithBudgetTotal(oldBudgetTotal)
-  expectedState = createStateWithBudgetTotal(expectedBudgetTotal)
+function testBudgetTotalChange(
+    oldBudgetTotal: number, actionBudgetTotal: number, expectedBudgetTotal: number) {
+  const originalState: State = createStateWithBudgetTotal(oldBudgetTotal)
+  const expectedState: State =
+      createStateWithBudgetTotal(expectedBudgetTotal)
   expect(reducer(originalState, actions.setBudgetTotal(actionBudgetTotal))).toEqual(expectedState)
 }
 
-function createStateWithBudgetTotal(total) {
+function createStateWithBudgetTotal(total: number): State {
   return {
-    budget : {
+    budget: {
       total
     }
   }

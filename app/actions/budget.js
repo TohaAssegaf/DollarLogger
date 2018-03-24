@@ -1,8 +1,8 @@
-import * as ActionTypes from './ActionTypes'
+import {SET_BUDGET_TOTAL, SetBudgetTotalAction} from './ActionTypes'
 
-export function setBudgetTotal(total) {
+export function setBudgetTotal(total: number): SetBudgetTotalAction {
   return {
-    type: ActionTypes.SET_BUDGET,
+    type: SET_BUDGET_TOTAL,
     total
   }
 }
