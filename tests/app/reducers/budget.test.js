@@ -1,35 +1,32 @@
 import actions from '../../../app/actions'
 import reducer from '../../../app/reducers'
 
+const LARGE_BUDGET = 35000
+const SMALL_BUDGET = 25000
+
 describe('BudgetReducer', () => {
   it('should decrease budget', () => {
-    originalState = createStateWithBudgetTotal(35000)
-    const newBudgetTotal = 25000
-    expectedNewState = createStateWithBudgetTotal(newBudgetTotal)
-    expect(
-      reducer(originalState, actions.setBudgetTotal(newBudgetTotal))).toEqual(expectedNewState)
+    testBudgetTotalChange(LARGE_BUDGET, SMALL_BUDGET, SMALL_BUDGET)
   })
 
   it('should increase budget', () => {
-    originalState = createStateWithBudgetTotal(25000)
-    const newBudgetTotal = 35000
-    expectedNewState = createStateWithBudgetTotal(newBudgetTotal)
-    expect(
-      reducer(originalState, actions.setBudgetTotal(newBudgetTotal))).toEqual(expectedNewState)
+    testBudgetTotalChange(SMALL_BUDGET, LARGE_BUDGET, LARGE_BUDGET)
   })
 
   it('should not update budget with 0 value', () => {
-    const oldBudgetTotal = 25000
-    originalState = createStateWithBudgetTotal(oldBudgetTotal)
-    expect(reducer(originalState, actions.setBudgetTotal(0))).toEqual(originalState)
+    testBudgetTotalChange(SMALL_BUDGET, 0, SMALL_BUDGET)
   })
 
   it('should not update budget with negative value', () => {
-    const oldBudgetTotal = 25000
-    originalState = createStateWithBudgetTotal(oldBudgetTotal)
-    expect(reducer(originalState, actions.setBudgetTotal(-1))).toEqual(originalState)
+    testBudgetTotalChange(SMALL_BUDGET, -1, SMALL_BUDGET)
   })
 })
+
+function testBudgetTotalChange(oldBudgetTotal, actionBudgetTotal, expectedBudgetTotal) {
+  originalState = createStateWithBudgetTotal(oldBudgetTotal)
+  expectedState = createStateWithBudgetTotal(expectedBudgetTotal)
+  expect(reducer(originalState, actions.setBudgetTotal(actionBudgetTotal))).toEqual(expectedState)
+}
 
 function createStateWithBudgetTotal(total) {
   return {
