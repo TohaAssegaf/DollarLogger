@@ -22,13 +22,13 @@ describe('BudgetReducer', () => {
   })
 })
 
-function testBudgetTotalChange(oldBudgetTotal, actionBudgetTotal, expectedBudgetTotal) {
+function testBudgetTotalChange(oldBudgetTotal: number, actionBudgetTotal: number, expectedBudgetTotal: number) {
   originalState = createStateWithBudgetTotal(oldBudgetTotal)
   expectedState = createStateWithBudgetTotal(expectedBudgetTotal)
   expect(reducer(originalState, actions.setBudgetTotal(actionBudgetTotal))).toEqual(expectedState)
 }
 
-function createStateWithBudgetTotal(total) {
+function createStateWithBudgetTotal(total: number) {
   return {
     budget : {
       total

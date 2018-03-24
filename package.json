@@ -6,13 +6,16 @@
     "babel-cli": "^6.26.0",
     "babel-preset-flow": "^6.23.0",
     "babel-preset-react-native-stage-0": "^1.0.1",
-    "flow-bin": "^0.68.0",
+    "flow-bin": "^0.56.0",
+    "flow-typed": "^2.4.0",
     "jest": "^22.4.3",
     "react-test-renderer": "16.2.0"
   },
   "scripts": {
     "android": "react-native run-android",
     "flow": "flow",
+    "flow-install": "flow-typed install",
+    "flow-stop": "flow stop",
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "node node_modules/jest/bin/jest.js"
