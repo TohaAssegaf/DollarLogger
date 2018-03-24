@@ -1,4 +1,4 @@
-import { SET_BUDGET } from '../actions/ActionTypes'
+import { SET_BUDGET } from '/app/actions/ActionTypes'
 
 const initialState = {
   total: 0

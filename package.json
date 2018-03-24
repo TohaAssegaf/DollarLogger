@@ -19,6 +19,7 @@
     "preset": "react-native"
   },
   "dependencies": {
+    "babel-root-slash-import": "^1.1.0",
     "react": "16.2.0",
     "react-native": "0.52.0",
     "redux": "^3.7.2"

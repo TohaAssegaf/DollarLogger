@@ -1,5 +1,5 @@
-import actions from '../../../app/actions'
-import reducer from '../../../app/reducers'
+import actions from '/app/actions'
+import reducer from '/app/reducers'
 
 const LARGE_BUDGET = 35000
 const SMALL_BUDGET = 25000
