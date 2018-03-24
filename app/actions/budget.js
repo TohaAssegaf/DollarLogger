@@ -1,8 +1,8 @@
 import * as ActionTypes from './ActionTypes'
 
-export function setBudget(budget) {
+export function setBudgetTotal(total) {
   return {
     type: ActionTypes.SET_BUDGET,
-    budget
+    total
   }
 }

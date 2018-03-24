@@ -1,5 +1,3 @@
-import * as budget from './Budget'
+import * as budget from './budget'
 
-export default {
-  budget
-}
+export default Object.assign({}, budget)
