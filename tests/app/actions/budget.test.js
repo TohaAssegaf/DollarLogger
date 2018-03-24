@@ -1,5 +1,5 @@
-import actions from '../../../app/actions'
-import * as ActionTypes from '../../../app/actions/ActionTypes'
+import actions from '/app/actions'
+import * as ActionTypes from '/app/actions/ActionTypes'
  
 describe('BudgetActions', () => {
   it('should create an action to set new budget total', () => {

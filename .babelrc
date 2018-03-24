@@ -8,5 +8,8 @@
         "transform-react-jsx-source"
       ]
     }
-  }
+  },
+  "plugins": [
+     "babel-root-slash-import"
+   ]
 }
