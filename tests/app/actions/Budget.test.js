@@ -1,13 +1,13 @@
-import * as BudgetActions from '../../../app/actions/Budget'
+import { actions } from '../../../app/actions'
 import * as ActionTypes from '../../../app/actions/ActionTypes'
  
-describe('Budget', () => {
-  it('should create an action to set new budget', () => {
-    const budget = 35000
+describe('BudgetActions', () => {
+  it('should create an action to set new budget total', () => {
+    const total = 35000
     const expectedAction = {
       type: ActionTypes.SET_BUDGET,
-      budget
+      total
     }
-    expect(BudgetActions.setBudget(budget)).toEqual(expectedAction)
+    expect(actions.setBudgetTotal(total)).toEqual(expectedAction)
   })
 })
