@@ -1,4 +1,4 @@
-import { actions } from '../../../app/actions'
+import actions from '../../../app/actions'
 import * as ActionTypes from '../../../app/actions/ActionTypes'
  
 describe('BudgetActions', () => {

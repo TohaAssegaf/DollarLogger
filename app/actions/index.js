@@ -1,3 +1,3 @@
 import * as budget from './budget'
 
-export const actions = Object.assign({}, budget)
+export default Object.assign({}, budget)

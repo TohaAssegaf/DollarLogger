@@ -1,4 +1,4 @@
-import { actions } from '../../../app/actions'
+import actions from '../../../app/actions'
 import reducer from '../../../app/reducers'
 
 describe('BudgetReducer', () => {
