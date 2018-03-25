@@ -2,7 +2,7 @@
  * Returns the cent-formatted string associated with the input.
  */
 export function formatMoneyCents(totalCents: number): string {
-  const dollars: string = String(Math.floor(totalCents / 100))
+  const dollars: string = Math.floor(totalCents / 100).toString()
   const fractionalCents: number = totalCents % 100
   let formattedFractionalCents: string = fractionalCents.toString()
   if (fractionalCents < 10) {
