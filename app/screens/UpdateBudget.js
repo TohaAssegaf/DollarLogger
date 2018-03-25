@@ -8,9 +8,9 @@ export default class UpdateBudget extends React.Component {
 
   render() {
     return (
-        <View>
-          <Text>Placeholder for UpdateBudget screen.</Text>
-        </View>
+      <View>
+        <Text>Placeholder for UpdateBudget screen.</Text>
+      </View>
     );
   }
 }
