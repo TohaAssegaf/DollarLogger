@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "borderBottomColor": "#222222",
+      "borderBottomWidth": 0.5,
+      "flexDirection": "row",
+    }
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "fontSize": 20,
+        },
+        undefined,
+      ]
+    }
+  >
+    $
+  </Text>
+  <TextInput
+    allowFontScaling={true}
+    keyboardType="numeric"
+    onBlur={[Function]}
+    onChangeText={[Function]}
+    style={
+      Array [
+        Object {
+          "fontSize": 20,
+          "minWidth": 100,
+        },
+        undefined,
+      ]
+    }
+    value={undefined}
+  />
+</View>
+`;
