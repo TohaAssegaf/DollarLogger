@@ -38,7 +38,8 @@
 <PROJECT_ROOT>/node_modules/metro-bundler/.*
 <PROJECT_ROOT>/node_modules/metro/.*
 <PROJECT_ROOT>/node_modules/react-native/.*
-
+<PROJECT_ROOT>/node_modules/react-native-tab-view/.*
+<PROJECT_ROOT>/node_modules/react-navigation/.*
 [include]
 
 [libs]
