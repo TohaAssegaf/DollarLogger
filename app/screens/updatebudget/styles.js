@@ -3,7 +3,7 @@ import {
 } from 'react-native';
 
 export default StyleSheet.create({
-  updateBudget: {
+  screen: {
     alignItems: 'center',
     backgroundColor: 'white',
     flex: 1,
@@ -27,5 +27,15 @@ export default StyleSheet.create({
 
   textInput: {
     fontSize: 30
+  },
+
+  button: {
+    flexDirection: "row",
+    paddingTop: 40
+  },
+
+  buttonInner: {
+    flex: 1,
+    paddingHorizontal: 40
   }
 })
