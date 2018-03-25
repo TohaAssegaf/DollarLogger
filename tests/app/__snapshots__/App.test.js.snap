@@ -79,7 +79,7 @@ exports[`renders correctly 1`] = `
             allowFontScaling={true}
             ellipsizeMode="tail"
           >
-            Placeholder for UpdateBudget screen.
+            What is your weekly budget?
           </Text>
         </View>
       </View>
