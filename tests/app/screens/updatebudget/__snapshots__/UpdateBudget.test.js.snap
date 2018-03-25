@@ -1,13 +1,165 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-<View>
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "white",
+      "flex": 1,
+      "flexDirection": "column",
+      "justifyContent": "center",
+    }
+  }
+>
   <Text
     accessible={true}
     allowFontScaling={true}
     ellipsizeMode="tail"
+    style={
+      Object {
+        "color": "#222222",
+        "fontSize": 30,
+      }
+    }
   >
     What is your weekly budget?
   </Text>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "fontSize": 15,
+        "paddingBottom": 20,
+      }
+    }
+  >
+    (Don't worry, you can change this later)
+  </Text>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "borderBottomColor": "#222222",
+        "borderBottomWidth": 0.5,
+        "flexDirection": "row",
+      }
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "fontSize": 20,
+          },
+          Object {
+            "fontSize": 30,
+          },
+        ]
+      }
+    >
+      $
+    </Text>
+    <TextInput
+      allowFontScaling={true}
+      keyboardType="numeric"
+      onBlur={[Function]}
+      onChangeText={[Function]}
+      style={
+        Array [
+          Object {
+            "fontSize": 20,
+            "minWidth": 100,
+          },
+          Object {
+            "fontSize": 30,
+          },
+        ]
+      }
+      value={undefined}
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+        "paddingTop": 40,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "paddingHorizontal": 40,
+        }
+      }
+    >
+      <View
+        accessibilityComponentType="button"
+        accessibilityLabel="Update weekly budget"
+        accessibilityTraits={
+          Array [
+            "button",
+          ]
+        }
+        accessible={true}
+        collapsable={undefined}
+        hasTVPreferredFocus={undefined}
+        hitSlop={undefined}
+        isTVSelectable={true}
+        nativeID={undefined}
+        onLayout={undefined}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID={undefined}
+        tvParallaxProperties={undefined}
+      >
+        <View
+          style={
+            Array [
+              Object {},
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={undefined}
+            ellipsizeMode="tail"
+            style={
+              Array [
+                Object {
+                  "color": "#007AFF",
+                  "fontSize": 18,
+                  "padding": 8,
+                  "textAlign": "center",
+                },
+                Object {
+                  "color": "#6A1B9A",
+                },
+              ]
+            }
+          >
+            SUBMIT
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
 </View>
 `;
