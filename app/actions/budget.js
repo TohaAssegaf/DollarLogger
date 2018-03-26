@@ -31,7 +31,7 @@ export function setBudgetTotalFailure(errorMessage: string): SetBudgetTotalFailu
 
 export function setBudgetTotal(total: number) {
   return function(dispatch) {
-    if (action.total <= 0) {
+    if (total <= 0) {
       dispatch(setBudgetTotalFailure("Budget must be greater than 0"))
     }
     if (!Number.isInteger(total)) {
