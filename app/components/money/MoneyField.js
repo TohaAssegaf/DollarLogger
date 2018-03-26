@@ -18,8 +18,10 @@ export default class MoneyField extends React.Component {
       this.inputField.setNativeProps({ text: formattedInput })
     }
     const total = parseAmbiguousMoney(formattedInput)
-    this.setState({ total })
-    this.props.onChange(total)
+    if (total != this.state.total) {
+      this.setState({ total })
+      this.props.onChange(total)      
+    }
   }
 
   formatFinalMoneyInput() {

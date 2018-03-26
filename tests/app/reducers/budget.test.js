@@ -33,8 +33,7 @@ describe('BudgetReducer', () => {
 function testBudgetTotalSuccessChange(
     oldBudgetTotal: number, actionBudgetTotal: number, expectedBudgetTotal: number) {
   const originalState: State = createState(oldBudgetTotal, "", true)
-  const expectedState: State =
-      createState(expectedBudgetTotal, "", false)
+  const expectedState: State = createState(expectedBudgetTotal, "", false)
   expect(
     reducer(originalState, actions.setBudgetTotalSuccess(actionBudgetTotal))).toEqual(expectedState)
 }

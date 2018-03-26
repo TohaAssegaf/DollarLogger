@@ -32,6 +32,7 @@ it('allows ambiguous input', () => {
 it('allows ambiguous . input', () => {
   const wrapper = shallow(<MoneyField onChange={onChange} />)
   const render = wrapper.dive()
+  render.find('TextInput').simulate('changeText', '1') // Change to non-zero input first
   render.find('TextInput').simulate('changeText', '.')
   expect(wrapper.state().total).toEqual(0)
   expect(onChange).toHaveBeenLastCalledWith(0)
