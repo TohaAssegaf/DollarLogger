@@ -1,3 +1,5 @@
 export type BudgetState = {
-  total: number
+  total: number,
+  isWriting: boolean,
+  errorMessage: string
 }

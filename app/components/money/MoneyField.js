@@ -5,15 +5,11 @@ import React from 'react'
 import { Text, TextInput, View } from 'react-native'
 
 export default class MoneyField extends React.Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       total: 0
     }
-  }
-
-  getTotal(): number {
-    return this.state.total
   }
 
   updateInput(input: string) {
@@ -21,7 +17,11 @@ export default class MoneyField extends React.Component {
     if (formattedInput !== input) {
       this.inputField.setNativeProps({ text: formattedInput })
     }
-    this.setState({ total: parseAmbiguousMoney(formattedInput) })
+    const total = parseAmbiguousMoney(formattedInput)
+    if (total != this.state.total) {
+      this.setState({ total })
+      this.props.onChange(total)      
+    }
   }
 
   formatFinalMoneyInput() {
