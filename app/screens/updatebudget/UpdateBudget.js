@@ -3,7 +3,7 @@ import styles from './styles'
 import actions from '/app/actions'
 import MoneyField from '/app/components/money/MoneyField'
 import React from 'react'
-import { Button, Text, View } from 'react-native'
+import { Button, Keyboard, Text, View } from 'react-native'
 import { connect } from 'react-redux'
 
 class UpdateBudget extends React.Component {
@@ -23,6 +23,7 @@ class UpdateBudget extends React.Component {
   }
 
   submitForm() {
+    Keyboard.dismiss()
     this.props.updateBudgetTotal(this.state.total)
   }
 
