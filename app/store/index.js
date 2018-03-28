@@ -1,3 +1,4 @@
+import { navigationMiddleware } from '/app/lib/navigation';
 import reducer from '/app/reducers'
 import { createStore, applyMiddleware } from 'redux'
 import { createLogger } from 'redux-logger'
@@ -8,7 +9,8 @@ const loggerMiddleware = createLogger()
 export default createStore(
   reducer,
   applyMiddleware(
-    thunkMiddleware, // lets us dispatch() functions
-    loggerMiddleware // neat middleware that logs actions
+    loggerMiddleware, // neat middleware that logs actions
+    navigationMiddleware, // middleware for redux navigation dispatch
+    thunkMiddleware // lets us dispatch() functions
   )
 )

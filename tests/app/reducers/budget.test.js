@@ -15,35 +15,35 @@ describe('BudgetReducer', () => {
   })
 
   it('should make set budget request', () => {
-    const originalState: State = createState(SMALL_BUDGET, "", false)
+    const originalState: State = { budget: createState(SMALL_BUDGET, "", false) }
     const expectedState: State = createState(SMALL_BUDGET, "", true)
     expect(
-      reducer(originalState, actions.setBudgetTotalRequest())).toEqual(expectedState)
+      reducer(originalState, actions.setBudgetTotalRequest()).budget).toEqual(expectedState)
   })
 
   it('should set error message', () => {
     const errorMessage = "Test error"
-    const originalState: State = createState(SMALL_BUDGET, "", true)
+    const originalState: State = { budget: createState(SMALL_BUDGET, "", true) }
     const expectedState: State = createState(SMALL_BUDGET, errorMessage, false)
     expect(
-      reducer(originalState, actions.setBudgetTotalFailure(errorMessage))).toEqual(expectedState)
+      reducer(originalState, actions.setBudgetTotalFailure(errorMessage)).budget)
+          .toEqual(expectedState)
   })
 })
 
 function testBudgetTotalSuccessChange(
     oldBudgetTotal: number, actionBudgetTotal: number, expectedBudgetTotal: number) {
-  const originalState: State = createState(oldBudgetTotal, "", true)
+  const originalState: State = { budget: createState(oldBudgetTotal, "", true) }
   const expectedState: State = createState(expectedBudgetTotal, "", false)
   expect(
-    reducer(originalState, actions.setBudgetTotalSuccess(actionBudgetTotal))).toEqual(expectedState)
+    reducer(originalState, actions.setBudgetTotalSuccess(actionBudgetTotal)).budget)
+        .toEqual(expectedState)
 }
 
 function createState(total: number, errorMessage: string, isWriting: boolean): State {
   return {
-    budget: {
-      total,
-      errorMessage,
-      isWriting
-    }
+    total,
+    errorMessage,
+    isWriting
   }
 }

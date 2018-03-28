@@ -1,3 +1,4 @@
+import * as Routes from '/app/config/Routes'
 import styles from './styles'
 import actions from '/app/actions'
 import MoneyField from '/app/components/money/MoneyField'
