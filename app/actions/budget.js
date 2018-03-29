@@ -6,8 +6,11 @@ import {
   SetBudgetTotalSuccessAction,
   SetBudgetTotalFailureAction
 } from './ActionTypes'
+import { BaseNavigator } from '/app/components/navigation/Navigation'
+import * as Routes from '/app/config/Routes'
 import { BUDGET_ASYNC_STORAGE_KEY } from '/app/config/storage'
 import { AsyncStorage } from 'react-native'
+import { NavigationActions } from 'react-navigation'
 
 export function setBudgetTotalRequest(): SetBudgetTotalRequestAction {
   return {
@@ -39,7 +42,10 @@ export function setBudgetTotal(total: number) {
     }
     dispatch(setBudgetTotalRequest(total))
     return AsyncStorage.setItem(BUDGET_ASYNC_STORAGE_KEY, total.toString())
-      .then(() => dispatch(setBudgetTotalSuccess(total)))
+      .then(() => {
+        dispatch(setBudgetTotalSuccess(total))
+        dispatch(NavigationActions.back())
+      })
       .catch(error => dispatch(setBudgetTotalFailure(error.message)))
   }
 }

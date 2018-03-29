@@ -40,6 +40,7 @@
 <PROJECT_ROOT>/node_modules/react-native/.*
 <PROJECT_ROOT>/node_modules/react-native-tab-view/.*
 <PROJECT_ROOT>/node_modules/react-navigation/.*
+<PROJECT_ROOT>/node_modules/react-navigation-redux-helpers/.*
 [include]
 
 [libs]
