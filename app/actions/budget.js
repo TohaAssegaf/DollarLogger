@@ -2,13 +2,19 @@ import {
   SET_BUDGET_TOTAL_REQUEST,
   SET_BUDGET_TOTAL_SUCCESS,
   SET_BUDGET_TOTAL_FAILURE,
+  GET_BUDGET_TOTAL_REQUEST,
+  GET_BUDGET_TOTAL_SUCCESS,
+  GET_BUDGET_TOTAL_FAILURE,
   SetBudgetTotalRequestAction,
   SetBudgetTotalSuccessAction,
-  SetBudgetTotalFailureAction
+  SetBudgetTotalFailureAction,
+  GetBudgetTotalRequestAction,
+  GetBudgetTotalSuccessAction,
+  GetBudgetTotalFailureAction
 } from './ActionTypes'
 import { BaseNavigator } from '/app/components/navigation/Navigation'
 import * as Routes from '/app/config/Routes'
-import { BUDGET_ASYNC_STORAGE_KEY } from '/app/config/storage'
+import * as BudgetModel from '/app/store/models/budget'
 import { AsyncStorage } from 'react-native'
 import { NavigationActions } from 'react-navigation'
 
@@ -41,11 +47,43 @@ export function setBudgetTotal(total: number) {
       dispatch(setBudgetTotalFailure("Budget must be an integer"))
     }
     dispatch(setBudgetTotalRequest(total))
-    return AsyncStorage.setItem(BUDGET_ASYNC_STORAGE_KEY, total.toString())
+    return BudgetModel.setTotal(total)
       .then(() => {
         dispatch(setBudgetTotalSuccess(total))
         dispatch(NavigationActions.back())
       })
       .catch(error => dispatch(setBudgetTotalFailure(error.message)))
+  }
+}
+
+export function getBudgetTotalRequest(): GetBudgetTotalRequestAction {
+  return {
+    type: GET_BUDGET_TOTAL_REQUEST
+  }
+}
+
+export function getBudgetTotalSuccess(total: number): GetBudgetTotalSuccessAction {
+  return {
+    type: GET_BUDGET_TOTAL_SUCCESS,
+    total
+  }
+}
+
+export function getBudgetTotalFailure(errorMessage: string): GetBudgetTotalFailureAction {
+  return {
+    type: GET_BUDGET_TOTAL_FAILURE,
+    errorMessage
+  }
+}
+
+export function getBudgetTotal() {
+  return function(dispatch) {
+    dispatch(getBudgetTotalRequest())
+    return BudgetModel.getTotal()
+      .then((total) => {
+        dispatch(setBudgetTotalSuccess(parseInt(total)))
+        dispatch(NavigationActions.back())
+      })
+      .catch(error => dispatch(getBudgetTotalFailure(error.message)))
   }
 }

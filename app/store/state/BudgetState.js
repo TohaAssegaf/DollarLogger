@@ -1,5 +1,6 @@
 export type BudgetState = {
   total: number,
   isWriting: boolean,
-  errorMessage: string
+  errorMessage: string,
+  isFetchComplete: boolean,
 }
