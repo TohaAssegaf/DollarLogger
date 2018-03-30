@@ -13,7 +13,6 @@ import {
   GetBudgetTotalSuccessAction,
   GetBudgetTotalFailureAction,
 } from '/app/actions/ActionTypes'
-import { BUDGET_ASYNC_STORAGE_KEY } from '/app/config/storage'
 import BudgetModel from '/app/store/models/budget'
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'

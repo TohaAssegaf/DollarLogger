@@ -62,7 +62,7 @@ export function getBudgetTotalRequest(): GetBudgetTotalRequestAction {
   }
 }
 
-export function getBudgetTotalSuccess(total: number): GetBudgetTotalSuccessAction {
+export function getBudgetTotalSuccess(total: ?number): GetBudgetTotalSuccessAction {
   return {
     type: GET_BUDGET_TOTAL_SUCCESS,
     total
@@ -81,8 +81,22 @@ export function getBudgetTotal() {
     dispatch(getBudgetTotalRequest())
     return BudgetModel.getTotal()
       .then((total) => {
-        dispatch(setBudgetTotalSuccess(parseInt(total)))
-        dispatch(NavigationActions.back())
+        if (total === null) {
+          dispatch(getBudgetTotalSuccess(null))
+          dispatch(NavigationActions.reset({
+            index: 1,
+            actions: [
+              BaseNavigator.router.getActionForPathAndParams(Routes.HOME),
+              BaseNavigator.router.getActionForPathAndParams(Routes.UPDATE_BUDGET)
+            ]
+          }))
+        } else {
+          dispatch(getBudgetTotalSuccess(parseInt(total)))
+          dispatch(NavigationActions.reset({
+            index: 0,
+            actions: [BaseNavigator.router.getActionForPathAndParams(Routes.HOME)]
+          }))
+        }
       })
       .catch(error => dispatch(getBudgetTotalFailure(error.message)))
   }

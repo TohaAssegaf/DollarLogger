@@ -1,6 +1,7 @@
 import * as Routes from '/app/config/Routes'
 import { addListener } from '/app/lib/navigation'
 import Home from '/app/screens/home/Home'
+import Loading from '/app/screens/loading/Loading'
 import UpdateBudget from '/app/screens/updatebudget/UpdateBudget'
 import React from 'react'
 import { StackNavigator } from 'react-navigation'
@@ -8,7 +9,8 @@ import { connect } from 'react-redux'
 
 export const BaseNavigator = StackNavigator({
   UpdateBudget: { screen: UpdateBudget, path: Routes.UPDATE_BUDGET },
-  Home: { screen: Home, path: Routes.HOME }
+  Home: { screen: Home, path: Routes.HOME },
+  Loading: { screen: Loading, path: Routes.LOADING }
 })
 
 class Navigation extends React.Component {
