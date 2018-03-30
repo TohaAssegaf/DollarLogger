@@ -8,7 +8,7 @@ import {
   Action } from '/app/actions/ActionTypes'
 import BudgetState from '/app/store/state/BudgetState'
 
-const initialState: BudgetState = { total: 0 }
+const initialState: BudgetState = { total: null, isFetchComplete: false }
 
 export default function(state: BudgetState = initialState, action: Action): BudgetState {
   switch(action.type) {

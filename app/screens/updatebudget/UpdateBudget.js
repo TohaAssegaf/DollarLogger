@@ -25,6 +25,7 @@ class UpdateBudget extends React.Component {
   submitForm() {
     Keyboard.dismiss()
     this.props.updateBudgetTotal(this.state.total)
+    this.props.navigation.goBack()
   }
 
   render() {

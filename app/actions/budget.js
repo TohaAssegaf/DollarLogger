@@ -83,19 +83,8 @@ export function getBudgetTotal() {
       .then((total) => {
         if (total === null) {
           dispatch(getBudgetTotalSuccess(null))
-          dispatch(NavigationActions.reset({
-            index: 1,
-            actions: [
-              BaseNavigator.router.getActionForPathAndParams(Routes.HOME),
-              BaseNavigator.router.getActionForPathAndParams(Routes.UPDATE_BUDGET)
-            ]
-          }))
         } else {
-          dispatch(getBudgetTotalSuccess(parseInt(total)))
-          dispatch(NavigationActions.reset({
-            index: 0,
-            actions: [BaseNavigator.router.getActionForPathAndParams(Routes.HOME)]
-          }))
+          dispatch(getBudgetTotalSuccess(total))
         }
       })
       .catch(error => dispatch(getBudgetTotalFailure(error.message)))
