@@ -12,11 +12,7 @@ import {
   GetBudgetTotalSuccessAction,
   GetBudgetTotalFailureAction
 } from './ActionTypes'
-import { BaseNavigator } from '/app/components/navigation/Navigation'
-import * as Routes from '/app/config/Routes'
 import * as BudgetModel from '/app/store/models/budget'
-import { AsyncStorage } from 'react-native'
-import { NavigationActions } from 'react-navigation'
 
 export function setBudgetTotalRequest(): SetBudgetTotalRequestAction {
   return {

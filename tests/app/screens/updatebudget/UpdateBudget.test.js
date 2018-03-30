@@ -14,15 +14,20 @@ enzyme.configure({ adapter: new Adapter() })
 const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares)
 
+const navigation = {
+  goBack: jest.fn()
+}
+
 it('renders correctly', () => {
   const store = mockStore({ budget: { total: 0, isWriting: false, errorMessage: "" } })
-  const rendered = renderer.create(<UpdateBudget store={store} />).toJSON();
+  const rendered = renderer.create(<UpdateBudget store={store} navigation={navigation} />).toJSON();
   expect(rendered).toMatchSnapshot();
 });
 
 it('dispatches request on submit', () => {
   const store = mockStore({ budget: { total: 0, isWriting: false, errorMessage: "" } })
-  const wrapper = shallow(<UpdateBudget store={store} />).dive({ context: { store } })
+  const wrapper = shallow(<UpdateBudget store={store} navigation={navigation} />)
+      .dive({ context: { store } })
   const render = wrapper.dive()
   const expectedTotal = 10000
 
