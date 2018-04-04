@@ -40,4 +40,5 @@ it('dispatches request on submit', () => {
   render.find('Button').simulate('press')
 
   expect(store.getActions()).toContainEqual(actions.setBudgetTotalRequest())
+  expect(navigation.goBack.mock.calls).toHaveLength(1)
 });

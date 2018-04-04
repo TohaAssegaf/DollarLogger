@@ -25,6 +25,8 @@ class UpdateBudget extends React.Component {
   submitForm() {
     Keyboard.dismiss()
     this.props.updateBudgetTotal(this.state.total)
+
+    // Temporary hack. This should check state with a componentDidUpdate for write to be complete.
     this.props.navigation.goBack()
   }
 
