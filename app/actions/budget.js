@@ -76,12 +76,8 @@ export function getBudgetTotal() {
   return function(dispatch) {
     dispatch(getBudgetTotalRequest())
     return BudgetModel.getTotal()
-      .then((total) => {
-        if (total === null) {
-          dispatch(getBudgetTotalSuccess(null))
-        } else {
-          dispatch(getBudgetTotalSuccess(total))
-        }
+      .then(total => {
+        dispatch(getBudgetTotalSuccess(total))
       })
       .catch(error => dispatch(getBudgetTotalFailure(error.message)))
   }
