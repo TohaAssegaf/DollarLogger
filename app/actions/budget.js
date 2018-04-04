@@ -12,11 +12,7 @@ import {
   GetBudgetTotalSuccessAction,
   GetBudgetTotalFailureAction
 } from './ActionTypes'
-import { BaseNavigator } from '/app/components/navigation/Navigation'
-import * as Routes from '/app/config/Routes'
 import * as BudgetModel from '/app/store/models/budget'
-import { AsyncStorage } from 'react-native'
-import { NavigationActions } from 'react-navigation'
 
 export function setBudgetTotalRequest(): SetBudgetTotalRequestAction {
   return {
@@ -62,7 +58,7 @@ export function getBudgetTotalRequest(): GetBudgetTotalRequestAction {
   }
 }
 
-export function getBudgetTotalSuccess(total: number): GetBudgetTotalSuccessAction {
+export function getBudgetTotalSuccess(total: ?number): GetBudgetTotalSuccessAction {
   return {
     type: GET_BUDGET_TOTAL_SUCCESS,
     total
@@ -80,9 +76,8 @@ export function getBudgetTotal() {
   return function(dispatch) {
     dispatch(getBudgetTotalRequest())
     return BudgetModel.getTotal()
-      .then((total) => {
-        dispatch(setBudgetTotalSuccess(parseInt(total)))
-        dispatch(NavigationActions.back())
+      .then(total => {
+        dispatch(getBudgetTotalSuccess(total))
       })
       .catch(error => dispatch(getBudgetTotalFailure(error.message)))
   }
