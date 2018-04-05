@@ -3,9 +3,19 @@ import { AsyncStorage } from 'react-native'
 
 export function getPayments() {
   return AsyncStorage.getItem(PAYMENTS_ASYNC_STORAGE_KEY)
-    .then(payments => payments === null ? [] : payments)
+    .then(payments => payments === null ? [] : JSON.parse(payments))
 }
 
-export function setTotal(total: number) {
-  return AsyncStorage.setItem(BUDGET_ASYNC_STORAGE_KEY, total.toString())
+export function addPayment(total: number, name: string, date: Date) {
+  return getPayments().then(payments => {
+    const id = new Date().getUTCMilliseconds()
+    const payment = {
+      id,
+      total,
+      name,
+      date
+    }
+    payments.push(payment)
+    return AsyncStorage.setItem(BUDGET_ASYNC_STORAGE_KEY, JSON.stringify(payments))
+  })
 }

@@ -1,6 +1,12 @@
 export type Payment = {
-  id: string,
+  id: number,
   total: number,
   name: string,
   date: Date
+}
+
+export type PaymentState = {
+  payments: Array<Payment>,
+  isCreatingPayment: boolean,
+  errorMessage: string
 }
