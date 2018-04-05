@@ -1,62 +1,62 @@
 import {
-    Payment
+  Payment
 } from '/app/store/state/PaymentState'
 
 // Set budget total.
 export const SET_BUDGET_TOTAL_REQUEST = 'SET_BUDGET_TOTAL_REQUEST'
 export type SetBudgetTotalRequestAction = {
-    type: SET_BUDGET_TOTAL_REQUEST
+  type: SET_BUDGET_TOTAL_REQUEST
 }
 export const SET_BUDGET_TOTAL_SUCCESS = 'SET_BUDGET_TOTAL_SUCCESS'
 export type SetBudgetTotalSuccessAction = {
-    type: SET_BUDGET_TOTAL_SUCCESS,
-    total: number
+  type: SET_BUDGET_TOTAL_SUCCESS,
+  total: number
 }
 export const SET_BUDGET_TOTAL_FAILURE = 'SET_BUDGET_TOTAL_FAILURE'
 export type SetBudgetTotalFailureAction = {
-    type: SET_BUDGET_TOTAL_FAILURE,
-    errorMessage: string
+  type: SET_BUDGET_TOTAL_FAILURE,
+  errorMessage: string
 }
 
 // Get budget total.
 export const GET_BUDGET_TOTAL_REQUEST = 'GET_BUDGET_TOTAL_REQUEST'
 export type GetBudgetTotalRequestAction = {
-    type: GET_BUDGET_TOTAL_REQUEST
+  type: GET_BUDGET_TOTAL_REQUEST
 }
 export const GET_BUDGET_TOTAL_SUCCESS = 'GET_BUDGET_TOTAL_SUCCESS'
 export type GetBudgetTotalSuccessAction = {
-    type: GET_BUDGET_TOTAL_SUCCESS,
-    total: number
+  type: GET_BUDGET_TOTAL_SUCCESS,
+  total: number
 }
 export const GET_BUDGET_TOTAL_FAILURE = 'GET_BUDGET_TOTAL_FAILURE'
 export type GetBudgetTotalFailureAction = {
-    type: GET_BUDGET_TOTAL_FAILURE,
-    errorMessage: string
+  type: GET_BUDGET_TOTAL_FAILURE,
+  errorMessage: string
 }
 
 // Create payment.
 export const CREATE_PAYMENT_REQUEST = 'CREATE_PAYMENT_REQUEST'
 export type CreatePaymentRequestAction = {
-    type: CREATE_PAYMENT_REQUEST
+  type: CREATE_PAYMENT_REQUEST
 }
 export const CREATE_PAYMENT_SUCCESS = 'CREATE_PAYMENT_SUCCESS'
 export type CreatePaymentSuccessAction = {
-    type: CREATE_PAYMENT_SUCCESS,
-    payment: Payment
+  type: CREATE_PAYMENT_SUCCESS,
+  payment: Payment
 }
 export const CREATE_PAYMENT_FAILURE = 'CREATE_PAYMENT_FAILURE'
 export type CreatePaymentFailureAction = {
-    type: CREATE_PAYMENT_FAILURE,
-    errorMessage: string
+  type: CREATE_PAYMENT_FAILURE,
+  errorMessage: string
 }
 
 export type Action = |
-    SetBudgetTotalRequestAction |
-    SetBudgetTotalSuccessAction |
-    SetBudgetTotalFailureAction |
-    GetBudgetTotalRequestAction |
-    GetBudgetTotalSuccessAction |
-    GetBudgetTotalFailureAction |
-    CreatePaymentRequestAction |
-    CreatePaymentSuccessAction |
-    CreatePaymentFailureAction
+  SetBudgetTotalRequestAction |
+  SetBudgetTotalSuccessAction |
+  SetBudgetTotalFailureAction |
+  GetBudgetTotalRequestAction |
+  GetBudgetTotalSuccessAction |
+  GetBudgetTotalFailureAction |
+  CreatePaymentRequestAction |
+  CreatePaymentSuccessAction |
+  CreatePaymentFailureAction
