@@ -4,7 +4,10 @@ import {
   CREATE_PAYMENT_FAILURE,
   Action
 } from '/app/actions/ActionTypes'
-import { Payment, PaymentState } from '/app/store/state/PaymentState'
+import {
+  Payment,
+  PaymentState
+} from '/app/store/state/PaymentState'
 
 const initialState: PaymentState = {
   payments: [],

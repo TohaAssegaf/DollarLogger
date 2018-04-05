@@ -4,11 +4,11 @@ import App from '/app/App';
 import renderer from 'react-test-renderer';
 
 it('renders without crashing', () => {
-  const rendered = renderer.create(<App />).toJSON();
+  const rendered = renderer.create( < App / > ).toJSON();
   expect(rendered).toBeTruthy();
 });
 
 it('renders correctly', () => {
-  const rendered = renderer.create(<App />).toJSON();
+  const rendered = renderer.create( < App / > ).toJSON();
   expect(rendered).toMatchSnapshot();
 });
