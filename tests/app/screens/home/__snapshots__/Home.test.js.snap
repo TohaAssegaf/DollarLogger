@@ -1,13 +1,88 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-<View>
-  <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
+<View
+  style={
+    Object {
+      "backgroundColor": "white",
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "borderBottomColor": "#222222",
+        "borderBottomWidth": 0.5,
+        "flexDirection": "row",
+      }
+    }
   >
-    Placeholder for home screen
-  </Text>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flex": 0.5,
+          "flexDirection": "column",
+          "height": 100,
+          "justifyContent": "center",
+        }
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "black",
+            "fontSize": 32,
+          }
+        }
+      >
+        $1,250.00
+      </Text>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+      >
+        Remaining this week
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flex": 0.5,
+          "flexDirection": "column",
+          "height": 100,
+          "justifyContent": "center",
+        }
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "black",
+            "fontSize": 32,
+          }
+        }
+      >
+        $1,250.00
+      </Text>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+      >
+        Spent so far
+      </Text>
+    </View>
+  </View>
 </View>
 `;

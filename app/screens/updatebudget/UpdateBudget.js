@@ -1,6 +1,7 @@
 import * as Routes from '/app/config/Routes'
 import styles from './styles'
 import actions from '/app/actions'
+import { PRIMARY_BUTTON_COLOR } from '/app/config/colors'
 import MoneyField from '/app/components/money/MoneyField'
 import React from 'react'
 import { Button, Keyboard, Text, View } from 'react-native'
@@ -44,7 +45,7 @@ class UpdateBudget extends React.Component {
             <Button
                 onPress={() => this.submitForm()}
                 title="SUBMIT"
-                color={"#6A1B9A"}
+                color={PRIMARY_BUTTON_COLOR}
                 accessibilityLabel="Update weekly budget"/>
           </View>
         </View>

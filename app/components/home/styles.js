@@ -6,19 +6,23 @@ import {
 const fontSize = 20
 
 export default StyleSheet.create({
-  moneyField: {
+  header: {
     alignItems: 'center',
     borderBottomColor: THIN_BORDER_COLOR,
     borderBottomWidth: StyleSheet.hairlineWidth,
     flexDirection: "row"
   },
 
-  currencyCode: {
-    fontSize: fontSize
+  cell: {
+    height: 100,
+    alignItems: 'center',
+    flex: 0.5,
+    flexDirection: 'column',
+    justifyContent: 'center'
   },
 
-  textInput: {
-    fontSize: fontSize,
-    minWidth: 100
+  amount: {
+    fontSize: 32,
+    color: 'black'
   }
 })
