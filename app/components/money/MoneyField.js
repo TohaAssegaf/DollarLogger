@@ -42,36 +42,17 @@ export default class MoneyField extends React.Component {
   }
 
   render() {
-    return ( <
-      View style = {
-        styles.moneyField
-      } >
-      <
-      Text style = {
-        [styles.currencyCode, this.props.currencyCodeStyles]
-      } > $ < /Text> <
-      TextInput style = {
-        [styles.textInput, this.props.textInputStyles]
-      }
-      keyboardType = {
-        "numeric"
-      }
-      onChangeText = {
-        (input) => this.updateInput(input)
-      }
-      value = {
-        this.state.input
-      }
-      onBlur = {
-        () => this.formatFinalMoneyInput()
-      }
-      ref = {
-        (inputField) => {
-          this.inputField = inputField
-        }
-      }
-      /> < /
-      View >
+    return (
+      <View style = {styles.moneyField} >
+        <Text style = {[styles.currencyCode, this.props.currencyCodeStyles]} >$</Text>
+        <TextInput
+          style = {[styles.textInput, this.props.textInputStyles]}
+          keyboardType = {"numeric"}
+          onChangeText = {(input) => this.updateInput(input)}
+          value = {this.state.input}
+          onBlur = {() => this.formatFinalMoneyInput()}
+          ref = {inputField => { this.inputField = inputField }} />
+      </View>
     );
   }
 }
