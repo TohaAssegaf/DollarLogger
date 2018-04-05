@@ -1,5 +1,6 @@
 import styles from './styles'
 import HomeHeader from '/app/components/home/HomeHeader'
+import HomeActionButton from '/app/components/home/HomeActionButton'
 import { HEADER_BACKGROUND_COLOR, HEADER_TEXT_COLOR} from '/app/config/colors'
 import React from 'react';
 import { Text, View } from 'react-native'
@@ -17,6 +18,7 @@ class Home extends React.Component {
     return (
       <View style={styles.screen}>
         <HomeHeader />
+        <HomeActionButton />
       </View>
     );
   }

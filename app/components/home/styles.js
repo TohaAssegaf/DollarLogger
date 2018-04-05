@@ -1,4 +1,6 @@
-import { THIN_BORDER_COLOR } from '/app/config/colors'
+import {
+  THIN_BORDER_COLOR
+} from '/app/config/colors'
 import {
   StyleSheet
 } from 'react-native';
@@ -24,5 +26,11 @@ export default StyleSheet.create({
   amount: {
     fontSize: 32,
     color: 'black'
+  },
+
+  actionButtonIcon: {
+    fontSize: 20,
+    height: 22,
+    color: 'white',
   }
 })
