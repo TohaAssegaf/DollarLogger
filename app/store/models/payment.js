@@ -8,6 +8,7 @@ export function getPayments() {
 
 export function addPayment(total: number, name: string, date: Date) {
   return getPayments().then(payments => {
+    // TODO(renzobautista): Separate ID generation into a new class so it can be mocked
     const id = new Date().getUTCMilliseconds()
     const payment = {
       id,
