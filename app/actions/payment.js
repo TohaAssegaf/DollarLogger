@@ -37,7 +37,7 @@ export function createPayment(total: number, name: string, date: Date) {
       dispatch(createPaymentFailure("Payment total must be an integer"))
     }
     dispatch(createPaymentRequest())
-    return PaymentModel.createPayment(total, name, date)
+    return PaymentModel.addPayment(total, name, date)
       .then(payment => dispatch(createPaymentSuccess(payment)))
       .catch(error => dispatch(createPaymentFailure(error.message)))
   }
