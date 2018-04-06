@@ -37,6 +37,7 @@ class UpdateBudget extends React.Component {
         <Text style={styles.header}>What is your weekly budget?</Text>
         <Text style={styles.subtitle}>(Don't worry, you can change this later)</Text>
         <MoneyField
+          moneyFieldStyles={styles.moneyField}
           textInputStyles={styles.textInput}
           currencyCodeStyles={styles.currencyCode}
           onChange={(total) => this.updateTotal(total)}/>

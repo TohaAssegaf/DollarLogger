@@ -1,4 +1,7 @@
 import {
+  THIN_BORDER_COLOR
+} from '/app/config/colors'
+import {
   StyleSheet
 } from 'react-native';
 
@@ -32,6 +35,11 @@ export default StyleSheet.create({
   button: {
     flexDirection: "row",
     paddingTop: 40
+  },
+
+  moneyField: {
+    borderBottomColor: THIN_BORDER_COLOR,
+    borderBottomWidth: StyleSheet.hairlineWidth,
   },
 
   buttonInner: {

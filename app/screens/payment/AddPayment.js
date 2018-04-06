@@ -1,4 +1,5 @@
 import styles from './styles'
+import AddPaymentForm from '/app/components/payment/AddPaymentForm'
 import { HEADER_BACKGROUND_COLOR, HEADER_TEXT_COLOR} from '/app/config/colors'
 import React from 'react';
 import { Text, View } from 'react-native'
@@ -15,7 +16,7 @@ class AddPayment extends React.Component {
   render() {
     return (
       <View style={styles.screen}>
-        <Text>Placeholder add payment screen.</Text>
+        <AddPaymentForm />
       </View>
     );
   }
