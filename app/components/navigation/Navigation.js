@@ -1,6 +1,7 @@
 import * as Routes from '/app/config/Routes'
 import Home from '/app/screens/home/Home'
 import Loading from '/app/screens/loading/Loading'
+import AddPayment from '/app/screens/payment/AddPayment'
 import UpdateBudget from '/app/screens/updatebudget/UpdateBudget'
 import React from 'react'
 import {
@@ -19,6 +20,10 @@ export default StackNavigator({
   [Routes.LOADING]: {
     screen: Loading,
     path: Routes.LOADING
+  },
+  [Routes.ADD_PAYMENT]: {
+    screen: AddPayment,
+    path: Routes.ADD_PAYMENT
   }
 }, {
   initialRouteName: Routes.LOADING
