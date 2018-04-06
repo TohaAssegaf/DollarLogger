@@ -21,9 +21,30 @@ export default StyleSheet.create({
     paddingHorizontal,
     borderBottomColor: THIN_BORDER_COLOR,
     borderBottomWidth: StyleSheet.hairlineWidth,
+    height: 70,
+    justifyContent: 'center',
   },
 
   textInput: {
+    fontSize
+  },
+
+  datePicker: {
+    width: 'auto',
+  },
+
+  dateTouchBody: {
+    height: 'auto',
+    alignItems: 'flex-start',
+  },
+
+  dateInput: {
+    borderWidth: 0,
+    height: 'auto',
+    alignItems: 'flex-start',
+  },
+
+  dateText: {
     fontSize
   }
 })
