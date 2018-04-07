@@ -13,6 +13,7 @@ enzyme.configure({ adapter: new Adapter() })
 const navigation = { goBack: jest.fn() }
 const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares)
+Date.prototype.getTimezoneOffset = () => 0
 
 it('renders correctly', () => {
   MockDate.set(new Date(Date.UTC(2018, 4, 2)))
