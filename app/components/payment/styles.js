@@ -5,8 +5,9 @@ import {
   StyleSheet
 } from 'react-native';
 
-const fontSize = 30
-const paddingHorizontal = 20
+const fontSize = 25
+const generalSpacing = 20
+const paddingHorizontal = generalSpacing
 
 export default StyleSheet.create({
   moneyFieldCurrencyCode: {
@@ -46,5 +47,10 @@ export default StyleSheet.create({
 
   dateText: {
     fontSize
+  },
+
+  button: {
+    marginTop: generalSpacing,
+    marginHorizontal: generalSpacing,
   }
 })
