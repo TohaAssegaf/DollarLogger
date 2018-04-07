@@ -1,5 +1,6 @@
 import styles from './styles'
 import HomeHeader from '/app/components/home/HomeHeader'
+import * as Routes from '/app/config/Routes'
 import HomeActionButton from '/app/components/home/HomeActionButton'
 import { HEADER_BACKGROUND_COLOR, HEADER_TEXT_COLOR} from '/app/config/colors'
 import React from 'react';
@@ -18,7 +19,9 @@ class Home extends React.Component {
     return (
       <View style={styles.screen}>
         <HomeHeader />
-        <HomeActionButton />
+        <HomeActionButton
+          addPaymentAction={() => this.props.navigation.navigate(Routes.ADD_PAYMENT)}
+        />
       </View>
     );
   }

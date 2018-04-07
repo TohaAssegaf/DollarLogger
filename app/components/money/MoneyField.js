@@ -43,7 +43,7 @@ export default class MoneyField extends React.Component {
 
   render() {
     return (
-      <View style = {styles.moneyField} >
+      <View style = {[styles.moneyField, this.props.moneyFieldStyles]} >
         <Text style = {[styles.currencyCode, this.props.currencyCodeStyles]} >$</Text>
         <TextInput
           style = {[styles.textInput, this.props.textInputStyles]}

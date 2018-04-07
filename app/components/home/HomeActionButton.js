@@ -12,7 +12,7 @@ export default class HomeActionButton extends React.Component {
         <ActionButton.Item
             buttonColor={PRIMARY_BUTTON_COLOR}
             title="Add Payment"
-            onPress={() => console.log("notes tapped!")}>
+            onPress={() => this.props.addPaymentAction()}>
           <Icon name="md-create" style={styles.actionButtonIcon} />
         </ActionButton.Item>
       </ActionButton>
