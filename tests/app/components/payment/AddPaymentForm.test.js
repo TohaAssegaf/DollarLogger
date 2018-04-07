@@ -15,7 +15,7 @@ const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares)
 
 it('renders correctly', () => {
-  MockDate.set(new Date(2018, 4, 2))
+  MockDate.set(new Date(Date.UTC(2018, 4, 2)))
   const store = mockStore({})
   const rendered = renderer.create(<AddPaymentForm store={store} navigation={navigation} />)
       .toJSON();

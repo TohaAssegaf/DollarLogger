@@ -175,7 +175,7 @@ exports[`renders correctly 1`] = `
               ]
             }
           >
-            05/02/2018
+            05/01/2018
           </Text>
         </View>
         <Modal
@@ -278,7 +278,7 @@ exports[`renders correctly 1`] = `
                       }
                     >
                       <RCTDatePicker
-                        date={1525244400000}
+                        date={1525219200000}
                         locale={undefined}
                         maximumDate={undefined}
                         minimumDate={undefined}
