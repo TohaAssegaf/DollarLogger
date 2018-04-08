@@ -22,7 +22,7 @@ class AddPaymentForm extends React.Component {
   }
 
   setName(name) {
-    this.setState(Object.assign({}, this.satet, { name }))
+    this.setState(Object.assign({}, this.state, { name }))
   }
 
   setDate(date) {
@@ -50,7 +50,7 @@ class AddPaymentForm extends React.Component {
         <View style={styles.formCell}>
           <TextInput
             style={styles.textInput}
-            onChange={name => this.setName(name)}
+            onChangeText={name => this.setName(name)}
             placeholder='Name'
           />
         </View>
