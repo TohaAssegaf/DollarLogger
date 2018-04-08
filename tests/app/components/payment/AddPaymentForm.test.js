@@ -35,7 +35,7 @@ it('dispatches add payment action and navigates back', () => {
   expect(wrapper.state().name).toEqual("")
 
   render.find('MoneyField').simulate('change', expectedTotal)
-  render.find('TextInput').simulate('change', expectedName)
+  render.find('TextInput').simulate('changeText', expectedName)
   render.find('DatePicker').simulate('dateChange', expectedDate)
 
   expect(wrapper.state().total).toEqual(expectedTotal)

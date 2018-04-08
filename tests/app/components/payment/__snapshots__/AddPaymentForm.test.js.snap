@@ -74,7 +74,7 @@ exports[`renders correctly 1`] = `
   >
     <TextInput
       allowFontScaling={true}
-      onChange={[Function]}
+      onChangeText={[Function]}
       placeholder="Name"
       style={
         Object {

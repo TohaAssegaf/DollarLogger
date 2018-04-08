@@ -8,7 +8,7 @@ const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares)
 
 it('renders correctly', () => {
-  const store = mockStore({})
+  const store = mockStore({ payment: { payments: [] }})
   const rendered = renderer.create(<Home store={store} />).toJSON();
   expect(rendered).toMatchSnapshot();
 });
