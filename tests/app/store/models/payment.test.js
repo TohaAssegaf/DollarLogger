@@ -31,14 +31,13 @@ describe('BudgetModel', () => {
     const name = "Fake payment"
     const date = new Date(2018, 4, 2)
     PaymentModel.addPayment(total, name, date).then(
-      () => PaymentModel.getPayments().then(payments => {
+      (payment) => PaymentModel.getPayments().then(payments => {
         expect(payments).toHaveLength(1)
-        const payment = payments[0]
         // TODO(renzobautista): Separate ID generation into a new class so it can be mocked and we
         // can compare entire payment object.
-        expect(payment.total).toEqual(total)
-        expect(payment.name).toEqual(name)
-        expect(payment.date).toEqual(date)
+        expect(payments[0].total).toEqual(payment.total)
+        expect(payments[0].name).toEqual(payment.name)
+        expect(payments[0].date).toEqual(payment.date)
       }))
 
   })

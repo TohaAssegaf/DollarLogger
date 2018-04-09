@@ -1,5 +1,6 @@
 import styles from './styles'
 import HomeHeader from '/app/components/home/HomeHeader'
+import PaymentList from '/app/components/payment/PaymentList'
 import * as Routes from '/app/config/Routes'
 import HomeActionButton from '/app/components/home/HomeActionButton'
 import { HEADER_BACKGROUND_COLOR, HEADER_TEXT_COLOR} from '/app/config/colors'
@@ -19,6 +20,7 @@ class Home extends React.Component {
     return (
       <View style={styles.screen}>
         <HomeHeader />
+        <PaymentList payments={this.props.payments} />
         <HomeActionButton
           addPaymentAction={() => this.props.navigation.navigate(Routes.ADD_PAYMENT)}
         />
@@ -27,4 +29,11 @@ class Home extends React.Component {
   }
 }
 
-export default connect((state) => ({}))(Home)
+const mapStateToProps = state => {
+  return {
+    payments: state.payment.payments
+  }
+}
+
+
+export default connect(mapStateToProps)(Home)

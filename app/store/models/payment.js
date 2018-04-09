@@ -9,7 +9,7 @@ export function getPayments() {
 export function addPayment(total: number, name: string, date: Date) {
   return getPayments().then(payments => {
     // TODO(renzobautista): Separate ID generation into a new class so it can be mocked
-    const id = new Date().getUTCMilliseconds()
+    const id = new Date().getTime()
     const payment = {
       id,
       total,
@@ -17,6 +17,7 @@ export function addPayment(total: number, name: string, date: Date) {
       date
     }
     payments.push(payment)
-    return AsyncStorage.setItem(BUDGET_ASYNC_STORAGE_KEY, JSON.stringify(payments))
+    return AsyncStorage.setItem(PAYMENTS_ASYNC_STORAGE_KEY, JSON.stringify(payments))
+      .then(() => payment)
   })
 }
