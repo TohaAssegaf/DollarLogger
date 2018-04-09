@@ -52,5 +52,30 @@ export default StyleSheet.create({
   button: {
     marginTop: generalSpacing,
     marginHorizontal: generalSpacing,
+  },
+
+  paymentCell: {
+    borderBottomColor: THIN_BORDER_COLOR,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    flexDirection: "row",
+    alignItems: "center",
+    height: 40,
+  },
+
+  paymentCellDate: {
+    flex: 0.15,
+    paddingHorizontal: generalSpacing,
+  },
+
+  paymentCellName: {
+    flex: 0.7
+  },
+
+  paymentCellMoney: {
+    flex: 0.15
+  },
+
+  paymentCellText: {
+    fontSize: 16
   }
 })

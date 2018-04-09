@@ -1,27 +1,78 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-<View>
-  <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "borderBottomColor": "#222222",
+      "borderBottomWidth": 0.5,
+      "flexDirection": "row",
+      "height": 40,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "flex": 0.15,
+        "paddingHorizontal": 20,
+      }
+    }
   >
-    Test payment
-  </Text>
-  <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 16,
+        }
+      }
+    >
+      5/2
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "flex": 0.7,
+      }
+    }
   >
-    1.00
-  </Text>
-  <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 16,
+        }
+      }
+    >
+      Test payment
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "flex": 0.15,
+      }
+    }
   >
-    Wed May 02 2018 00:00:00 GMT-0400 (EDT)
-  </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 16,
+        }
+      }
+    >
+      $
+      1.00
+    </Text>
+  </View>
 </View>
 `;
