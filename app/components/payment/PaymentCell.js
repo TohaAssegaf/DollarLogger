@@ -5,8 +5,6 @@ import { Text, View } from 'react-native'
 
 export default class PaymentCell extends React.Component {
   render() {
-    console.log("HII")
-    console.log(this.props.payment)
     return (
       <View>
         <Text>{this.props.payment.name}</Text>

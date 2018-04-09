@@ -50,6 +50,22 @@ export type CreatePaymentFailureAction = {
   errorMessage: string
 }
 
+// Get payments.
+export const GET_PAYMENTS_REQUEST = 'GET_PAYMENTS_REQUEST'
+export type GetPaymentsRequestAction = {
+  type: GET_PAYMENTS_REQUEST
+}
+export const GET_PAYMENTS_SUCCESS = 'GET_PAYMENTS_SUCCESS'
+export type GetPaymentsSuccessAction = {
+  type: GET_PAYMENTS_SUCCESS,
+  payments: Array<Payment>
+}
+export const GET_PAYMENTS_FAILURE = 'GET_PAYMENTS_FAILURE'
+export type GetPaymentsFailureAction = {
+  type: GET_PAYMENTS_FAILURE,
+  errorMessage: string
+}
+
 export type Action = |
   SetBudgetTotalRequestAction |
   SetBudgetTotalSuccessAction |
@@ -59,4 +75,7 @@ export type Action = |
   GetBudgetTotalFailureAction |
   CreatePaymentRequestAction |
   CreatePaymentSuccessAction |
-  CreatePaymentFailureAction
+  CreatePaymentFailureAction |
+  GetPaymentsRequestAction |
+  GetPaymentsSuccessAction |
+  GetPaymentsFailureAction

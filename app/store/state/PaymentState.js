@@ -8,5 +8,6 @@ export type Payment = {
 export type PaymentState = {
   payments: Array<Payment>,
   isCreatingPayment: boolean,
-  errorMessage: string
+  errorMessage: string,
+  isFetching: boolean,
 }

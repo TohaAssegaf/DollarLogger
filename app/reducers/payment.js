@@ -2,6 +2,9 @@ import {
   CREATE_PAYMENT_REQUEST,
   CREATE_PAYMENT_SUCCESS,
   CREATE_PAYMENT_FAILURE,
+  GET_PAYMENTS_REQUEST,
+  GET_PAYMENTS_SUCCESS,
+  GET_PAYMENTS_FAILURE,
   Action
 } from '/app/actions/ActionTypes'
 import {
@@ -11,7 +14,8 @@ import {
 
 const initialState: PaymentState = {
   payments: [],
-  isCreatingPayment: false
+  isCreatingPayment: false,
+  isFetchComplete: false,
 }
 
 export default function (state: PaymentState = initialState, action: Action): PaymentState {
@@ -22,6 +26,12 @@ export default function (state: PaymentState = initialState, action: Action): Pa
     return createPaymentSuccess(state, action)
   case CREATE_PAYMENT_FAILURE:
     return createPaymentFailure(state, action)
+  case GET_PAYMENTS_REQUEST:
+    return getPaymentsRequest(state, action)
+  case GET_PAYMENTS_SUCCESS:
+    return getPaymentsSuccess(state, action)
+  case GET_PAYMENTS_FAILURE:
+    return getPaymentsFailure(state, action)
   default:
     return state
   }
@@ -50,5 +60,30 @@ function createPaymentFailure(
   return Object.assign({}, state, {
     errorMessage: action.errorMessage,
     isCreatingPayment: false
+  })
+}
+
+function getPaymentsRequest(
+  state: PaymentState, action: GetPaymentsRequestAction): PaymentState {
+  return Object.assign({}, state, {
+    isFetchComplete: false,
+    errorMessage: ""
+  })
+}
+
+function getPaymentsSuccess(
+  state: PaymentState, action: GetPaymentsSuccessAction): PaymentState {
+  let payments = action.payments.slice()
+  return Object.assign({}, state, {
+    payments,
+    isFetchComplete: true,
+  })
+}
+
+function getPaymentsFailure(
+  state: PaymentState, action: GetPaymentsFailureAction): PaymentState {
+  return Object.assign({}, state, {
+    errorMessage: action.errorMessage,
+    isFetchComplete: true
   })
 }
