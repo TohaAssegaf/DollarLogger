@@ -26,23 +26,11 @@ it('dispatches add payment action and navigates back', () => {
   const store = mockStore({})
   const wrapper = shallow(<AddPaymentForm store={store} navigation={navigation} />)
       .dive({ context: { store } })
-  const render = wrapper.dive()
   const expectedTotal = 10000
   const expectedName = "Test payment"
   const expectedDate = new Date(2018, 4, 2)
 
-  expect(wrapper.state().total).toEqual(0)
-  expect(wrapper.state().name).toEqual("")
-
-  render.find('MoneyField').simulate('change', expectedTotal)
-  render.find('TextInput').simulate('changeText', expectedName)
-  render.find('DatePicker').simulate('dateChange', expectedDate)
-
-  expect(wrapper.state().total).toEqual(expectedTotal)
-  expect(wrapper.state().name).toEqual(expectedName)
-  expect(wrapper.state().date).toEqual(expectedDate)
-
-  render.find('Button').simulate('press')
+  wrapper.simulate('submit', expectedTotal, expectedName, expectedDate)
 
   expect(store.getActions()).toContainEqual(actions.createPaymentRequest())
   expect(navigation.goBack.mock.calls).toHaveLength(1)
