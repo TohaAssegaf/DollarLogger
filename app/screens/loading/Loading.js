@@ -12,6 +12,7 @@ class Loading extends React.Component {
 
   componentDidMount() {
     this.props.getBudgetTotal()
+    this.props.getPayments()
   }
 
   componentDidUpdate() {
@@ -52,6 +53,9 @@ const mapDispatchToProps = dispatch => {
   return {
     getBudgetTotal: () => {
       dispatch(actions.getBudgetTotal())
+    },
+    getPayments: () => {
+      dispatch(actions.getPayments())
     }
   }
 }
