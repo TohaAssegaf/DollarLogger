@@ -20,7 +20,7 @@ export default class PaymentCell extends React.Component {
         </View>
         <View style={styles.paymentCellMoney}>
           <Text style={styles.paymentCellText}>
-            ${MoneyFormatter.formatMoneyCents(this.props.payment.total)}
+            {MoneyFormatter.formatMoney(this.props.payment.total)}
           </Text>
         </View>
       </View>

@@ -41,7 +41,7 @@ exports[`renders correctly 1`] = `
           }
         }
       >
-        $1,250.00
+        $250.00
       </Text>
       <Text
         accessible={true}
@@ -73,7 +73,7 @@ exports[`renders correctly 1`] = `
           }
         }
       >
-        $1,250.00
+        $0.00
       </Text>
       <Text
         accessible={true}
@@ -85,7 +85,16 @@ exports[`renders correctly 1`] = `
     </View>
   </View>
   <RCTScrollView
-    data={Array []}
+    data={
+      Array [
+        Object {
+          "date": 2018-04-08T04:00:00.000Z,
+          "id": 1,
+          "name": "Test payment",
+          "total": 1,
+        },
+      ]
+    }
     disableVirtualization={false}
     getItem={[Function]}
     getItemCount={[Function]}
@@ -108,7 +117,86 @@ exports[`renders correctly 1`] = `
     viewabilityConfigCallbackPairs={Array []}
     windowSize={21}
   >
-    <View />
+    <View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "borderBottomColor": "#222222",
+              "borderBottomWidth": 0.5,
+              "flexDirection": "row",
+              "height": 40,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "flex": 0.15,
+                "paddingHorizontal": 20,
+              }
+            }
+          >
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Object {
+                  "fontSize": 16,
+                }
+              }
+            >
+              4/8
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "flex": 0.7,
+              }
+            }
+          >
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Object {
+                  "fontSize": 16,
+                }
+              }
+            >
+              Test payment
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "flex": 0.15,
+              }
+            }
+          >
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Object {
+                  "fontSize": 16,
+                }
+              }
+            >
+              $0.01
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
   </RCTScrollView>
   <View
     pointerEvents="box-none"
