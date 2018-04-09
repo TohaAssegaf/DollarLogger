@@ -71,7 +71,7 @@ export function getPaymentsFailure(errorMessage: string): GetPaymentsFailureActi
 
 export function getPayments() {
   return function (dispatch) {
-    dispatch(getPaymentRequest())
+    dispatch(getPaymentsRequest())
     return PaymentModel.getPayments()
       .then(payments => dispatch(getPaymentsSuccess(payments)))
       .catch(error => dispatch(getPaymentsFailure(error.message)))

@@ -156,9 +156,6 @@ describe('PaymentActions', () => {
     PaymentModel.addPayment(payment).then(() => {
       store.dispatch(actions.getPayments()).then(() => {
         expect(store.getActions()).toEqual(expectedActions)
-        PaymentModel.getPayments().then(newPayments => {
-          expect(newPayments).toEqual(payments)
-        })
       })
     })
   })
