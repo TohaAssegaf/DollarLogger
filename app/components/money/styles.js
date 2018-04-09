@@ -16,6 +16,6 @@ export default StyleSheet.create({
 
   textInput: {
     fontSize: fontSize,
-    minWidth: 100
+    minWidth: 100,
   }
 })

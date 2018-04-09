@@ -16,7 +16,7 @@ export default StyleSheet.create({
 
   header: {
     color: "#222222",
-    fontSize: 30
+    fontSize: 25
   },
 
   subtitle: {

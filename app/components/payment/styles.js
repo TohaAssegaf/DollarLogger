@@ -27,7 +27,7 @@ export default StyleSheet.create({
   },
 
   textInput: {
-    fontSize
+    fontSize,
   },
 
   datePicker: {
@@ -59,20 +59,23 @@ export default StyleSheet.create({
     borderBottomWidth: StyleSheet.hairlineWidth,
     flexDirection: "row",
     alignItems: "center",
-    height: 40,
+    height: 60,
   },
 
   paymentCellDate: {
-    flex: 0.15,
+    flex: 0.1,
     paddingHorizontal: generalSpacing,
+    alignItems: 'flex-start'
   },
 
   paymentCellName: {
-    flex: 0.7
+    flex: 0.65,
   },
 
   paymentCellMoney: {
-    flex: 0.15
+    flex: 0.25,
+    alignItems: 'flex-end',
+    paddingRight: generalSpacing,
   },
 
   paymentCellText: {

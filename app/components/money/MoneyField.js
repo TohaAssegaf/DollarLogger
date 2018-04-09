@@ -51,6 +51,7 @@ export default class MoneyField extends React.Component {
           onChangeText = {(input) => this.updateInput(input)}
           value = {this.state.input}
           onBlur = {() => this.formatFinalMoneyInput()}
+          underlineColorAndroid='rgba(0,0,0,0)'
           ref = {inputField => { this.inputField = inputField }} />
       </View>
     );
