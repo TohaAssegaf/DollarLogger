@@ -52,6 +52,7 @@ class AddPaymentForm extends React.Component {
             style={styles.textInput}
             onChangeText={name => this.setName(name)}
             placeholder='Name'
+            underlineColorAndroid='rgba(0,0,0,0)'
           />
         </View>
         <View style={styles.formCell}>

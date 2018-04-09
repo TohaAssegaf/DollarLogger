@@ -57,6 +57,7 @@ exports[`renders correctly 1`] = `
             },
           ]
         }
+        underlineColorAndroid="rgba(0,0,0,0)"
         value={undefined}
       />
     </View>
@@ -81,6 +82,7 @@ exports[`renders correctly 1`] = `
           "fontSize": 25,
         }
       }
+      underlineColorAndroid="rgba(0,0,0,0)"
     />
   </View>
   <View

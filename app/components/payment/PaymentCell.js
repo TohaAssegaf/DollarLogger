@@ -14,7 +14,7 @@ export default class PaymentCell extends React.Component {
           </Text>
         </View>
         <View style={styles.paymentCellName}>
-          <Text style={styles.paymentCellText}>
+          <Text style={styles.paymentCellText} numberOfLines={2}>
             {this.props.payment.name}
           </Text>
         </View>
