@@ -19,7 +19,7 @@ exports[`renders correctly 1`] = `
     style={
       Object {
         "color": "#222222",
-        "fontSize": 30,
+        "fontSize": 25,
       }
     }
   >
@@ -85,6 +85,7 @@ exports[`renders correctly 1`] = `
           },
         ]
       }
+      underlineColorAndroid="rgba(0,0,0,0)"
       value={undefined}
     />
   </View>

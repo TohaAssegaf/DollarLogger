@@ -41,6 +41,7 @@ exports[`renders correctly 1`] = `
         undefined,
       ]
     }
+    underlineColorAndroid="rgba(0,0,0,0)"
     value={undefined}
   />
 </View>

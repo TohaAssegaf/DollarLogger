@@ -129,14 +129,15 @@ exports[`renders correctly 1`] = `
               "borderBottomColor": "#222222",
               "borderBottomWidth": 0.5,
               "flexDirection": "row",
-              "height": 40,
+              "height": 60,
             }
           }
         >
           <View
             style={
               Object {
-                "flex": 0.15,
+                "alignItems": "flex-start",
+                "flex": 0.1,
                 "paddingHorizontal": 20,
               }
             }
@@ -157,7 +158,7 @@ exports[`renders correctly 1`] = `
           <View
             style={
               Object {
-                "flex": 0.7,
+                "flex": 0.65,
               }
             }
           >
@@ -165,6 +166,7 @@ exports[`renders correctly 1`] = `
               accessible={true}
               allowFontScaling={true}
               ellipsizeMode="tail"
+              numberOfLines={2}
               style={
                 Object {
                   "fontSize": 16,
@@ -177,7 +179,9 @@ exports[`renders correctly 1`] = `
           <View
             style={
               Object {
-                "flex": 0.15,
+                "alignItems": "flex-end",
+                "flex": 0.25,
+                "paddingRight": 20,
               }
             }
           >
