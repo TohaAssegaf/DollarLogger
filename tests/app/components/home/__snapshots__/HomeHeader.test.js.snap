@@ -33,8 +33,7 @@ exports[`renders correctly 1`] = `
         }
       }
     >
-      $
-      249.99
+      $249.99
     </Text>
     <Text
       accessible={true}
@@ -66,8 +65,7 @@ exports[`renders correctly 1`] = `
         }
       }
     >
-      $
-      0.01
+      $0.01
     </Text>
     <Text
       accessible={true}

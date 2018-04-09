@@ -19,13 +19,13 @@ class HomeHeader extends React.Component {
       <View style={styles.header}>
         <View style={styles.cell}>
           <Text style={styles.amount}>
-            ${MoneyFormatter.formatMoneyCents(this.getRemainingBudget())}
+            {MoneyFormatter.formatMoney(this.getRemainingBudget())}
           </Text>
           <Text>Remaining this week</Text>
         </View>
         <View style={styles.cell}>
           <Text style={styles.amount}>
-            ${MoneyFormatter.formatMoneyCents(this.getCurrentSpend())}
+            {MoneyFormatter.formatMoney(this.getCurrentSpend())}
           </Text>
           <Text>Spent so far</Text>
         </View>

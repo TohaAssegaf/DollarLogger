@@ -1,4 +1,14 @@
-import { formatMoneyCents, formatAmbiguousMoneyInput } from '/app/lib/MoneyFormatter'
+import { formatMoney, formatMoneyCents, formatAmbiguousMoneyInput } from '/app/lib/MoneyFormatter'
+
+it('formats full money correctly', () => {
+  const totalCents = 10000
+  expect(formatMoney(totalCents)).toEqual("$100.00")
+});
+
+it('formats negative full money correctly', () => {
+  const totalCents = -10000
+  expect(formatMoney(totalCents)).toEqual("-$100.00")
+});
 
 it('formats correctly with 0 fractional cents', () => {
   const totalCents = 10000

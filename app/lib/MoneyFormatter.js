@@ -1,4 +1,17 @@
 /**
+ * Returns the fully-formatted string associated with the input.
+ */
+export function formatMoney(totalCents: number) {
+  let formattedMoney = ''
+  if (totalCents < 0) {
+    formattedMoney += '-'
+  }
+  formattedMoney += '$'
+  formattedMoney += formatMoneyCents(Math.abs(totalCents))
+  return formattedMoney
+}
+
+/**
  * Returns the cent-formatted string associated with the input.
  */
 export function formatMoneyCents(totalCents: number): string {

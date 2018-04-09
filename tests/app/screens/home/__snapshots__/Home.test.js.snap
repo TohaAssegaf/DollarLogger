@@ -41,8 +41,7 @@ exports[`renders correctly 1`] = `
           }
         }
       >
-        $
-        250.00
+        $250.00
       </Text>
       <Text
         accessible={true}
@@ -74,8 +73,7 @@ exports[`renders correctly 1`] = `
           }
         }
       >
-        $
-        0.00
+        $0.00
       </Text>
       <Text
         accessible={true}
@@ -193,8 +191,7 @@ exports[`renders correctly 1`] = `
                 }
               }
             >
-              $
-              0.01
+              $0.01
             </Text>
           </View>
         </View>
