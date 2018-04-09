@@ -3,7 +3,13 @@ import { AsyncStorage } from 'react-native'
 
 export function getPayments() {
   return AsyncStorage.getItem(PAYMENTS_ASYNC_STORAGE_KEY)
-    .then(payments => payments === null ? [] : JSON.parse(payments))
+    .then(payments => {
+      if (payments === null) {
+        return []
+      }
+      return JSON.parse(payments)
+          .map(payment => Object.assign({}, payment, { date: new Date(payment.date)}))
+    })
 }
 
 export function addPayment(total: number, name: string, date: Date) {
