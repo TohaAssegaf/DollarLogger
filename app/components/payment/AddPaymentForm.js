@@ -19,7 +19,7 @@ class AddPaymentForm extends React.Component {
   render() {
     return (
       <BasePaymentForm
-        submitForm={(total, name, date) => this.createPayment(total, name, date)}
+        onSubmit={(total, name, date) => this.createPayment(total, name, date)}
       />
     )
   }

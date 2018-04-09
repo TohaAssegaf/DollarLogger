@@ -37,9 +37,9 @@ export default class AddPaymentForm extends React.Component {
     this.setState(Object.assign({}, this.state, { date }))
   }
 
-  submitForm() {
+  onSubmit() {
     Keyboard.dismiss()
-    this.props.submitForm(this.state.total, this.state.name, this.state.date)
+    this.props.onSubmit(this.state.total, this.state.name, this.state.date)
   }
 
   render() {
@@ -78,7 +78,7 @@ export default class AddPaymentForm extends React.Component {
         </View>
         <View style={styles.button}>
           <Button
-              onPress={() => this.submitForm()}
+              onPress={() => this.onSubmit()}
               title='SAVE'
               color={PRIMARY_BUTTON_COLOR}
               accessibilityLabel='Save payment'/>
