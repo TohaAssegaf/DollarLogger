@@ -29,10 +29,18 @@ jest.mock('../../../../app/store/models/payment', () => {
 })
 
 it('renders correctly', () => {
-  MockDate.set(new Date(Date.UTC(2018, 4, 2)))
-  const store = mockStore({ payment: { payments: [] } })
-  const rendered = renderer.create(<UpdatePaymentForm store={store} navigation={navigation} />)
-      .toJSON();
+  const payment = {
+    id: 1,
+    total: 1000,
+    name: "Test payment",
+    date: new Date(2018, 4, 3)
+  }
+  const store = mockStore({ payment: { payments: [payment] } })
+  const rendered = renderer.create(<UpdatePaymentForm
+    payment={payment}
+    store={store}
+    navigation={navigation}
+  />).toJSON();
   expect(rendered).toMatchSnapshot();
 });
 
