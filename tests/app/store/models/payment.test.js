@@ -60,4 +60,17 @@ describe('PaymentModel', () => {
         expect(updatedPayments[0].date).toEqual(newDate)
       })
   })
+
+  it('should successfully delete payment', async () => {
+    const total = 10000
+    const name = "Fake payment"
+    const date = new Date(2018, 4, 2)
+    const payments = await PaymentModel.addPayment(total, name, date)
+    const payment = payments[0]
+    const id = payment.id
+
+    const updatedPayments = await PaymentModel.deletePayment(id)
+
+    expect(updatedPayments).toHaveLength(0)
+  })
 })

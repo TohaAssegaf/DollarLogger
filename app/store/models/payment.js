@@ -36,3 +36,11 @@ export function updatePayment(payment: Payment) {
       .then(() => updatedPayments)
   })
 }
+
+export function deletePayment(id: number) {
+  return getPayments().then(payments => {
+    const updatedPayments = payments.filter(payment => payment.id != id)
+    return AsyncStorage.setItem(PAYMENTS_ASYNC_STORAGE_KEY, JSON.stringify(updatedPayments))
+      .then(() => updatedPayments)
+  })
+}
