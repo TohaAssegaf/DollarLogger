@@ -9,7 +9,7 @@ export default class PaymentList extends React.Component {
   }
 
   renderItem(payment) {
-    return <PaymentCell payment={payment} />
+    return <PaymentCell onTap={() => this.props.onTapCell(payment)} payment={payment} />
   }
 
   render() {

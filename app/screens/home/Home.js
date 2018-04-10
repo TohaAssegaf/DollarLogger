@@ -16,11 +16,19 @@ class Home extends React.Component {
     },
     headerTintColor: HEADER_TEXT_COLOR
   }
+
+  navigateToUpdatePayment(payment) {
+    this.props.navigation.navigate(Routes.UPDATE_PAYMENT, { payment })
+  }
+
   render() {
     return (
       <View style={styles.screen}>
         <HomeHeader />
-        <PaymentList payments={this.props.payments} />
+        <PaymentList
+          onTapCell={payment => this.navigateToUpdatePayment(payment)}
+          payments={this.props.payments}
+        />
         <HomeActionButton
           addPaymentAction={() => this.props.navigation.navigate(Routes.ADD_PAYMENT)}
         />

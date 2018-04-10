@@ -1,11 +1,11 @@
 import styles from './styles'
-import UpdatePaymetForm from '/app/components/payment/UpdatePaymetForm'
+import UpdatePaymentForm from '/app/components/payment/UpdatePaymentForm'
 import { HEADER_BACKGROUND_COLOR, HEADER_TEXT_COLOR } from '/app/config/colors'
 import React from 'react';
 import { Text, View } from 'react-native'
 import { connect } from 'react-redux'
 
-class UpdatePayment extends React.Component {
+export default class UpdatePayment extends React.Component {
   static navigationOptions = {
     title: 'Update Payment',
     headerStyle: {
@@ -16,9 +16,8 @@ class UpdatePayment extends React.Component {
 
   constructor(props) {
     super(props)
-    const paymentId = this.props.navigation.state.params.paymentId
     this.state = {
-      payment: this.props.payments.find(payment => payment.id === paymentId)
+      payment: this.props.navigation.state.params.payment
     }
   }
 
@@ -30,11 +29,3 @@ class UpdatePayment extends React.Component {
     );
   }
 }
-
-const mapStateToProps = state => {
-  return {
-    payments: state.payment.payments
-  }
-}
-
-export default connect(mapStateToProps)(UpdatePayment)
