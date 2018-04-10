@@ -1,14 +1,8 @@
 import actions from '/app/actions'
 import {
-  CREATE_PAYMENT_REQUEST,
-  CREATE_PAYMENT_SUCCESS,
-  CREATE_PAYMENT_FAILURE,
   GET_PAYMENTS_REQUEST,
   GET_PAYMENTS_SUCCESS,
   GET_PAYMENTS_FAILURE,
-  CreatePaymentRequestAction,
-  CreatePaymentSuccessAction,
-  CreatePaymentFailureAction,
   GetPaymentsRequestAction,
   GetPaymentsSuccessAction,
   GetPaymentsFailureAction,
@@ -36,6 +30,20 @@ jest.mock('../../../app/store/models/payment', () => {
         resolve(mockPayments)
       })
     }),
+    updatePayment: jest.fn((item, payment) => {
+      return new Promise((resolve, reject) => {
+        mockPayments = mockPayments.map(
+          storedPayment => storedPayment.id === mockId ? payment : storedPayment)
+        resolve(mockPayments)
+      })
+    }),
+    deletePayment: jest.fn((item, paymentId) => {
+      return new Promise((resolve, reject) => {
+        mockPayments = mockPayments.filter(
+          storedPayment => storedPayment.id !== paymentId)
+        resolve(mockPayments)
+      })
+    }),
     getPayments: jest.fn((item) => {
       return new Promise((resolve, reject) => {
         resolve(mockPayments);
@@ -47,6 +55,7 @@ jest.mock('../../../app/store/models/payment', () => {
 describe('PaymentActions', () => {
   beforeEach(() => {
     mockPayments = []
+    mockId = 1
   })
 
   it('should dispatch request and success for successful create payment', () => {
@@ -59,6 +68,7 @@ describe('PaymentActions', () => {
       name,
       date
     }
+    mockId += 1
     const payments = [payment]
     const expectedActions = [actions.getPaymentsRequest(), actions.getPaymentsSuccess(payments)]
     const store = mockStore({ payment: { payments: [] }})
@@ -68,6 +78,56 @@ describe('PaymentActions', () => {
       PaymentModel.getPayments().then(storedPayments => {
         expect(storedPayments).toHaveLength(1)
         expect(storedPayments[0]).toEqual(payment)
+      })
+    })
+  })
+
+  it('should dispatch request and success for successful update payment', async () => {
+    const total: number = 10000
+    const newTotal: number = 20000
+    const name: string = "Test payment"
+    const date: Date = new Date(2018, 4, 2)
+    const payment = {
+      id: mockId,
+      total,
+      name,
+      date
+    }
+    mockId += 1
+    await PaymentModel.addPayment(payment)
+    const newPayment = Object.assign({}, payment, { total: newTotal })
+    const payments = [newPayment]
+    const expectedActions = [actions.getPaymentsRequest(), actions.getPaymentsSuccess(payments)]
+    const store = mockStore({ payment: { payments: [] }})
+
+    store.dispatch(actions.updatePayment(newPayment)).then(() => {
+      expect(store.getActions()).toEqual(expectedActions)
+      PaymentModel.getPayments().then(storedPayments => {
+        expect(storedPayments).toHaveLength(1)
+        expect(storedPayments[0]).toEqual(newPayment)
+      })
+    })
+  })
+
+  it('should dispatch request and success for successful delete payment', async () => {
+    const total: number = 10000
+    const name: string = "Test payment"
+    const date: Date = new Date(2018, 4, 2)
+    const payment = {
+      id: mockId,
+      total,
+      name,
+      date
+    }
+    mockId += 1
+    await PaymentModel.addPayment(payment)
+    const expectedActions = [actions.getPaymentsRequest(), actions.getPaymentsSuccess([])]
+    const store = mockStore({ payment: { payments: [] }})
+
+    store.dispatch(actions.deletePayment(payment.id)).then(() => {
+      expect(store.getActions()).toEqual(expectedActions)
+      PaymentModel.getPayments().then(storedPayments => {
+        expect(storedPayments).toHaveLength(0)
       })
     })
   })

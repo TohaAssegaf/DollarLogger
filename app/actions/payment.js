@@ -60,3 +60,12 @@ export function updatePayment(payment: Payment) {
       .catch(error => dispatch(getPaymentsFailure(error.message)))
   }
 }
+
+export function deletePayment(paymentId: number) {
+  return function (dispatch) {
+    dispatch(getPaymentsRequest())
+    return PaymentModel.deletePayment(paymentId)
+      .then(payments => dispatch(getPaymentsSuccess(payments)))
+      .catch(error => dispatch(getPaymentsFailure(error.message)))
+  }
+}
