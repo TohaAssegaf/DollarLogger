@@ -1,7 +1,8 @@
+import styles from './styles'
 import actions from '/app/actions'
 import { DANGER_BUTTON_COLOR } from '/app/config/colors'
 import React from 'react'
-import { Alert, Button } from 'react-native'
+import { Alert, Button, View } from 'react-native'
 import { connect } from 'react-redux'
 
 class DeletePaymentButton extends React.Component {
@@ -24,11 +25,13 @@ class DeletePaymentButton extends React.Component {
 
   render() {
     return (
-      <Button
+      <View style={styles.deletePaymentButton}>
+        <Button
           onPress={() => this.deletePayment()}
           title='DELETE'
           color={DANGER_BUTTON_COLOR}
           accessibilityLabel='Save payment'/>
+      </View>
     )
   }
 }

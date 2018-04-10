@@ -80,5 +80,9 @@ export default StyleSheet.create({
 
   paymentCellText: {
     fontSize: 16
+  },
+
+  deletePaymentButton: {
+    marginHorizontal: generalSpacing
   }
 })
