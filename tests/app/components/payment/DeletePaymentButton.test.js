@@ -58,7 +58,7 @@ it('dispatches delete payment action and navigates back', () => {
       navigation={navigation}
     />).dive({ context: { store } })
 
-  wrapper.simulate('press')
+  wrapper.find('Button').simulate('press')
 
   // Simulate pressing OK on Alert.
   Alert.alert.mock.calls[0][2][1].onPress()
