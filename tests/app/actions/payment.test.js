@@ -65,9 +65,9 @@ describe('PaymentActions', () => {
 
     store.dispatch(actions.createPayment(total, name, date)).then(() => {
       expect(store.getActions()).toEqual(expectedActions)
-      PaymentModel.getPayments().then(payments => {
-        expect(payments).toHaveLength(1)
-        expect(payments[0]).toEqual(payment)
+      PaymentModel.getPayments().then(storedPayments => {
+        expect(storedPayments).toHaveLength(1)
+        expect(storedPayments[0]).toEqual(payment)
       })
     })
   })
