@@ -14,31 +14,30 @@ import {
 export default class MoneyField extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {
-      total: 0
+    if (this.props.default) {
+      this.state = {
+        total: this.props.default,
+        input: formatMoneyCents(this.props.default)
+      }
+    } else {
+      this.state = {
+        total: 0,
+        input: '',
+      }
     }
   }
 
   updateInput(input: string) {
     const formattedInput: string = formatAmbiguousMoneyInput(input)
-    if (formattedInput !== input) {
-      this.inputField.setNativeProps({
-        text: formattedInput
-      })
-    }
-    const total = parseAmbiguousMoney(formattedInput)
-    if (total != this.state.total) {
-      this.setState({
-        total
-      })
+    if (formattedInput !== this.state.input) {
+      const total = parseAmbiguousMoney(formattedInput)
+      this.setState(Object.assign({}, this.state, { input: formattedInput, total }))
       this.props.onChange(total)
     }
   }
 
   formatFinalMoneyInput() {
-    this.inputField.setNativeProps({
-      text: formatMoneyCents(this.state.total)
-    })
+    this.setState(Object.assign({}, this.state, { input: formatMoneyCents(this.state.total) }))
   }
 
   render() {
@@ -49,7 +48,7 @@ export default class MoneyField extends React.Component {
           style = {[styles.textInput, this.props.textInputStyles]}
           keyboardType = {"numeric"}
           onChangeText = {(input) => this.updateInput(input)}
-          value = {this.state.input}
+          value = { this.state.input }
           onBlur = {() => this.formatFinalMoneyInput()}
           underlineColorAndroid='rgba(0,0,0,0)'
           ref = {inputField => { this.inputField = inputField }} />

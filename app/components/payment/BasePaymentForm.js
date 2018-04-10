@@ -7,14 +7,14 @@ import { Button, Keyboard, TextInput, View } from 'react-native'
 import DatePicker from 'react-native-datepicker'
 import { connect } from 'react-redux'
 
-export default class AddPaymentForm extends React.Component {
+export default class BasePaymentForm extends React.Component {
   constructor(props) {
     super(props)
     if (this.props.payment) {
       this.state = {
-        date: payment.date,
-        total: payment.total,
-        name: payment.name
+        date: this.props.payment.date,
+        total: this.props.payment.total,
+        name: this.props.payment.name
       }
     } else {
       this.state = {
@@ -34,7 +34,7 @@ export default class AddPaymentForm extends React.Component {
   }
 
   setDate(date) {
-    this.setState(Object.assign({}, this.state, { date }))
+    this.setState(Object.assign({}, this.state, { date: new Date(date) }))
   }
 
   onSubmit() {
@@ -50,6 +50,7 @@ export default class AddPaymentForm extends React.Component {
             onChange={total => this.setTotal(total)}
             textInputStyles={styles.moneyFieldTextInput}
             currencyCodeStyles={styles.moneyFieldCurrencyCode}
+            default={this.state.total}
           />
         </View>
         <View style={styles.formCell}>
@@ -58,6 +59,7 @@ export default class AddPaymentForm extends React.Component {
             onChangeText={name => this.setName(name)}
             placeholder='Name'
             underlineColorAndroid='rgba(0,0,0,0)'
+            value={this.state.name}
           />
         </View>
         <View style={styles.formCell}>

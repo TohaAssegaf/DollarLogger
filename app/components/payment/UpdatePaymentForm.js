@@ -15,6 +15,7 @@ class UpdatePaymentForm extends React.Component {
   render() {
     return (
       <BasePaymentForm
+        payment={this.props.payment}
         onSubmit={(total, name, date) => this.updatePayment(total, name, date)}
       />
     )
