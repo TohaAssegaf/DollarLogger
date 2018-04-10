@@ -37,8 +37,6 @@ it('renders correctly', () => {
 });
 
 it('dispatches update payment action and navigates back', () => {
-  console.log("AAA")
-  console.log(PaymentModel)
   const id = 1
   const total = 10000
   const name = "Test payment"
