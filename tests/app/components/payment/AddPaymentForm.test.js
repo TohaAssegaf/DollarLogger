@@ -32,6 +32,6 @@ it('dispatches add payment action and navigates back', () => {
 
   wrapper.simulate('submit', expectedTotal, expectedName, expectedDate)
 
-  expect(store.getActions()).toContainEqual(actions.createPaymentRequest())
+  expect(store.getActions()).toContainEqual(actions.getPaymentsRequest())
   expect(navigation.goBack.mock.calls).toHaveLength(1)
 });
