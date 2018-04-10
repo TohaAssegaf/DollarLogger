@@ -4,7 +4,7 @@ import { AsyncStorage } from 'react-native'
 export function getPayments() {
   return AsyncStorage.getItem(PAYMENTS_ASYNC_STORAGE_KEY)
     .then(payments => {
-      if (payments === null) {
+      if (!payments) {
         return []
       }
       return JSON.parse(payments)
@@ -32,7 +32,7 @@ export function updatePayment(payment: Payment) {
   return getPayments().then(payments => {
     const updatedPayments = payments.map(
       storedPayment => storedPayment.id === payment.id ? payment : storedPayment)
-      return AsyncStorage.setItem(PAYMENTS_ASYNC_STORAGE_KEY, JSON.stringify(updatedPayments))
-        .then(() => updatedPayments)
+    return AsyncStorage.setItem(PAYMENTS_ASYNC_STORAGE_KEY, JSON.stringify(updatedPayments))
+      .then(() => updatedPayments)
   })
 }
