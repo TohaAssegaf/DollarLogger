@@ -7,4 +7,8 @@ export default StyleSheet.create({
     backgroundColor: 'white',
     flex: 1
   },
+
+  deletePaymentButton: {
+    marginTop: 40
+  }
 })
