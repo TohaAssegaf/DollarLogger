@@ -1,11 +1,6 @@
 import BasePaymentForm from './BasePaymentForm'
-import styles from './styles'
 import actions from '/app/actions'
-import MoneyField from '/app/components/money/MoneyField'
-import { PRIMARY_BUTTON_COLOR } from '/app/config/colors'
 import React from 'react'
-import { Button, Keyboard, TextInput, View } from 'react-native'
-import DatePicker from 'react-native-datepicker'
 import { connect } from 'react-redux'
 
 class AddPaymentForm extends React.Component {

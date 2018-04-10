@@ -1,15 +1,12 @@
 import BasePaymentForm from './BasePaymentForm'
 import actions from '/app/actions'
-import MoneyField from '/app/components/money/MoneyField'
-import { PRIMARY_BUTTON_COLOR } from '/app/config/colors'
 import React from 'react'
-import { Button, Keyboard, TextInput, View } from 'react-native'
-import DatePicker from 'react-native-datepicker'
 import { connect } from 'react-redux'
 
-class AddPaymentForm extends React.Component {
-  createPayment(total, name, date) {
-    this.props.createPayment(total, name, date)
+class UpdatePaymentForm extends React.Component {
+  updatePayment(total, name, date) {
+    const newPayment = Object.assign({}, this.props.payment, { total, name, date })
+    this.props.updatePayment(newPayment)
 
     // Temporary hack. This should check state with a componentDidUpdate for write to be complete.
     this.props.navigation.goBack()
@@ -18,7 +15,7 @@ class AddPaymentForm extends React.Component {
   render() {
     return (
       <BasePaymentForm
-        onSubmit={(total, name, date) => this.createPayment(total, name, date)}
+        onSubmit={(total, name, date) => this.updatePayment(total, name, date)}
       />
     )
   }
@@ -26,10 +23,10 @@ class AddPaymentForm extends React.Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    createPayment: (total, name, date) => {
-      dispatch(actions.createPayment(total, name, date))
+    updatePayment: payment => {
+      dispatch(actions.updatePayment(payment))
     }
   }
 }
 
-export default connect((state) => ({}), mapDispatchToProps)(AddPaymentForm)
+export default connect((state) => ({}), mapDispatchToProps)(UpdatePaymentForm)
