@@ -63,13 +63,13 @@ export default StyleSheet.create({
   },
 
   paymentCellDate: {
-    flex: 0.1,
+    flex: 0.15,
     paddingHorizontal: generalSpacing,
     alignItems: 'flex-start'
   },
 
   paymentCellName: {
-    flex: 0.65,
+    flex: 0.6,
   },
 
   paymentCellMoney: {

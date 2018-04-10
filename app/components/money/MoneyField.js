@@ -14,31 +14,30 @@ import {
 export default class MoneyField extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {
-      total: 0
+    if (this.props.defaultTotal) {
+      this.state = {
+        total: this.props.defaultTotal,
+        input: formatMoneyCents(this.props.defaultTotal)
+      }
+    } else {
+      this.state = {
+        total: 0,
+        input: '',
+      }
     }
   }
 
   updateInput(input: string) {
     const formattedInput: string = formatAmbiguousMoneyInput(input)
-    if (formattedInput !== input) {
-      this.inputField.setNativeProps({
-        text: formattedInput
-      })
-    }
-    const total = parseAmbiguousMoney(formattedInput)
-    if (total != this.state.total) {
-      this.setState({
-        total
-      })
+    if (formattedInput !== this.state.input) {
+      const total = parseAmbiguousMoney(formattedInput)
+      this.setState(Object.assign({}, this.state, { input: formattedInput, total }))
       this.props.onChange(total)
     }
   }
 
   formatFinalMoneyInput() {
-    this.inputField.setNativeProps({
-      text: formatMoneyCents(this.state.total)
-    })
+    this.setState(Object.assign({}, this.state, { input: formatMoneyCents(this.state.total) }))
   }
 
   render() {

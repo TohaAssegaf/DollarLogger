@@ -58,7 +58,7 @@ exports[`renders correctly 1`] = `
           ]
         }
         underlineColorAndroid="rgba(0,0,0,0)"
-        value=""
+        value="10.00"
       />
     </View>
   </View>
@@ -83,7 +83,7 @@ exports[`renders correctly 1`] = `
         }
       }
       underlineColorAndroid="rgba(0,0,0,0)"
-      value=""
+      value="Test payment"
     />
   </View>
   <View
@@ -178,7 +178,7 @@ exports[`renders correctly 1`] = `
               ]
             }
           >
-            05/01/2018
+            05/03/2018
           </Text>
         </View>
         <Modal
@@ -281,7 +281,7 @@ exports[`renders correctly 1`] = `
                       }
                     >
                       <RCTDatePicker
-                        date={1525219200000}
+                        date={1525320000000}
                         locale={undefined}
                         maximumDate={undefined}
                         minimumDate={undefined}

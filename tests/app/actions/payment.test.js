@@ -49,40 +49,6 @@ describe('PaymentActions', () => {
     mockPayments = []
   })
 
-  it('should create an action to create payment request', () => {
-    const expectedAction: CreatePaymentRequestAction = {
-      type: CREATE_PAYMENT_REQUEST,
-    }
-    expect(actions.createPaymentRequest()).toEqual(expectedAction)
-  })
-
-  it('should create an action to create payment request success', () => {
-    const id: number = 1
-    const total: number = 10000
-    const name: string = "Test payment"
-    const date: Date = new Date(2018, 4, 2)
-    const payment = {
-      id,
-      total,
-      name,
-      date
-    }
-    const expectedAction: CreatePaymentSuccessAction = {
-      type: CREATE_PAYMENT_SUCCESS,
-      payment
-    }
-    expect(actions.createPaymentSuccess(payment)).toEqual(expectedAction)
-  })
-
-  it('should create an action to create payment request failure', () => {
-    const errorMessage: string = "Test error"
-    const expectedAction: CreatePaymentFailureAction = {
-      type: CREATE_PAYMENT_FAILURE,
-      errorMessage
-    }
-    expect(actions.createPaymentFailure(errorMessage)).toEqual(expectedAction)
-  })
-
   it('should dispatch request and success for successful create payment', () => {
     const total: number = 10000
     const name: string = "Test payment"
@@ -93,13 +59,15 @@ describe('PaymentActions', () => {
       name,
       date
     }
-    const expectedActions = [actions.createPaymentRequest(), actions.createPaymentSuccess(payment)]
+    const payments = [payment]
+    const expectedActions = [actions.getPaymentsRequest(), actions.getPaymentsSuccess(payments)]
     const store = mockStore({ payment: { payments: [] }})
 
     store.dispatch(actions.createPayment(total, name, date)).then(() => {
       expect(store.getActions()).toEqual(expectedActions)
-      PaymentModel.getPayments().then(payments => {
-        expect(payments).toContainEqual(payment)
+      PaymentModel.getPayments().then(storedPayments => {
+        expect(storedPayments).toHaveLength(1)
+        expect(storedPayments[0]).toEqual(payment)
       })
     })
   })

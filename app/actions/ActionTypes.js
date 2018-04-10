@@ -34,22 +34,6 @@ export type GetBudgetTotalFailureAction = {
   errorMessage: string
 }
 
-// Create payment.
-export const CREATE_PAYMENT_REQUEST = 'CREATE_PAYMENT_REQUEST'
-export type CreatePaymentRequestAction = {
-  type: CREATE_PAYMENT_REQUEST
-}
-export const CREATE_PAYMENT_SUCCESS = 'CREATE_PAYMENT_SUCCESS'
-export type CreatePaymentSuccessAction = {
-  type: CREATE_PAYMENT_SUCCESS,
-  payment: Payment
-}
-export const CREATE_PAYMENT_FAILURE = 'CREATE_PAYMENT_FAILURE'
-export type CreatePaymentFailureAction = {
-  type: CREATE_PAYMENT_FAILURE,
-  errorMessage: string
-}
-
 // Get payments.
 export const GET_PAYMENTS_REQUEST = 'GET_PAYMENTS_REQUEST'
 export type GetPaymentsRequestAction = {
@@ -73,9 +57,6 @@ export type Action = |
   GetBudgetTotalRequestAction |
   GetBudgetTotalSuccessAction |
   GetBudgetTotalFailureAction |
-  CreatePaymentRequestAction |
-  CreatePaymentSuccessAction |
-  CreatePaymentFailureAction |
   GetPaymentsRequestAction |
   GetPaymentsSuccessAction |
   GetPaymentsFailureAction

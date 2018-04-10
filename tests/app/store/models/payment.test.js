@@ -17,7 +17,7 @@ jest.mock('react-native', () => ({
   }
 }))
 
-describe('BudgetModel', () => {
+describe('PaymentModel', () => {
   beforeEach(() => {
     mockStorage = {}
   })
@@ -31,14 +31,33 @@ describe('BudgetModel', () => {
     const name = "Fake payment"
     const date = new Date(2018, 4, 2)
     PaymentModel.addPayment(total, name, date).then(
-      (payment) => PaymentModel.getPayments().then(payments => {
+      (payments) => {
         expect(payments).toHaveLength(1)
         // TODO(renzobautista): Separate ID generation into a new class so it can be mocked and we
         // can compare entire payment object.
-        expect(payments[0].total).toEqual(payment.total)
-        expect(payments[0].name).toEqual(payment.name)
-        expect(payments[0].date).toEqual(payment.date)
-      }))
+        expect(payments[0].total).toEqual(total)
+        expect(payments[0].name).toEqual(name)
+        expect(payments[0].date).toEqual(date)
+      })
+  })
 
+  it('should successfully update payment', async () => {
+    const total = 10000
+    const name = "Fake payment"
+    const date = new Date(2018, 4, 2)
+    const payments = await PaymentModel.addPayment(total, name, date)
+    const payment = payments[0]
+    const newTotal = 20000
+    const newName = "New name for fake payment"
+    const newDate = new Date(2018, 4, 3)
+
+    PaymentModel.updatePayment({ id: payment.id, total: newTotal, name: newName, date: newDate })
+      .then(updatedPayments => {
+        expect(updatedPayments).toHaveLength(1)
+        expect(updatedPayments[0].id).toEqual(payment.id)
+        expect(updatedPayments[0].total).toEqual(newTotal)
+        expect(updatedPayments[0].name).toEqual(newName)
+        expect(updatedPayments[0].date).toEqual(newDate)
+      })
   })
 })
