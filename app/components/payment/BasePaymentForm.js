@@ -50,7 +50,7 @@ export default class BasePaymentForm extends React.Component {
             onChange={total => this.setTotal(total)}
             textInputStyles={styles.moneyFieldTextInput}
             currencyCodeStyles={styles.moneyFieldCurrencyCode}
-            default={this.state.total}
+            defaultTotal={this.state.total}
           />
         </View>
         <View style={styles.formCell}>

@@ -14,10 +14,10 @@ import {
 export default class MoneyField extends React.Component {
   constructor(props) {
     super(props)
-    if (this.props.default) {
+    if (this.props.defaultTotal) {
       this.state = {
-        total: this.props.default,
-        input: formatMoneyCents(this.props.default)
+        total: this.props.defaultTotal,
+        input: formatMoneyCents(this.props.defaultTotal)
       }
     } else {
       this.state = {
