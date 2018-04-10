@@ -58,7 +58,7 @@ exports[`renders correctly 1`] = `
           ]
         }
         underlineColorAndroid="rgba(0,0,0,0)"
-        value={undefined}
+        value=""
       />
     </View>
   </View>
@@ -83,6 +83,7 @@ exports[`renders correctly 1`] = `
         }
       }
       underlineColorAndroid="rgba(0,0,0,0)"
+      value=""
     />
   </View>
   <View

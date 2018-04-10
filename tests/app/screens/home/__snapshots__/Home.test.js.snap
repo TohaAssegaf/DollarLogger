@@ -123,80 +123,101 @@ exports[`renders correctly 1`] = `
         style={null}
       >
         <View
-          style={
-            Object {
-              "alignItems": "center",
-              "borderBottomColor": "#222222",
-              "borderBottomWidth": 0.5,
-              "flexDirection": "row",
-              "height": 60,
-            }
-          }
+          accessibilityComponentType={undefined}
+          accessibilityLabel={undefined}
+          accessibilityTraits={undefined}
+          accessible={true}
+          hasTVPreferredFocus={undefined}
+          hitSlop={undefined}
+          isTVSelectable={true}
+          nativeID={undefined}
+          onLayout={undefined}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={null}
+          testID={undefined}
+          tvParallaxProperties={undefined}
         >
           <View
             style={
               Object {
-                "alignItems": "flex-start",
-                "flex": 0.1,
-                "paddingHorizontal": 20,
+                "alignItems": "center",
+                "borderBottomColor": "#222222",
+                "borderBottomWidth": 0.5,
+                "flexDirection": "row",
+                "height": 60,
               }
             }
           >
-            <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
+            <View
               style={
                 Object {
-                  "fontSize": 16,
+                  "alignItems": "flex-start",
+                  "flex": 0.15,
+                  "paddingHorizontal": 20,
                 }
               }
             >
-              4/8
-            </Text>
-          </View>
-          <View
-            style={
-              Object {
-                "flex": 0.65,
-              }
-            }
-          >
-            <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
-              numberOfLines={2}
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Object {
+                    "fontSize": 16,
+                  }
+                }
+              >
+                4/8
+              </Text>
+            </View>
+            <View
               style={
                 Object {
-                  "fontSize": 16,
+                  "flex": 0.6,
                 }
               }
             >
-              Test payment
-            </Text>
-          </View>
-          <View
-            style={
-              Object {
-                "alignItems": "flex-end",
-                "flex": 0.25,
-                "paddingRight": 20,
-              }
-            }
-          >
-            <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                numberOfLines={2}
+                style={
+                  Object {
+                    "fontSize": 16,
+                  }
+                }
+              >
+                Test payment
+              </Text>
+            </View>
+            <View
               style={
                 Object {
-                  "fontSize": 16,
+                  "alignItems": "flex-end",
+                  "flex": 0.25,
+                  "paddingRight": 20,
                 }
               }
             >
-              $0.01
-            </Text>
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Object {
+                    "fontSize": 16,
+                  }
+                }
+              >
+                $0.01
+              </Text>
+            </View>
           </View>
         </View>
       </View>
