@@ -53,6 +53,7 @@ exports[`renders correctly 1`] = `
               "minWidth": 100,
             },
             Object {
+              "flex": 1,
               "fontSize": 25,
             },
           ]
