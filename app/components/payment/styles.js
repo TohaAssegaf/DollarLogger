@@ -15,7 +15,8 @@ export default StyleSheet.create({
   },
 
   moneyFieldTextInput: {
-    fontSize
+    fontSize,
+    flex: 1,
   },
 
   formCell: {
