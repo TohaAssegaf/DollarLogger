@@ -4,6 +4,7 @@ import PaymentList from '/app/components/payment/PaymentList'
 import * as Routes from '/app/config/Routes'
 import HomeActionButton from '/app/components/home/HomeActionButton'
 import { HEADER_BACKGROUND_COLOR, HEADER_TEXT_COLOR} from '/app/config/colors'
+import * as PaymentUtils from '/app/lib/PaymentUtils'
 import React from 'react';
 import { Text, View } from 'react-native'
 import { connect } from 'react-redux'
@@ -39,7 +40,7 @@ class Home extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    payments: state.payment.payments
+    payments: PaymentUtils.filterCurrentWeekPayments(state.payment.payments)
   }
 }
 
