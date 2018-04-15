@@ -70,6 +70,8 @@ export default class BasePaymentForm extends React.Component {
               dateText: styles.dateText,
               dateTouchBody: styles.dateTouchBody,
             }}
+            confirmBtnText='OK'
+            cancelBtnText='CANCEL'
             date={this.state.date}
             mode='date'
             placeholder='Date'
