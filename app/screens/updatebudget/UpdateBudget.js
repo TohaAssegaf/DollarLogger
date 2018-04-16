@@ -1,21 +1,43 @@
 import * as Routes from '/app/config/Routes'
 import styles from './styles'
 import actions from '/app/actions'
-import { PRIMARY_BUTTON_COLOR } from '/app/config/colors'
+import {
+  HEADER_BACKGROUND_COLOR,
+  HEADER_TEXT_COLOR,
+  PRIMARY_BUTTON_COLOR
+} from '/app/config/colors'
 import MoneyField from '/app/components/money/MoneyField'
 import React from 'react'
-import { Button, Keyboard, Text, View } from 'react-native'
+import { Button, Keyboard, StatusBar, Text, View } from 'react-native'
 import { connect } from 'react-redux'
 
 class UpdateBudget extends React.Component {
-  static navigationOptions = {
-    header: null // Hide header bar in this screen.
+  static navigationOptions = ({ navigation}) => {
+    if (!navigation.getParam('isUpdateExistingBudget')) {
+      return {
+        header: null // Hide header bar.
+      }
+    } else {
+      return {
+        title: 'Update Budget',
+        headerStyle: {
+          backgroundColor: HEADER_BACKGROUND_COLOR,
+        },
+        headerTintColor: HEADER_TEXT_COLOR,
+      }
+    }
   }
 
   constructor(props) {
     super(props)
-    this.state = {
-      total: 0
+    if (this.props.budget.total != null) {
+      this.state = {
+        total: this.props.budget.total
+      }
+    } else {
+      this.state = {
+        total: 0
+      }
     }
   }
 
@@ -31,12 +53,20 @@ class UpdateBudget extends React.Component {
     this.props.navigation.goBack()
   }
 
+  isUpdateExistingBudget() {
+    return this.props.navigation.getParam('isUpdateExistingBudget')
+  }
+
   render() {
     return (
       <View style={styles.screen}>
+        {!this.isUpdateExistingBudget()
+         && <StatusBar barStyle="dark-content" />}
         <Text style={styles.header}>What is your weekly budget?</Text>
-        <Text style={styles.subtitle}>(Don't worry, you can change this later)</Text>
+        {!this.isUpdateExistingBudget()
+          && <Text style={styles.subtitle}>(Don't worry, you can change this later)</Text>}
         <MoneyField
+          defaultTotal={this.props.budget.total === null ? 0 : this.props.budget.total}
           moneyFieldStyles={styles.moneyField}
           textInputStyles={styles.textInput}
           currencyCodeStyles={styles.currencyCode}

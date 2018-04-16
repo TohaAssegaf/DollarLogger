@@ -9,12 +9,45 @@ exports[`renders correctly 1`] = `
     }
   }
 >
-  <Text
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
     accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
+    hasTVPreferredFocus={undefined}
+    hitSlop={undefined}
+    isTVSelectable={true}
+    nativeID={undefined}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={null}
+    testID={undefined}
+    tvParallaxProperties={undefined}
   >
-    Placeholder settings screen.
-  </Text>
+    <View
+      style={
+        Object {
+          "borderBottomColor": "#222222",
+          "borderBottomWidth": 0.5,
+          "height": 70,
+          "justifyContent": "center",
+          "paddingHorizontal": 20,
+        }
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+      >
+        Update budget
+      </Text>
+    </View>
+  </View>
 </View>
 `;
