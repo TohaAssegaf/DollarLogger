@@ -61,7 +61,7 @@ class UpdateBudget extends React.Component {
     return (
       <View style={styles.screen}>
         {!this.isUpdateExistingBudget()
-         && <StatusBar barStyle="dark-content" />}
+         && <StatusBar backgroundColor='white' barStyle='dark-content' />}
         <Text style={styles.header}>What is your weekly budget?</Text>
         {!this.isUpdateExistingBudget()
           && <Text style={styles.subtitle}>(Don't worry, you can change this later)</Text>}
