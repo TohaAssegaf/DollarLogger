@@ -4,6 +4,7 @@ import Loading from '/app/screens/loading/Loading'
 import AddPayment from '/app/screens/payment/AddPayment'
 import UpdatePayment from '/app/screens/payment/UpdatePayment'
 import UpdateBudget from '/app/screens/updatebudget/UpdateBudget'
+import Settings from '/app/screens/settings/Settings'
 import React from 'react'
 import {
   StackNavigator
@@ -29,6 +30,10 @@ export default StackNavigator({
   [Routes.UPDATE_PAYMENT]: {
     screen: UpdatePayment,
     path: Routes.UPDATE_PAYMENT
+  },
+  [Routes.SETTINGS]: {
+    screen: Settings,
+    path: Routes.SETTINGS
   }
 }, {
   initialRouteName: Routes.LOADING

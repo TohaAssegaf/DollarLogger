@@ -6,17 +6,24 @@ import HomeActionButton from '/app/components/home/HomeActionButton'
 import { HEADER_BACKGROUND_COLOR, HEADER_TEXT_COLOR} from '/app/config/colors'
 import * as PaymentUtils from '/app/lib/PaymentUtils'
 import React from 'react';
-import { Text, View } from 'react-native'
+import { Button, Text, TouchableOpacity, View } from 'react-native'
+import Icon from 'react-native-vector-icons/Ionicons';
 import { connect } from 'react-redux'
 
 class Home extends React.Component {
-  static navigationOptions = {
+  static navigationOptions = ({ navigation }) => ({
     title: 'Home',
     headerStyle: {
       backgroundColor: HEADER_BACKGROUND_COLOR,
     },
-    headerTintColor: HEADER_TEXT_COLOR
-  }
+    headerTintColor: HEADER_TEXT_COLOR,
+    headerRight:
+      <TouchableOpacity
+          style={styles.settingsButton}
+          onPress={() => navigation.navigate(Routes.SETTINGS)}>
+        <Icon name="md-settings" size={25} color="white" />
+      </TouchableOpacity>,
+  })
 
   navigateToUpdatePayment(payment) {
     this.props.navigation.navigate(Routes.UPDATE_PAYMENT, { payment })
