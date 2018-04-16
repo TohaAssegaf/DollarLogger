@@ -1,6 +1,9 @@
 export const PRIMARY_BUTTON_COLOR = '#6A1B9A'
 export const DANGER_BUTTON_COLOR = '#F44336'
+
 export const HEADER_BACKGROUND_COLOR = '#6A1B9A'
 export const HEADER_TEXT_COLOR = '#FFFFFF'
+
+export const STATUS_BAR_COLOR = '#4A148C'
 
 export const THIN_BORDER_COLOR = '#222222'
