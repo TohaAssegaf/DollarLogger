@@ -7,3 +7,5 @@ export const LOADING = 'LOADING_ROUTE'
 export const ADD_PAYMENT = 'ADD_PAYMENT_ROUTE'
 
 export const UPDATE_PAYMENT = 'UPDATE_PAYMENT_ROUTE'
+
+export const SETTINGS = 'SETTINGS_ROUTE'
