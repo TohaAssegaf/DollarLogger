@@ -25,7 +25,6 @@ exports[`renders correctly 1`] = `
   }
 >
   <View
-    collapsable={undefined}
     pointerEvents="none"
     style={
       Object {
@@ -92,16 +91,8 @@ exports[`renders correctly 1`] = `
       }
     >
       <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
         accessible={true}
-        collapsable={undefined}
-        hasTVPreferredFocus={undefined}
-        hitSlop={undefined}
         isTVSelectable={true}
-        nativeID={undefined}
-        onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -113,11 +104,8 @@ exports[`renders correctly 1`] = `
             "opacity": 1,
           }
         }
-        testID={undefined}
-        tvParallaxProperties={undefined}
       >
         <View
-          collapsable={undefined}
           style={
             Object {
               "backgroundColor": "rgba(106, 27, 154, 1)",
@@ -128,7 +116,6 @@ exports[`renders correctly 1`] = `
           }
         >
           <View
-            collapsable={undefined}
             style={
               Object {
                 "alignItems": "center",
@@ -150,7 +137,6 @@ exports[`renders correctly 1`] = `
             <Text
               accessible={true}
               allowFontScaling={true}
-              collapsable={undefined}
               ellipsizeMode="tail"
               style={
                 Object {
