@@ -10,7 +10,7 @@ export function filterCurrentWeekPayments(payments: Array<Payment>) {
 export function filterCurrentWeekPaymentContributions(payments: Array<Payment>) {
   return payments
     .map(payment => payment.paymentContributions)
-    .reduce((pc1, pc2) => pc1.concat(pc2), [])
+    .reduce((pc1, pc2) => pc1.concat(pc2), []) // no javascript flatMap support...
     .filter(paymentContribution => isCurrentWeekPaymentContribution(paymentContribution))
 }
 
