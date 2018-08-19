@@ -8,16 +8,8 @@
     "development": {
       "plugins": [
         "transform-react-jsx-source",
-        "babel-plugin-root-import",
       ]
     },
-    "production": {
-      "plugins": [
-        [
-          "babel-plugin-root-import",
-        ]
-      ],
-    }
   },
   "plugins": [
     [
