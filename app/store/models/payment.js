@@ -1,4 +1,4 @@
-import { PAYMENTS_ASYNC_STORAGE_KEY } from '/app/config/storage'
+import { PAYMENTS_ASYNC_STORAGE_KEY } from '~/app/config/storage'
 import { AsyncStorage } from 'react-native'
 
 export function getPayments() {

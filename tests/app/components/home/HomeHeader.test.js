@@ -1,4 +1,4 @@
-import HomeHeader from '/app/components/home/HomeHeader'
+import HomeHeader from '~/app/components/home/HomeHeader'
 import MockDate from 'mockdate'
 import React from 'react';
 import configureMockStore from 'redux-mock-store'

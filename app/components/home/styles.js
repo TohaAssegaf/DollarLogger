@@ -1,6 +1,6 @@
 import {
   THIN_BORDER_COLOR
-} from '/app/config/colors'
+} from '~/app/config/colors'
 import {
   StyleSheet
 } from 'react-native';

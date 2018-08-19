@@ -1,4 +1,4 @@
-import SettingsCell from '/app/components/settings/SettingsCell'
+import SettingsCell from '~/app/components/settings/SettingsCell'
 import React from 'react';
 import renderer from 'react-test-renderer';
 

@@ -1,5 +1,5 @@
-import actions from '/app/actions'
-import AddPaymentForm from '/app/components/payment/AddPaymentForm'
+import actions from '~/app/actions'
+import AddPaymentForm from '~/app/components/payment/AddPaymentForm'
 import enzyme from 'enzyme'
 import { shallow } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'

@@ -1,6 +1,6 @@
-import actions from '/app/actions'
-import reducer from '/app/reducers'
-import State from '/app/store/state'
+import actions from '~/app/actions'
+import reducer from '~/app/reducers'
+import State from '~/app/store/state'
 
 const LARGE_BUDGET: number = 35000
 const SMALL_BUDGET: number = 25000

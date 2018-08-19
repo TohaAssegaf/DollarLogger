@@ -1,5 +1,5 @@
 import styles from './styles'
-import { PRIMARY_BUTTON_COLOR } from '/app/config/colors'
+import { PRIMARY_BUTTON_COLOR } from '~/app/config/colors'
 import React from 'react'
 import { Text, View } from 'react-native'
 import ActionButton from 'react-native-action-button';

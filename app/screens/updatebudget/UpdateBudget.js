@@ -1,12 +1,12 @@
-import * as Routes from '/app/config/Routes'
+import * as Routes from '~/app/config/Routes'
 import styles from './styles'
-import actions from '/app/actions'
+import actions from '~/app/actions'
 import {
   HEADER_BACKGROUND_COLOR,
   HEADER_TEXT_COLOR,
   PRIMARY_BUTTON_COLOR
-} from '/app/config/colors'
-import MoneyField from '/app/components/money/MoneyField'
+} from '~/app/config/colors'
+import MoneyField from '~/app/components/money/MoneyField'
 import React from 'react'
 import { Button, Keyboard, StatusBar, Text, View } from 'react-native'
 import { connect } from 'react-redux'

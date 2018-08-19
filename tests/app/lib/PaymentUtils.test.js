@@ -1,4 +1,4 @@
-import * as PaymentUtils from '/app/lib/PaymentUtils'
+import * as PaymentUtils from '~/app/lib/PaymentUtils'
 import MockDate from 'mockdate'
 
 it('filters current week payments correctly', () => {

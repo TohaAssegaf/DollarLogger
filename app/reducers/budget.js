@@ -6,8 +6,8 @@ import {
   GET_BUDGET_TOTAL_SUCCESS,
   GET_BUDGET_TOTAL_FAILURE,
   Action
-} from '/app/actions/ActionTypes'
-import BudgetState from '/app/store/state/BudgetState'
+} from '~/app/actions/ActionTypes'
+import BudgetState from '~/app/store/state/BudgetState'
 
 const initialState: BudgetState = {
   total: null,

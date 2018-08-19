@@ -1,6 +1,6 @@
 import styles from './styles'
-import actions from '/app/actions'
-import { DANGER_BUTTON_COLOR } from '/app/config/colors'
+import actions from '~/app/actions'
+import { DANGER_BUTTON_COLOR } from '~/app/config/colors'
 import React from 'react'
 import { Alert, Button, View } from 'react-native'
 import { connect } from 'react-redux'

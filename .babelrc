@@ -1,16 +1,27 @@
 {
   "presets": [
     "babel-preset-react-native-stage-0/decorator-support",
-    "flow"
+    "flow",
+    "react-native",
   ],
   "env": {
     "development": {
       "plugins": [
-        "transform-react-jsx-source"
+        "transform-react-jsx-source",
+        "babel-plugin-root-import",
       ]
+    },
+    "production": {
+      "plugins": [
+        [
+          "babel-plugin-root-import",
+        ]
+      ],
     }
   },
   "plugins": [
-     "babel-root-slash-import"
-   ]
+    [
+      "babel-plugin-root-import",
+    ]
+  ],
 }

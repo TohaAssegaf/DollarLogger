@@ -2,8 +2,8 @@ import styles from './styles'
 import {
   formatAmbiguousMoneyInput,
   formatMoneyCents
-} from '/app/lib/MoneyFormatter'
-import parseAmbiguousMoney from '/app/lib/parseAmbiguousMoney'
+} from '~/app/lib/MoneyFormatter'
+import parseAmbiguousMoney from '~/app/lib/parseAmbiguousMoney'
 import React from 'react'
 import {
   Text,

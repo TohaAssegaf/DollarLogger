@@ -1,4 +1,4 @@
-import actions from '/app/actions'
+import actions from '~/app/actions'
 import {
   GET_PAYMENTS_REQUEST,
   GET_PAYMENTS_SUCCESS,
@@ -6,8 +6,8 @@ import {
   GetPaymentsRequestAction,
   GetPaymentsSuccessAction,
   GetPaymentsFailureAction,
-} from '/app/actions/ActionTypes'
-import PaymentModel from '/app/store/models/payment'
+} from '~/app/actions/ActionTypes'
+import PaymentModel from '~/app/store/models/payment'
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
 

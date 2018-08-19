@@ -1,4 +1,4 @@
-import PaymentCell from '/app/components/payment/PaymentCell'
+import PaymentCell from '~/app/components/payment/PaymentCell'
 import React from 'react';
 import renderer from 'react-test-renderer';
 

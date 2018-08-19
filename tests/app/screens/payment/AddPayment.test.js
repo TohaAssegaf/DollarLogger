@@ -1,4 +1,4 @@
-import AddPayment from '/app/screens/payment/AddPayment'
+import AddPayment from '~/app/screens/payment/AddPayment'
 import MockDate from 'mockdate'
 import React from 'react';
 import renderer from 'react-test-renderer';

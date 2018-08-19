@@ -1,4 +1,4 @@
-import PaymentList from '/app/components/payment/PaymentList'
+import PaymentList from '~/app/components/payment/PaymentList'
 import React from 'react';
 import renderer from 'react-test-renderer';
 

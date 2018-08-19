@@ -1,4 +1,4 @@
-import Loading from '/app/screens/loading/Loading'
+import Loading from '~/app/screens/loading/Loading'
 import React from 'react';
 import renderer from 'react-test-renderer';
 import configureMockStore from 'redux-mock-store'

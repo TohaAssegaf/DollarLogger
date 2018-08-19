@@ -1,6 +1,6 @@
 import styles from './styles'
-import * as PaymentUtils from '/app/lib/PaymentUtils'
-import * as MoneyFormatter from '/app/lib/MoneyFormatter'
+import * as PaymentUtils from '~/app/lib/PaymentUtils'
+import * as MoneyFormatter from '~/app/lib/MoneyFormatter'
 import React from 'react'
 import { Text, View } from 'react-native'
 import { connect } from 'react-redux'

@@ -1,6 +1,6 @@
 import styles from './styles'
-import * as MoneyFormatter from '/app/lib/MoneyFormatter'
-import * as DateUtils from '/app/lib/DateUtils'
+import * as MoneyFormatter from '~/app/lib/MoneyFormatter'
+import * as DateUtils from '~/app/lib/DateUtils'
 import React from 'react'
 import { Text, TouchableHighlight, View } from 'react-native'
 

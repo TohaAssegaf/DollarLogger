@@ -1,10 +1,10 @@
-import * as Routes from '/app/config/Routes'
-import Home from '/app/screens/home/Home'
-import Loading from '/app/screens/loading/Loading'
-import AddPayment from '/app/screens/payment/AddPayment'
-import UpdatePayment from '/app/screens/payment/UpdatePayment'
-import UpdateBudget from '/app/screens/updatebudget/UpdateBudget'
-import Settings from '/app/screens/settings/Settings'
+import * as Routes from '~/app/config/Routes'
+import Home from '~/app/screens/home/Home'
+import Loading from '~/app/screens/loading/Loading'
+import AddPayment from '~/app/screens/payment/AddPayment'
+import UpdatePayment from '~/app/screens/payment/UpdatePayment'
+import UpdateBudget from '~/app/screens/updatebudget/UpdateBudget'
+import Settings from '~/app/screens/settings/Settings'
 import React from 'react'
 import {
   StackNavigator

@@ -1,4 +1,4 @@
-import * as BudgetModel from '/app/store/models/budget'
+import * as BudgetModel from '~/app/store/models/budget'
 
 let mockStorage = {}
 jest.mock('react-native', () => ({

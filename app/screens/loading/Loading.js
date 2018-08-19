@@ -1,5 +1,5 @@
-import actions from '/app/actions'
-import * as Routes from '/app/config/Routes'
+import actions from '~/app/actions'
+import * as Routes from '~/app/config/Routes'
 import React from 'react';
 import { Text, View } from 'react-native'
 import { NavigationActions } from 'react-navigation'

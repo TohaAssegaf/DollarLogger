@@ -1,4 +1,4 @@
-import UpdatePayment from '/app/screens/payment/UpdatePayment'
+import UpdatePayment from '~/app/screens/payment/UpdatePayment'
 import React from 'react';
 import renderer from 'react-test-renderer';
 import configureMockStore from 'redux-mock-store'
