@@ -1,6 +1,6 @@
 import {
   Payment
-} from '/app/store/state/PaymentState'
+} from '~/app/store/state/PaymentState'
 
 // Set budget total.
 export const SET_BUDGET_TOTAL_REQUEST = 'SET_BUDGET_TOTAL_REQUEST'

@@ -1,4 +1,4 @@
-import * as PaymentModel from '/app/store/models/payment'
+import * as PaymentModel from '~/app/store/models/payment'
 
 let mockStorage = {}
 jest.mock('react-native', () => ({

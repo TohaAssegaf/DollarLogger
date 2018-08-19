@@ -1,10 +1,10 @@
 import styles from './styles'
-import HomeHeader from '/app/components/home/HomeHeader'
-import PaymentList from '/app/components/payment/PaymentList'
-import * as Routes from '/app/config/Routes'
-import HomeActionButton from '/app/components/home/HomeActionButton'
-import { HEADER_BACKGROUND_COLOR, HEADER_TEXT_COLOR} from '/app/config/colors'
-import * as PaymentUtils from '/app/lib/PaymentUtils'
+import HomeHeader from '~/app/components/home/HomeHeader'
+import PaymentList from '~/app/components/payment/PaymentList'
+import * as Routes from '~/app/config/Routes'
+import HomeActionButton from '~/app/components/home/HomeActionButton'
+import { HEADER_BACKGROUND_COLOR, HEADER_TEXT_COLOR} from '~/app/config/colors'
+import * as PaymentUtils from '~/app/lib/PaymentUtils'
 import React from 'react';
 import { Button, Text, TouchableOpacity, View } from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons';

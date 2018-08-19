@@ -1,5 +1,5 @@
 import BasePaymentForm from './BasePaymentForm'
-import actions from '/app/actions'
+import actions from '~/app/actions'
 import React from 'react'
 import { connect } from 'react-redux'
 

@@ -1,4 +1,4 @@
-import MoneyField from '/app/components/money/MoneyField';
+import MoneyField from '~/app/components/money/MoneyField';
 import enzyme from 'enzyme'
 import { shallow } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'

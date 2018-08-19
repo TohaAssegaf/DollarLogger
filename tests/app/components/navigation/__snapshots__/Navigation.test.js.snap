@@ -44,7 +44,6 @@ exports[`renders correctly 1`] = `
       }
     >
       <View
-        collapsable={undefined}
         pointerEvents="auto"
         style={
           Object {

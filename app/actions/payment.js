@@ -5,11 +5,11 @@ import {
   GetPaymentsRequestAction,
   GetPaymentsSuccessAction,
   GetPaymentsFailureAction,
-} from '/app/actions/ActionTypes'
-import * as PaymentModel from '/app/store/models/payment'
+} from '~/app/actions/ActionTypes'
+import * as PaymentModel from '~/app/store/models/payment'
 import {
   Payment
-} from '/app/store/state/PaymentState'
+} from '~/app/store/state/PaymentState'
 
 export function getPaymentsRequest(): GetPaymentsRequestAction {
   return {

@@ -1,5 +1,5 @@
-import * as Routes from '/app/config/Routes'
-import Navigation from '/app/components/navigation/Navigation'
+import * as Routes from '~/app/config/Routes'
+import Navigation from '~/app/components/navigation/Navigation'
 import React from 'react'
 import { Provider } from 'react-redux'
 import renderer from 'react-test-renderer'

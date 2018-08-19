@@ -1,4 +1,4 @@
-import actions from '/app/actions'
+import actions from '~/app/actions'
 import {
   SET_BUDGET_TOTAL_REQUEST,
   SET_BUDGET_TOTAL_SUCCESS,
@@ -12,8 +12,8 @@ import {
   GetBudgetTotalRequestAction,
   GetBudgetTotalSuccessAction,
   GetBudgetTotalFailureAction,
-} from '/app/actions/ActionTypes'
-import BudgetModel from '/app/store/models/budget'
+} from '~/app/actions/ActionTypes'
+import BudgetModel from '~/app/store/models/budget'
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
 

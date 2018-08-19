@@ -1,6 +1,6 @@
 import styles from './styles'
-import AddPaymentForm from '/app/components/payment/AddPaymentForm'
-import { HEADER_BACKGROUND_COLOR, HEADER_TEXT_COLOR } from '/app/config/colors'
+import AddPaymentForm from '~/app/components/payment/AddPaymentForm'
+import { HEADER_BACKGROUND_COLOR, HEADER_TEXT_COLOR } from '~/app/config/colors'
 import React from 'react';
 import { Text, View } from 'react-native'
 import { connect } from 'react-redux'

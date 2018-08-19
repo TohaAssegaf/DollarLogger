@@ -3,11 +3,11 @@ import {
   GET_PAYMENTS_SUCCESS,
   GET_PAYMENTS_FAILURE,
   Action
-} from '/app/actions/ActionTypes'
+} from '~/app/actions/ActionTypes'
 import {
   Payment,
   PaymentState
-} from '/app/store/state/PaymentState'
+} from '~/app/store/state/PaymentState'
 
 const initialState: PaymentState = {
   payments: [],

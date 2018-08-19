@@ -1,6 +1,6 @@
-import actions from '/app/actions'
-import reducer from '/app/reducers'
-import State from '/app/store/state'
+import actions from '~/app/actions'
+import reducer from '~/app/reducers'
+import State from '~/app/store/state'
 
 describe('PaymentReducer', () => {
   it('should make get payments request', () => {

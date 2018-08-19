@@ -1,4 +1,4 @@
-import Settings from '/app/screens/settings/Settings'
+import Settings from '~/app/screens/settings/Settings'
 import React from 'react';
 import renderer from 'react-test-renderer';
 

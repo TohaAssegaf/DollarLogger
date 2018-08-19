@@ -12,7 +12,7 @@ import {
   GetBudgetTotalSuccessAction,
   GetBudgetTotalFailureAction
 } from './ActionTypes'
-import * as BudgetModel from '/app/store/models/budget'
+import * as BudgetModel from '~/app/store/models/budget'
 
 export function setBudgetTotalRequest(): SetBudgetTotalRequestAction {
   return {

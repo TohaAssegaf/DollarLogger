@@ -1,4 +1,4 @@
-import { formatMoney, formatMoneyCents, formatAmbiguousMoneyInput } from '/app/lib/MoneyFormatter'
+import { formatMoney, formatMoneyCents, formatAmbiguousMoneyInput } from '~/app/lib/MoneyFormatter'
 
 it('formats full money correctly', () => {
   const totalCents = 10000

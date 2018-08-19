@@ -1,4 +1,4 @@
-import parseAmbiguousMoney from '/app/lib/parseAmbiguousMoney'
+import parseAmbiguousMoney from '~/app/lib/parseAmbiguousMoney'
 
 it('parses no decimal input correctly', () => {
   const input = "123"

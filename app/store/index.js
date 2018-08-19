@@ -1,4 +1,4 @@
-import reducer from '/app/reducers'
+import reducer from '~/app/reducers'
 import {
   createStore,
   applyMiddleware

@@ -1,4 +1,4 @@
-import Home from '/app/screens/home/Home'
+import Home from '~/app/screens/home/Home'
 import MockDate from 'mockdate'
 import React from 'react';
 import renderer from 'react-test-renderer';

@@ -1,4 +1,4 @@
-import BasePaymentForm from '/app/components/payment/BasePaymentForm'
+import BasePaymentForm from '~/app/components/payment/BasePaymentForm'
 import enzyme from 'enzyme'
 import { shallow } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'

@@ -1,8 +1,8 @@
 import styles from './styles'
-import actions from '/app/actions'
-import SettingsCell from '/app/components/settings/SettingsCell'
-import { HEADER_BACKGROUND_COLOR, HEADER_TEXT_COLOR} from '/app/config/colors'
-import * as Routes from '/app/config/Routes'
+import actions from '~/app/actions'
+import SettingsCell from '~/app/components/settings/SettingsCell'
+import { HEADER_BACKGROUND_COLOR, HEADER_TEXT_COLOR} from '~/app/config/colors'
+import * as Routes from '~/app/config/Routes'
 import React from 'react';
 import { Text, View } from 'react-native'
 

@@ -1,4 +1,4 @@
-import * as DateUtils from '/app/lib/DateUtils'
+import * as DateUtils from '~/app/lib/DateUtils'
 
 it('formats January short date correctly', () => {
   const date = new Date(2018, 0, 1)

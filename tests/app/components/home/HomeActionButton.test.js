@@ -1,4 +1,4 @@
-import HomeActionButton from '/app/components/home/HomeActionButton'
+import HomeActionButton from '~/app/components/home/HomeActionButton'
 import React from 'react';
 import renderer from 'react-test-renderer';
 
