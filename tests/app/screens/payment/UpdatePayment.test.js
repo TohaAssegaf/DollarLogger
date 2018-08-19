@@ -1,4 +1,5 @@
 import UpdatePayment from '~/app/screens/payment/UpdatePayment'
+import MockDate from 'mockdate'
 import React from 'react';
 import renderer from 'react-test-renderer';
 import configureMockStore from 'redux-mock-store'
@@ -9,6 +10,7 @@ const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares)
 
 it('renders correctly', () => {
+  MockDate.set(new Date(2018, 3, 8))
   const payment = { id: 1, total: 1000, name: "Test payment", date: new Date(4, 3, 2018) }
   const store = mockStore({ payment: { payments: [payment] } })
   const rendered = renderer.create(
