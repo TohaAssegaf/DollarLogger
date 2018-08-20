@@ -19,6 +19,12 @@ it('renders correctly', () => {
         total: 1,
         name: "Test payment",
         date: new Date(2018, 3, 8),
+        paymentContributions: [
+          {
+            total: 1,
+            date: new Date(2018, 3, 8),
+          },
+        ],
       }
     ]}})
   const rendered = renderer.create(
@@ -36,6 +42,12 @@ it('does not include previous week payments', () => {
         total: 1,
         name: "Test payment",
         date: new Date(2018, 3, 8),
+        paymentContributions: [
+          {
+            total: 1,
+            date: new Date(2018, 3, 8),
+          },
+        ],
       }
     ]}})
   const rendered = renderer.create(
