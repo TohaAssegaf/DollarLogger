@@ -7,9 +7,16 @@ export function getPayments() {
       if (!payments) {
         return []
       }
-      return JSON.parse(payments)
-          .map(payment => Object.assign({}, payment, { date: new Date(payment.date)}))
+      return JSON.parse(payments).map(payment => parsePayment(payment))
     })
+}
+
+/** Need to parse all date fields into actual Date objects instead of numbers. */
+function parsePayment(payment) {
+  let paymentContributions = payment.paymentContributions.map(
+    paymentContribution =>
+      Object.assign({}, paymentContribution, { date: new Date(paymentContribution.date) }))
+  return Object.assign({}, payment, { date: new Date(payment.date), paymentContributions })
 }
 
 export function addPayment(total: number, name: string, date: Date) {
@@ -20,7 +27,13 @@ export function addPayment(total: number, name: string, date: Date) {
       id,
       total,
       name,
-      date
+      date,
+      paymentContributions: [
+        {
+          total,
+          date,
+        }
+      ],
     }
     payments.push(payment)
     return AsyncStorage.setItem(PAYMENTS_ASYNC_STORAGE_KEY, JSON.stringify(payments))
