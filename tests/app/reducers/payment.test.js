@@ -15,7 +15,13 @@ describe('PaymentReducer', () => {
       id: 1,
       total: 10000,
       name: "Test payment",
-      date: new Date(2018, 4, 2)
+      date: new Date(2018, 4, 2),
+      paymentContributions: [
+        {
+          total: 10000,
+          date: new Date(2018, 4, 2),
+        },
+      ]
     }
     const payments = [payment]
     const originalState: State = { payment: createPaymentState([], true, '') }
