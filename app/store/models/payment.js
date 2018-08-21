@@ -30,6 +30,7 @@ export function addPayment(total: number, name: string, date: Date) {
       date,
       paymentContributions: [
         {
+          displayName: name,
           total,
           date,
         }

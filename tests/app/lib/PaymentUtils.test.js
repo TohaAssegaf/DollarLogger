@@ -10,6 +10,7 @@ it('filters current week payments correctly', () => {
     date: new Date(2018, 3, 1),
     paymentContributions: [
       {
+        displayName: "Expired test payment",
         total: 1,
         date: new Date(2018, 3, 1)
       },
@@ -22,6 +23,7 @@ it('filters current week payments correctly', () => {
     date: new Date(2018, 3, 2),
     paymentContributions: [
       {
+        displayName: "Included test payment",
         total: 2,
         date: new Date(2018, 3, 2)
       },
@@ -34,6 +36,7 @@ it('filters current week payments correctly', () => {
     date: new Date(2018, 3, 8),
     paymentContributions: [
       {
+        displayName: "Included test payment",
         total: 3,
         date: new Date(2018, 3, 8)
       },
@@ -52,14 +55,17 @@ it('filters current week payment contributions correctly', () => {
   MockDate.set(new Date(2018, 3, 8))
 
   const expiredPaymentContribution = {
+    displayName: "Expired test payment",
     total: 1,
     date: new Date(2018, 3, 1),
   }
   const includedPaymentContribution1 = {
+    displayName: "Included test payment",
     total: 2,
     date: new Date(2018, 3, 2)
   }
   const includedPaymentContribution2 = {
+    displayName: "Included test payment",
     total: 3,
     date: new Date(2018, 3, 8)
   }
@@ -109,6 +115,7 @@ it('calculates total spend correctly', () => {
     date: new Date(2018, 3, 2),
     paymentContributions: [
       {
+        displayName: "Test payment",
         total: total1,
         date: new Date(2018, 3, 2)
       },
