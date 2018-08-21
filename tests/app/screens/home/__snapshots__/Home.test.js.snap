@@ -356,14 +356,8 @@ exports[`renders correctly 1`] = `
       Array [
         Object {
           "date": 2018-04-08T04:00:00.000Z,
-          "id": 1,
-          "name": "Test payment",
-          "paymentContributions": Array [
-            Object {
-              "date": 2018-04-08T04:00:00.000Z,
-              "total": 1,
-            },
-          ],
+          "displayName": "Test payment",
+          "paymentId": 1,
           "total": 1,
         },
       ]

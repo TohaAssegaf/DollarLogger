@@ -55,7 +55,7 @@ export default StyleSheet.create({
     marginHorizontal: generalSpacing,
   },
 
-  paymentCell: {
+  paymentContributionCell: {
     borderBottomColor: THIN_BORDER_COLOR,
     borderBottomWidth: StyleSheet.hairlineWidth,
     flexDirection: "row",
@@ -63,23 +63,23 @@ export default StyleSheet.create({
     height: 60,
   },
 
-  paymentCellDate: {
+  paymentContributionCellDate: {
     flex: 0.15,
     paddingHorizontal: generalSpacing,
     alignItems: 'flex-start'
   },
 
-  paymentCellName: {
+  paymentContributionCellName: {
     flex: 0.6,
   },
 
-  paymentCellMoney: {
+  paymentContributionCellMoney: {
     flex: 0.25,
     alignItems: 'flex-end',
     paddingRight: generalSpacing,
   },
 
-  paymentCellText: {
+  paymentContributionCellText: {
     fontSize: 16
   },
 

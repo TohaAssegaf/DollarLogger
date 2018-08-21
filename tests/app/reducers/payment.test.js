@@ -21,6 +21,7 @@ describe('PaymentReducer', () => {
           displayName: "Test payment",
           total: 10000,
           date: new Date(2018, 4, 2),
+          paymentId: 1,
         },
       ]
     }
