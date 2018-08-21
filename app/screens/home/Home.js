@@ -27,7 +27,8 @@ class Home extends React.Component {
 
   navigateToUpdatePayment(paymentId: number) {
     this.props.navigation.navigate(
-      Routes.UPDATE_PAYMENT, { payment: payments.find(payment => payment.id == paymentId) })
+      Routes.UPDATE_PAYMENT,
+      { payment: this.props.payments.find(payment => payment.id == paymentId) })
   }
 
   render() {
