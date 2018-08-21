@@ -33,6 +33,7 @@ export function addPayment(total: number, name: string, date: Date) {
           displayName: name,
           total,
           date,
+          paymentId: id,
         }
       ],
     }

@@ -23,6 +23,8 @@ it('renders correctly', () => {
           {
             total: 1,
             date: new Date(2018, 3, 8),
+            displayName: "Test payment",
+            paymentId: 1,
           },
         ],
       }
@@ -46,6 +48,8 @@ it('does not include previous week payments', () => {
           {
             total: 1,
             date: new Date(2018, 3, 8),
+            displayName: "Test payment",
+            paymentId: 1,
           },
         ],
       }

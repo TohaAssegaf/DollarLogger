@@ -1,6 +1,6 @@
 import styles from './styles'
 import HomeHeader from '~/app/components/home/HomeHeader'
-import PaymentList from '~/app/components/payment/PaymentList'
+import PaymentContributionList from '~/app/components/payment/PaymentContributionList'
 import * as Routes from '~/app/config/Routes'
 import HomeActionButton from '~/app/components/home/HomeActionButton'
 import { HEADER_BACKGROUND_COLOR, HEADER_TEXT_COLOR} from '~/app/config/colors'
@@ -25,17 +25,19 @@ class Home extends React.Component {
       </TouchableOpacity>,
   })
 
-  navigateToUpdatePayment(payment) {
-    this.props.navigation.navigate(Routes.UPDATE_PAYMENT, { payment })
+  navigateToUpdatePayment(paymentId: number) {
+    this.props.navigation.navigate(
+      Routes.UPDATE_PAYMENT, { payment: payments.find(payment => payment.id == paymentId) })
   }
 
   render() {
     return (
       <View style={styles.screen}>
         <HomeHeader />
-        <PaymentList
-          onTapCell={payment => this.navigateToUpdatePayment(payment)}
-          payments={this.props.payments}
+        <PaymentContributionList
+          onTapCell={
+            paymentContribution => this.navigateToUpdatePayment(paymentContribution.paymentId)}
+          paymentContributions={this.props.paymentContributions}
         />
         <HomeActionButton
           addPaymentAction={() => this.props.navigation.navigate(Routes.ADD_PAYMENT)}
@@ -47,7 +49,8 @@ class Home extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    payments: PaymentUtils.filterCurrentWeekPayments(state.payment.payments)
+    payments: PaymentUtils.filterCurrentWeekPayments(state.payment.payments),
+    paymentContributions: PaymentUtils.filterCurrentWeekPaymentContributions(state.payment.payments)
   }
 }
 

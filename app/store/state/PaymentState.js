@@ -16,4 +16,5 @@ export type PaymentContribution = {
   displayName: string,
   total: number,
   date: Date,
+  paymentId: number,
 }
