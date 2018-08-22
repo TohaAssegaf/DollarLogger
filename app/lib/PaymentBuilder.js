@@ -9,7 +9,7 @@ export default class PaymentBuilder {
   name: string
   date: Date
   splitCount: number
-  
+
   constructor(payment) {
     if (payment === undefined) {
       this.splitCount = 1
@@ -22,32 +22,32 @@ export default class PaymentBuilder {
     }
   }
 
-  setId(id: number) {
+  setId(id: number): PaymentBuilder {
     this.id = id
     return this
   }
 
-  setTotal(total: number) {
+  setTotal(total: number): PaymentBuilder {
     this.total = total
     return this
   }
 
-  setName(name: string) {
+  setName(name: string): PaymentBuilder {
     this.name = name
     return this
   }
 
-  setDate(date: Date) {
+  setDate(date: Date): PaymentBuilder {
     this.date = date
     return this
   }
 
-  setSplitCount(splitCount: number) {
+  setSplitCount(splitCount: number): PaymentBuilder {
     this.splitCount = splitCount
     return this
   }
 
-  build() {
+  build(): Payment {
     const paymentContributions = this.buildPaymentContributions()
     return {
       id: this.id,
@@ -58,13 +58,13 @@ export default class PaymentBuilder {
     }
   }
 
-  buildPaymentContributions() {
+  buildPaymentContributions(): Array<PaymentContribution> {
     const totals = this.getPaymentContributionTotals()
     const dates = this.getPaymentContributionDates()
     return totals.map((total, i) => this.buildPaymentContribution(total, dates[i], i))
   }
 
-  getPaymentContributionTotals() {
+  getPaymentContributionTotals(): Array<number> {
     const flooredValue = Math.floor(this.total / this.splitCount)
     // How many pennies are left when multiplying flooredValue by splitCount.
     const remainder = this.total % flooredValue
@@ -77,7 +77,7 @@ export default class PaymentBuilder {
     return totals
   }
 
-  getPaymentContributionDates() {
+  getPaymentContributionDates(): Array<Date> {
     // First date is always the provided date.
     let dates = [this.date]
     // Every subsequent date is the Monday of the successive weeks.
@@ -88,7 +88,7 @@ export default class PaymentBuilder {
     return dates
   }
 
-  buildPaymentContribution(total: number, date: date, i: index) {
+  buildPaymentContribution(total: number, date: date, i: index): PaymentContribution {
     return {
       displayName: this.buildDisplayName(i),
       total,
@@ -97,7 +97,7 @@ export default class PaymentBuilder {
     }
   }
 
-  buildDisplayName(i: number) {
+  buildDisplayName(i: number): string {
     // If only 1, then use same name. Otherwise, add a suffix showing installment number.
     return this.splitCount === 1 ? this.name : this.name + "(${i}/${this.splitCount})"
   }
