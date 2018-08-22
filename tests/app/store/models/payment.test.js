@@ -27,17 +27,24 @@ describe('PaymentModel', () => {
   })
 
   it('should successfully add payment', () => {
-    const total = 10000
-    const name = "Fake payment"
-    const date = new Date(2018, 4, 2)
-    PaymentModel.addPayment(total, name, date).then(
+    const payment = {
+      total: 10000,
+      name: "Fake payment",
+      date: new Date(2018, 4, 2),
+      id: 1,
+      paymentContributions: [
+        {
+          total: 10000,
+          displayName: "Fake payment",
+          date: new Date(2018, 4, 2),
+          paymentId: 1
+        }
+      ]
+    }
+    PaymentModel.addPayment(payment).then(
       (payments) => {
         expect(payments).toHaveLength(1)
-        // TODO(renzobautista): Separate ID generation into a new class so it can be mocked and we
-        // can compare entire payment object.
-        expect(payments[0].total).toEqual(total)
-        expect(payments[0].name).toEqual(name)
-        expect(payments[0].date).toEqual(date)
+        expect(payments[0]).toEqual(payment)
       })
   })
 
@@ -62,15 +69,24 @@ describe('PaymentModel', () => {
   })
 
   it('should successfully delete payment', async () => {
-    const total = 10000
-    const name = "Fake payment"
-    const date = new Date(2018, 4, 2)
-    const payments = await PaymentModel.addPayment(total, name, date)
-    const payment = payments[0]
-    const id = payment.id
-
+    const id = 1
+    const payment = {
+      total: 10000,
+      name: "Fake payment",
+      date: new Date(2018, 4, 2),
+      id,
+      paymentContributions: [
+        {
+          total: 10000,
+          displayName: "Fake payment",
+          date: new Date(2018, 4, 2),
+          paymentId: id
+        }
+      ]
+    }
+    const payments = await PaymentModel.addPayment(payment)
+    expect(payments).toHaveLength(1)
     const updatedPayments = await PaymentModel.deletePayment(id)
-
     expect(updatedPayments).toHaveLength(0)
   })
 })

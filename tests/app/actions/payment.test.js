@@ -18,14 +18,8 @@ let mockPayments = []
 let mockId = 1
 jest.mock('../../../app/store/models/payment', () => {
   return {
-    addPayment: jest.fn((item, total, name, date) => {
+    addPayment: jest.fn((payment) => {
       return new Promise((resolve, reject) => {
-        const payment = {
-          id: mockId,
-          total,
-          name,
-          date
-        }
         mockPayments.push(payment)
         resolve(mockPayments)
       })
@@ -73,7 +67,7 @@ describe('PaymentActions', () => {
     const expectedActions = [actions.getPaymentsRequest(), actions.getPaymentsSuccess(payments)]
     const store = mockStore({ payment: { payments: [] }})
 
-    store.dispatch(actions.createPayment(total, name, date)).then(() => {
+    store.dispatch(actions.createPayment(payment)).then(() => {
       expect(store.getActions()).toEqual(expectedActions)
       PaymentModel.getPayments().then(storedPayments => {
         expect(storedPayments).toHaveLength(1)
