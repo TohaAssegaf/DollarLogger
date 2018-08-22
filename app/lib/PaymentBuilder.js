@@ -10,7 +10,7 @@ export default class PaymentBuilder {
   date: Date
   splitCount: number
 
-  constructor(payment) {
+  constructor(payment: Payment) {
     if (payment === undefined) {
       this.splitCount = 1
     } else {
