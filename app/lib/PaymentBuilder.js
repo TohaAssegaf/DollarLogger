@@ -48,6 +48,7 @@ export default class PaymentBuilder {
   }
 
   build(): Payment {
+    this.reservePaymentId()
     const paymentContributions = this.buildPaymentContributions()
     return {
       id: this.id,
@@ -55,6 +56,13 @@ export default class PaymentBuilder {
       name: this.name,
       date: this.date,
       paymentContributions,
+    }
+  }
+
+  reservePaymentId() {
+    // TODO(renzobautista): Separate ID generation into a new class so it can be mocked
+    if (!this.id) {
+      this.id = Date.now()
     }
   }
 
@@ -71,8 +79,8 @@ export default class PaymentBuilder {
     let totals = []
     for (let i = 0; i < this.splitCount; i++) {
       // Evenly split the remaining cents across the first remainder contributions.
-      const sparePenny = i < remainder ? 1 : 0
-      totals.push(flooredValue + sparePenny)
+      const spareCent = i < remainder ? 1 : 0
+      totals.push(flooredValue + spareCent)
     }
     return totals
   }
