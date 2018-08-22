@@ -75,7 +75,7 @@ export default class PaymentBuilder {
   getPaymentContributionTotals(): Array<number> {
     const flooredValue = Math.floor(this.total / this.splitCount)
     // How many pennies are left when multiplying flooredValue by splitCount.
-    const remainder = this.total % flooredValue
+    const remainder = this.total % (flooredValue * this.splitCount)
     let totals = []
     for (let i = 0; i < this.splitCount; i++) {
       // Evenly split the remaining cents across the first remainder contributions.
@@ -107,6 +107,7 @@ export default class PaymentBuilder {
 
   buildDisplayName(i: number): string {
     // If only 1, then use same name. Otherwise, add a suffix showing installment number.
-    return this.splitCount === 1 ? this.name : this.name + "(${i}/${this.splitCount})"
+    // Installment number needs to be incremented by 1 because it is 0-indexed.
+    return this.splitCount === 1 ? this.name : this.name + ` (${i + 1}/${this.splitCount})`
   }
 }
