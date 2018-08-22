@@ -16,9 +16,9 @@ export default class PaymentBuilder {
     } else {
       this.id = payment.id
       this.total = payment.total
-      this.name = name
+      this.name = payment.name
       this.date = payment.date
-      this.splitCount = payment.paymentContributions.size()
+      this.splitCount = payment.paymentContributions.length
     }
   }
 

@@ -29,8 +29,9 @@ it('dispatches add payment action and navigates back', () => {
   const expectedTotal = 10000
   const expectedName = "Test payment"
   const expectedDate = new Date(2018, 4, 2)
+  const expectedSplitCount = 3
 
-  wrapper.simulate('submit', expectedTotal, expectedName, expectedDate)
+  wrapper.simulate('submit', expectedTotal, expectedName, expectedDate, expectedSplitCount)
 
   expect(store.getActions()).toContainEqual(actions.getPaymentsRequest())
   expect(navigation.goBack.mock.calls).toHaveLength(1)

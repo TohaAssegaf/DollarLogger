@@ -1,5 +1,6 @@
 import actions from '~/app/actions'
 import UpdatePaymentForm from '~/app/components/payment/UpdatePaymentForm'
+import PaymentBuilder from '~/app/lib/PaymentBuilder'
 import * as PaymentModel from '~/app/store/models/payment'
 import enzyme from 'enzyme'
 import { shallow } from 'enzyme'
@@ -29,12 +30,12 @@ jest.mock('../../../../app/store/models/payment', () => {
 })
 
 it('renders correctly', () => {
-  const payment = {
-    id: 1,
-    total: 1000,
-    name: "Test payment",
-    date: new Date(2018, 4, 3)
-  }
+  const payment = new PaymentBuilder()
+    .setId(1)
+    .setTotal(1000)
+    .setName("Test payment")
+    .setDate(new Date(2018, 4, 3))
+    .build()
   const store = mockStore({ payment: { payments: [payment] } })
   const rendered = renderer.create(<UpdatePaymentForm
     payment={payment}
@@ -45,24 +46,32 @@ it('renders correctly', () => {
 });
 
 it('dispatches update payment action and navigates back', () => {
-  const id = 1
-  const total = 10000
-  const name = "Test payment"
-  const date = new Date(2018, 4, 2)
-  const payment = { id, total, name, date }
+  const payment =
+    new PaymentBuilder()
+      .setId(1)
+      .setTotal(1000)
+      .setName("Test payment")
+      .setDate(new Date(2018, 4, 2))
+      .setSplitCount(4)
+      .build()
+  const newTotal = 20000
+  const newName = "New name"
+  const newDate = new Date(2018, 4, 3)
+  const newSplitCount = 1
+  const updatedPayment =
+    new PaymentBuilder()
+      .setId(1)
+      .setTotal(newTotal)
+      .setName(newName)
+      .setDate(newDate)
+      .setSplitCount(newSplitCount)
+      .build()
   const store = mockStore({ payment: { payments: [payment] } })
   const wrapper = shallow(
-    <UpdatePaymentForm
-      payment={{ id, total, name, date }}
-      store={store}
-      navigation={navigation}
-    />).dive({ context: { store } })
-    const newTotal = 20000
-    const newName = "New name"
-    const newDate = new Date(2018, 4, 3)
-    const updatedPayment = { id, total: newTotal, name: newName, date: newDate }
+    <UpdatePaymentForm payment={payment} store={store} navigation={navigation} />)
+    .dive({ context: { store } })
 
-  wrapper.simulate('submit', newTotal, newName, newDate)
+  wrapper.simulate('submit', newTotal, newName, newDate, newSplitCount)
 
   expect(store.getActions()).toContainEqual(actions.getPaymentsRequest())
   expect(PaymentModel.updatePayment.mock.calls).toEqual([[updatedPayment]])

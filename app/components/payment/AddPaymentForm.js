@@ -5,9 +5,14 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 class AddPaymentForm extends React.Component {
-  createPayment(total, name, date) {
+  createPayment(total, name, date, splitCount) {
     this.props.createPayment(
-      new PaymentBuilder().setName(name).setTotal(total).setDate(date).build())
+      new PaymentBuilder()
+        .setName(name)
+        .setTotal(total)
+        .setDate(date)
+        .setSplitCount(splitCount)
+        .build())
 
     // Temporary hack. This should check state with a componentDidUpdate for write to be complete.
     this.props.navigation.goBack()
@@ -16,7 +21,8 @@ class AddPaymentForm extends React.Component {
   render() {
     return (
       <BasePaymentForm
-        onSubmit={(total, name, date) => this.createPayment(total, name, date)}
+        onSubmit={
+          (total, name, date, splitCount) => this.createPayment(total, name, date, splitCount)}
       />
     )
   }
