@@ -11,18 +11,22 @@ export default class BasePaymentForm extends React.Component {
   constructor(props) {
     super(props)
     if (this.props.payment) {
+      const splitCount =
+        this.props.payment.paymentContributions.length === 1
+          ? ''
+          : this.props.payment.paymentContributions.length.toString()
       this.state = {
         date: this.props.payment.date,
         total: this.props.payment.total,
         name: this.props.payment.name,
-        splitCount: this.props.payment.splitCount,
+        splitCount,
       }
     } else {
       this.state = {
         date: new Date(),
         total: 0,
         name: '',
-        splitCount: 0
+        splitCount: ''
       }
     }
   }
@@ -45,8 +49,8 @@ export default class BasePaymentForm extends React.Component {
 
   onSubmit() {
     Keyboard.dismiss()
-    // If splitCount is 0, set it to 1.
-    let splitCount = this.state.splitCount ? this.state.splitCount : 1
+    // If splitCount field is empty string, set splitCount to 1.
+    let splitCount = this.state.splitCount ? parseInt(this.state.splitCount) : 1
     this.props.onSubmit(this.state.total, this.state.name, this.state.date, splitCount)
   }
 
@@ -91,11 +95,11 @@ export default class BasePaymentForm extends React.Component {
         <View style={styles.formCell}>
           <TextInput
             style={styles.textInput}
-            onChangeText={splitCount => this.setSplitCount(parseInt(splitCount))}
-            placeholder='# of weekly installments'
+            onChangeText={splitCount => this.setSplitCount(splitCount)}
+            placeholder='Weekly installments (1 by default)'
             underlineColorAndroid='rgba(0,0,0,0)'
             keyboardType='numeric'
-            value={this.state.splitCount == 0 ? '' : this.state.splitCount.toString()}
+            value={this.state.splitCount}
           />
         </View>
         <View style={styles.button}>
