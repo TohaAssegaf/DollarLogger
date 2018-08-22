@@ -377,6 +377,31 @@ exports[`renders correctly 1`] = `
     <View
       style={
         Object {
+          "borderBottomColor": "#222222",
+          "borderBottomWidth": 0.5,
+          "height": 70,
+          "justifyContent": "center",
+          "paddingHorizontal": 20,
+        }
+      }
+    >
+      <TextInput
+        allowFontScaling={true}
+        keyboardType="numeric"
+        onChangeText={[Function]}
+        placeholder="Weekly installments (1 by default)"
+        style={
+          Object {
+            "fontSize": 25,
+          }
+        }
+        underlineColorAndroid="rgba(0,0,0,0)"
+        value=""
+      />
+    </View>
+    <View
+      style={
+        Object {
           "marginHorizontal": 20,
           "marginTop": 20,
         }

@@ -1,4 +1,5 @@
 import UpdatePayment from '~/app/screens/payment/UpdatePayment'
+import PaymentBuilder from '~/app/lib/PaymentBuilder'
 import React from 'react';
 import renderer from 'react-test-renderer';
 import configureMockStore from 'redux-mock-store'
@@ -9,7 +10,13 @@ const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares)
 
 it('renders correctly', () => {
-  const payment = { id: 1, total: 1000, name: "Test payment", date: new Date(2018, 4, 3) }
+  const payment = new PaymentBuilder()
+    .setId(1)
+    .setTotal(1000)
+    .setName("Test payment")
+    .setDate(new Date(2018, 4, 3))
+    .setSplitCount(4)
+    .build()
   const store = mockStore({ payment: { payments: [payment] } })
   const rendered = renderer.create(
     <Provider store={store}>
