@@ -40,13 +40,10 @@ export function getPayments() {
   }
 }
 
-export function createPayment(total: number, name: string, date: Date) {
+export function createPayment(payment: Payment) {
   return function (dispatch) {
-    if (!Number.isInteger(total)) {
-      dispatch(getPaymentsFailure("Payment total must be an integer"))
-    }
     dispatch(getPaymentsRequest())
-    return PaymentModel.addPayment(total, name, date)
+    return PaymentModel.addPayment(payment)
       .then(payments => dispatch(getPaymentsSuccess(payments)))
       .catch(error => dispatch(getPaymentsFailure(error.message)))
   }

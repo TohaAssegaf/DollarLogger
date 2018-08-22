@@ -14,6 +14,11 @@ export function filterCurrentWeekPaymentContributions(payments: Array<Payment>) 
     .filter(paymentContribution => isCurrentWeekPaymentContribution(paymentContribution))
 }
 
+export function getTotalSpend(paymentContributions: Array<PaymentContribution>) {
+  return paymentContributions.reduce(
+    (total, paymentContribution) => total + paymentContribution.total, 0)
+}
+
 function isCurrentWeekPayment(payment: Payment) {
   return payment.paymentContributions.some(
     paymentContribution => isCurrentWeekPaymentContribution(paymentContribution))
@@ -23,9 +28,4 @@ function isCurrentWeekPaymentContribution(paymentContribution: PaymentContributi
   const lastMonday = DateUtils.getLastMonday(new Date())
   const nextMonday = new Date(lastMonday.getTime() + ONE_WEEK)
   return paymentContribution.date >= lastMonday && paymentContribution.date < nextMonday
-}
-
-export function getTotalSpend(paymentContributions: Array<PaymentContribution>) {
-  return paymentContributions.reduce(
-    (total, paymentContribution) => total + paymentContribution.total, 0)
 }

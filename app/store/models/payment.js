@@ -19,24 +19,8 @@ function parsePayment(payment) {
   return Object.assign({}, payment, { date: new Date(payment.date), paymentContributions })
 }
 
-export function addPayment(total: number, name: string, date: Date) {
+export function addPayment(payment: Payment) {
   return getPayments().then(payments => {
-    // TODO(renzobautista): Separate ID generation into a new class so it can be mocked
-    const id = new Date().getTime()
-    const payment = {
-      id,
-      total,
-      name,
-      date,
-      paymentContributions: [
-        {
-          displayName: name,
-          total,
-          date,
-          paymentId: id,
-        }
-      ],
-    }
     payments.push(payment)
     return AsyncStorage.setItem(PAYMENTS_ASYNC_STORAGE_KEY, JSON.stringify(payments))
       .then(() => payments)
