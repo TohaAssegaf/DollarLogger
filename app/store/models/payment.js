@@ -11,10 +11,6 @@ export function getPayments() {
     })
 }
 
-export function findPayment(id: number) {
-  return getPayments().then(payments => payments.find(payment => payment.id == id))
-}
-
 /** Need to parse all date fields into actual Date objects instead of numbers. */
 function parsePayment(payment) {
   let paymentContributions = payment.paymentContributions.map(

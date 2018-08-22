@@ -1,5 +1,4 @@
 import * as DateUtils from './DateUtils'
-import PaymentBuilder from './PaymentBuilder'
 
 ONE_DAY = 86400000
 ONE_WEEK = ONE_DAY * 7
@@ -15,12 +14,6 @@ export function filterCurrentWeekPaymentContributions(payments: Array<Payment>) 
     .filter(paymentContribution => isCurrentWeekPaymentContribution(paymentContribution))
 }
 
-function isCurrentWeekPaymentContribution(paymentContribution: PaymentContribution) {
-  const lastMonday = DateUtils.getLastMonday(new Date())
-  const nextMonday = new Date(lastMonday.getTime() + ONE_WEEK)
-  return paymentContribution.date >= lastMonday && paymentContribution.date < nextMonday
-}
-
 export function getTotalSpend(paymentContributions: Array<PaymentContribution>) {
   return paymentContributions.reduce(
     (total, paymentContribution) => total + paymentContribution.total, 0)
@@ -29,4 +22,10 @@ export function getTotalSpend(paymentContributions: Array<PaymentContribution>) 
 function isCurrentWeekPayment(payment: Payment) {
   return payment.paymentContributions.some(
     paymentContribution => isCurrentWeekPaymentContribution(paymentContribution))
+}
+
+function isCurrentWeekPaymentContribution(paymentContribution: PaymentContribution) {
+  const lastMonday = DateUtils.getLastMonday(new Date())
+  const nextMonday = new Date(lastMonday.getTime() + ONE_WEEK)
+  return paymentContribution.date >= lastMonday && paymentContribution.date < nextMonday
 }
