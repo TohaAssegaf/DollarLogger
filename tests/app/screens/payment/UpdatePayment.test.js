@@ -10,13 +10,14 @@ const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares)
 
 it('renders correctly', () => {
-  const payment = new PaymentBuilder()
-    .setId(1)
-    .setTotal(1000)
-    .setName("Test payment")
-    .setDate(new Date(2018, 4, 3))
-    .setSplitCount(4)
-    .build()
+  const payment =
+    new PaymentBuilder()
+      .setId(1)
+      .setTotal(1000)
+      .setName("Test payment")
+      .setDate(new Date(2018, 4, 3))
+      .setSplitCount(4)
+      .build()
   const store = mockStore({ payment: { payments: [payment] } })
   const rendered = renderer.create(
     <Provider store={store}>

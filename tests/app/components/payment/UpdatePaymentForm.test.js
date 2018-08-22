@@ -46,24 +46,26 @@ it('renders correctly', () => {
 });
 
 it('dispatches update payment action and navigates back', () => {
-  const payment = new PaymentBuilder()
-    .setId(1)
-    .setTotal(1000)
-    .setName("Test payment")
-    .setDate(new Date(2018, 4, 2))
-    .setSplitCount(4)
-    .build()
+  const payment =
+    new PaymentBuilder()
+      .setId(1)
+      .setTotal(1000)
+      .setName("Test payment")
+      .setDate(new Date(2018, 4, 2))
+      .setSplitCount(4)
+      .build()
   const newTotal = 20000
   const newName = "New name"
   const newDate = new Date(2018, 4, 3)
   const newSplitCount = 1
-  const updatedPayment = new PaymentBuilder()
-    .setId(1)
-    .setTotal(newTotal)
-    .setName(newName)
-    .setDate(newDate)
-    .setSplitCount(newSplitCount)
-    .build()
+  const updatedPayment =
+    new PaymentBuilder()
+      .setId(1)
+      .setTotal(newTotal)
+      .setName(newName)
+      .setDate(newDate)
+      .setSplitCount(newSplitCount)
+      .build()
   const store = mockStore({ payment: { payments: [payment] } })
   const wrapper = shallow(
     <UpdatePaymentForm payment={payment} store={store} navigation={navigation} />)
