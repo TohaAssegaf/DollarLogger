@@ -1,4 +1,5 @@
 import * as PaymentUtils from '~/app/lib/PaymentUtils'
+import PaymentBuilder from '~/app/lib/PaymentBuilder'
 import MockDate from 'mockdate'
 
 it('filters current week payments correctly', () => {
@@ -141,3 +142,24 @@ it('calculates total spend correctly', () => {
 it('calculates total spend on empty list', () => {
   expect(PaymentUtils.getTotalSpend([])).toEqual(0)
 })
+
+it('gets all sorted paymentContributions', () => {
+  const payment1 =
+    new PaymentBuilder()
+      .setTotal(8)
+      .setDate(new Date(2018, 9, 22))
+      .setSplitCount(8)
+      .setName('first payment with future installments')
+      .build()
+  const payment2 =
+    new PaymentBuilder()
+      .setTotal(8)
+      .setDate(new Date(2018, 9, 23))
+      .setName('second payment with no future installments')
+      .build()
+  const expectedPaymentContributions =
+    [payment1.paymentContributions[0], payment2.paymentContributions[0]]
+      .concat(payment1.paymentContributions.slice(1))
+  expect(PaymentUtils.getSortedPaymentContributions([payment1, payment2]))
+    .toEqual(expectedPaymentContributions)
+});
