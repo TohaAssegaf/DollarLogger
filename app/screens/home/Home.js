@@ -42,6 +42,7 @@ class Home extends React.Component {
         />
         <HomeActionButton
           addPaymentAction={() => this.props.navigation.navigate(Routes.ADD_PAYMENT)}
+          historyAction={() => this.props.navigation.navigate(Routes.HISTORY)}
         />
       </View>
     );
