@@ -15,6 +15,12 @@ export default class HomeActionButton extends React.Component {
             onPress={() => this.props.addPaymentAction()}>
           <Icon name="md-create" style={styles.actionButtonIcon} />
         </ActionButton.Item>
+        <ActionButton.Item
+            buttonColor={PRIMARY_BUTTON_COLOR}
+            title="Payment History"
+            onPress={() => this.props.historyAction()}>
+          <Icon name="md-analytics" style={styles.actionButtonIcon} />
+        </ActionButton.Item>
       </ActionButton>
     );
   }
