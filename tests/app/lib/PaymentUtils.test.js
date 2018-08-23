@@ -157,9 +157,10 @@ it('gets all sorted paymentContributions', () => {
       .setDate(new Date(2018, 9, 23))
       .setName('second payment with no future installments')
       .build()
-  const expectedPaymentContributions =
-    [payment1.paymentContributions[0], payment2.paymentContributions[0]]
-      .concat(payment1.paymentContributions.slice(1))
+  const expectedPaymentContributions = [
+    payment1.paymentContributions[0],
+    payment2.paymentContributions[0],
+    ...payment1.paymentContributions.slice(1)]
   expect(PaymentUtils.getSortedPaymentContributions([payment1, payment2]))
     .toEqual(expectedPaymentContributions)
 });
