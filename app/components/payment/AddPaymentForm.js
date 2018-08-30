@@ -30,8 +30,8 @@ class AddPaymentForm extends React.Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    createPayment: (total, name, date) => {
-      dispatch(actions.createPayment(total, name, date))
+    createPayment: (payment) => {
+      dispatch(actions.createPayment(payment))
     }
   }
 }
