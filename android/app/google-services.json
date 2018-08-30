@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "717848026454",
+    "firebase_url": "https://dollar-logger-dev.firebaseio.com",
+    "project_id": "dollar-logger-dev",
+    "storage_bucket": "dollar-logger-dev.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:717848026454:android:d90e53059d463178",
+        "android_client_info": {
+          "package_name": "com.dollarlogger"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "717848026454-taoekvdcvjb5c79lc9vpl80fh81np17p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBw9-P2eTcX9ksU2tskd6RxZkhEKlQKtGQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
