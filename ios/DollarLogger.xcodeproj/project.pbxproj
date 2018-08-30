@@ -48,6 +48,7 @@
 		96F7EAC13F1C4D1F8AE48992 /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 859CA8006DA54F77AFB9F513 /* libRNVectorIcons.a */; };
 		988CDE799076415DA73AA024 /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DDE9F0EB7B864601B14F0C00 /* Feather.ttf */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
+		B8A5213D2137EB5F0086018F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B8A5213C2137EB5F0086018F /* GoogleService-Info.plist */; };
 		C752FCF02F9449E9A00EE42F /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2609E51F491F4A0DBF12920D /* EvilIcons.ttf */; };
 		CDC13D1FB865485EA249B49A /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 34D48FC60F4640F6B62807C3 /* FontAwesome.ttf */; };
 		D41D1F1688E4425386920889 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B2C1F0EF9F004A7781809CEA /* MaterialIcons.ttf */; };
@@ -396,6 +397,7 @@
 		B113A2D8F1894A35BC6FE56A /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
 		B1CEA765B27E4DBAA1E6BA86 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
 		B2C1F0EF9F004A7781809CEA /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
+		B8A5213C2137EB5F0086018F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C863F24AAA7D44CD87CE0626 /* libRNFirebase.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNFirebase.a; sourceTree = "<group>"; };
 		C8E9B5E821B4BE28B93D1441 /* Pods-DollarLogger-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DollarLogger-tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DollarLogger-tvOS/Pods-DollarLogger-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		DDE9F0EB7B864601B14F0C00 /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
@@ -544,6 +546,7 @@
 		13B07FAE1A68108700A75B9A /* DollarLogger */ = {
 			isa = PBXGroup;
 			children = (
+				B8A5213C2137EB5F0086018F /* GoogleService-Info.plist */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -1206,6 +1209,7 @@
 				80235ED0D21343A5BEB178D4 /* Octicons.ttf in Resources */,
 				775BEA538E6D4C9B866F5122 /* SimpleLineIcons.ttf in Resources */,
 				214CD56F5E054FDF84BBA694 /* Zocial.ttf in Resources */,
+				B8A5213D2137EB5F0086018F /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
