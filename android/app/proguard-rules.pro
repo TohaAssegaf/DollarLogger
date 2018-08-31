@@ -73,3 +73,7 @@
 
 -keep class io.invertase.firebase.** { *; }
 -dontwarn io.invertase.firebase.**
+
+# react-native-config
+
+-keep class com.dollarlogger.BuildConfig { *; }
