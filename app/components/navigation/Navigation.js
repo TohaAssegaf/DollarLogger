@@ -1,6 +1,7 @@
 import * as Routes from '~/app/config/Routes'
 import Home from '~/app/screens/home/Home'
 import Loading from '~/app/screens/loading/Loading'
+import Login from '~/app/screens/login/Login'
 import AddPayment from '~/app/screens/payment/AddPayment'
 import UpdatePayment from '~/app/screens/payment/UpdatePayment'
 import UpdateBudget from '~/app/screens/updatebudget/UpdateBudget'
@@ -39,6 +40,10 @@ export default StackNavigator({
   [Routes.HISTORY]: {
     screen: History,
     path: Routes.HISTORY
+  },
+  [Routes.LOGIN]: {
+    screen: Login,
+    path: Routes.LOGIN
   }
 }, {
   initialRouteName: Routes.LOADING

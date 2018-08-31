@@ -19,12 +19,19 @@ export default class Settings extends React.Component {
     this.props.navigation.navigate(Routes.UPDATE_BUDGET, { isUpdateExistingBudget: true })
   }
 
+  navigateToLogin() {
+    this.props.navigation.navigate(Routes.LOGIN)
+  }
+
   render() {
     return (
       <View style={styles.screen}>
         <SettingsCell
           text='Update budget'
           onTap={() => this.navigateToUpdateBudget()} />
+          <SettingsCell
+            text='Sign in to back-up your data'
+            onTap={() => this.navigateToLogin()} />
       </View>
     );
   }
