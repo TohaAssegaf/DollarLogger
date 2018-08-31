@@ -49,6 +49,10 @@
 		96F7EAC13F1C4D1F8AE48992 /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 859CA8006DA54F77AFB9F513 /* libRNVectorIcons.a */; };
 		988CDE799076415DA73AA024 /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DDE9F0EB7B864601B14F0C00 /* Feather.ttf */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
+		B82056852138FBE8002B1148 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B82056812138FBE8002B1148 /* Bolts.framework */; };
+		B82056862138FBE9002B1148 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B82056822138FBE8002B1148 /* FBSDKCoreKit.framework */; };
+		B82056872138FBE9002B1148 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B82056832138FBE8002B1148 /* FBSDKLoginKit.framework */; };
+		B82056882138FBE9002B1148 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B82056842138FBE8002B1148 /* FBSDKShareKit.framework */; };
 		B8A5213D2137EB5F0086018F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B8A5213C2137EB5F0086018F /* GoogleService-Info.plist */; };
 		C752FCF02F9449E9A00EE42F /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2609E51F491F4A0DBF12920D /* EvilIcons.ttf */; };
 		CDC13D1FB865485EA249B49A /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 34D48FC60F4640F6B62807C3 /* FontAwesome.ttf */; };
@@ -407,6 +411,10 @@
 		B113A2D8F1894A35BC6FE56A /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
 		B1CEA765B27E4DBAA1E6BA86 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
 		B2C1F0EF9F004A7781809CEA /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
+		B82056812138FBE8002B1148 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		B82056822138FBE8002B1148 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		B82056832138FBE8002B1148 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		B82056842138FBE8002B1148 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		B8A5213C2137EB5F0086018F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C863F24AAA7D44CD87CE0626 /* libRNFirebase.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNFirebase.a; sourceTree = "<group>"; };
 		C8E9B5E821B4BE28B93D1441 /* Pods-DollarLogger-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DollarLogger-tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DollarLogger-tvOS/Pods-DollarLogger-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
@@ -430,12 +438,14 @@
 			files = (
 				ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */,
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,
+				B82056872138FBE9002B1148 /* FBSDKLoginKit.framework in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
 				00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */,
 				00C302E81ABCBA2D00DB3ED1 /* libRCTImage.a in Frameworks */,
 				133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */,
+				B82056862138FBE9002B1148 /* FBSDKCoreKit.framework in Frameworks */,
 				00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */,
 				139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */,
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
@@ -443,6 +453,8 @@
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				96F7EAC13F1C4D1F8AE48992 /* libRNVectorIcons.a in Frameworks */,
 				17D22E35FDE5EE8959D09ABF /* libPods-DollarLogger.a in Frameworks */,
+				B82056882138FBE9002B1148 /* FBSDKShareKit.framework in Frameworks */,
+				B82056852138FBE8002B1148 /* Bolts.framework in Frameworks */,
 				2A17467BAE00468CA883EF55 /* libRNFirebase.a in Frameworks */,
 				11BB4B064E5F405BA1A63523 /* libRCTFBSDK.a in Frameworks */,
 			);
@@ -613,6 +625,10 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B82056812138FBE8002B1148 /* Bolts.framework */,
+				B82056822138FBE8002B1148 /* FBSDKCoreKit.framework */,
+				B82056832138FBE8002B1148 /* FBSDKLoginKit.framework */,
+				B82056842138FBE8002B1148 /* FBSDKShareKit.framework */,
 				2D16E6891FA4F8E400B85C8A /* libReact.a */,
 				31DAF7D67430688D473B0F93 /* libPods-DollarLogger.a */,
 				039BB2C9A86C4DF28C63DFAE /* libPods-DollarLogger-tvOS.a */,
@@ -1497,6 +1513,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
@@ -1524,6 +1544,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
