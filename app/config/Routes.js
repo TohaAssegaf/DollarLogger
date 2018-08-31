@@ -11,3 +11,5 @@ export const UPDATE_PAYMENT = 'UPDATE_PAYMENT_ROUTE'
 export const SETTINGS = 'SETTINGS_ROUTE'
 
 export const HISTORY = 'HISTORY_ROUTE'
+
+export const LOGIN = 'LOGIN_ROUTE'

@@ -40,5 +40,36 @@ exports[`renders correctly 1`] = `
       </Text>
     </View>
   </View>
+  <View
+    accessible={true}
+    isTVSelectable={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={null}
+  >
+    <View
+      style={
+        Object {
+          "borderBottomColor": "#222222",
+          "borderBottomWidth": 0.5,
+          "height": 70,
+          "justifyContent": "center",
+          "paddingHorizontal": 20,
+        }
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+      >
+        Sign in to back-up your data
+      </Text>
+    </View>
+  </View>
 </View>
 `;
