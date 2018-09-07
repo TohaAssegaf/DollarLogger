@@ -12,6 +12,8 @@ target 'DollarLogger' do
   pod 'Firebase/Auth', '~> 5.3.0'
 
   pod 'react-native-config', :path => '../node_modules/react-native-config'
+  pod 'React', :path => '../node_modules/react-native'
+  pod 'yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
 
   target 'DollarLoggerTests' do
     inherit! :search_paths
