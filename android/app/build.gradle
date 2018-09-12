@@ -138,8 +138,7 @@ android {
 }
 
 dependencies {
-    compile project(':react-native-fbsdk')
-    compile project(':react-native-config')
+    implementation project(':react-native-config')
     implementation project(':react-native-firebase')
     implementation project(':react-native-vector-icons')
 
@@ -153,6 +152,7 @@ dependencies {
 
     // react-native-fbsdk dependencies
     implementation 'com.facebook.android:facebook-android-sdk:4.34.0'
+    implementation 'com.facebook.android:facebook-login:4.34.0'
     implementation project(':react-native-fbsdk')
 }
 
