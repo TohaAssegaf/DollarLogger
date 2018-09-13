@@ -6,6 +6,7 @@ import com.facebook.CallbackManager;
 import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
 import com.facebook.react.ReactApplication;
+import io.invertase.firebase.RNFirebasePackage;
 import com.facebook.reactnative.androidsdk.FBSDKPackage;
 import com.lugg.ReactNativeConfig.ReactNativeConfigPackage;
 import io.invertase.firebase.RNFirebasePackage;
@@ -60,6 +61,7 @@ public class MainApplication extends Application implements ReactApplication {
   public void onCreate() {
     super.onCreate();
     AppEventsLogger.activateApp(this);
+    FacebookSdk.sdkInitialize(getApplicationContext());
     SoLoader.init(this, /* native exopackage */ false);
   }
 }

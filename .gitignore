@@ -1,8 +1,8 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
+.DS_Store
 
 # iOS
-ios/build/
-ios/DerivedData
+build/
 *.pbxuser
 !default.pbxuser
 *.mode1v3
@@ -14,16 +14,16 @@ ios/DerivedData
 xcuserdata
 *.xccheckout
 *.moved-aside
+DerivedData
 *.hmap
 *.ipa
 *.xcuserstate
 project.xcworkspace
 
 # android
-android/.gradle/
-android/app/build
-android/build/
+build/
 .idea
+.gradle
 local.properties
 *.iml
 
