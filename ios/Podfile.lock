@@ -28,13 +28,13 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
-  - React (0.52.0):
-    - React/Core (= 0.52.0)
+  - React (0.57.0):
+    - React/Core (= 0.57.0)
   - react-native-config (0.11.5):
     - React
-  - React/Core (0.52.0):
-    - yoga (= 0.52.0.React)
-  - yoga (0.52.0.React)
+  - React/Core (0.57.0):
+    - yoga (= 0.57.0.React)
+  - yoga (0.57.0.React)
 
 DEPENDENCIES:
   - Firebase/Auth (~> 5.3.0)
@@ -71,9 +71,9 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
   GTMSessionFetcher: 0c4baf0a73acd0041bf9f71ea018deedab5ea84e
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
-  React: 43e97926f429d846050880666de1809e22dd5cc5
+  React: 1fe0eb13d90b625d94c3b117c274dcfd2e760e11
   react-native-config: 408003951fd9d8b1dfd7ebf535f67c315f44d823
-  yoga: 55da126afc384965b96bff46652464373b330add
+  yoga: b1ce48b6cf950b98deae82838f5173ea7cf89e85
 
 PODFILE CHECKSUM: be22edefcd1b846f6403e139afaed158d3041308
 

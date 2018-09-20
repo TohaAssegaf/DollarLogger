@@ -40,6 +40,8 @@
 		2D16E6881FA4F8E400B85C8A /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D16E6891FA4F8E400B85C8A /* libReact.a */; };
 		2DCD954D1E0B4F2C00145EB5 /* DollarLoggerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* DollarLoggerTests.m */; };
 		2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
+		361C16F771B8692938512F37 /* libPods-DollarLogger-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1343BF85532B57616BC295F7 /* libPods-DollarLogger-tvOSTests.a */; };
+		7B8C2F9B6D777BB59C03AF05 /* libPods-DollarLogger-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 039BB2C9A86C4DF28C63DFAE /* libPods-DollarLogger-tvOS.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		8C1C745A964E4504B4E15083 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A34EFF5AB41846F9BC0A5F56 /* Entypo.ttf */; };
 		96F7EAC13F1C4D1F8AE48992 /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 859CA8006DA54F77AFB9F513 /* libRNVectorIcons.a */; };
@@ -47,15 +49,14 @@
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		B82056852138FBE8002B1148 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B82056812138FBE8002B1148 /* Bolts.framework */; };
 		B82056862138FBE9002B1148 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B82056822138FBE8002B1148 /* FBSDKCoreKit.framework */; };
-		B82056872138FBE9002B1148 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B82056832138FBE8002B1148 /* FBSDKLoginKit.framework */; };
 		B82056882138FBE9002B1148 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B82056842138FBE8002B1148 /* FBSDKShareKit.framework */; };
 		B8A5213D2137EB5F0086018F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B8A5213C2137EB5F0086018F /* GoogleService-Info.plist */; };
 		C752FCF02F9449E9A00EE42F /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2609E51F491F4A0DBF12920D /* EvilIcons.ttf */; };
 		CDC13D1FB865485EA249B49A /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 34D48FC60F4640F6B62807C3 /* FontAwesome.ttf */; };
 		D41D1F1688E4425386920889 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B2C1F0EF9F004A7781809CEA /* MaterialIcons.ttf */; };
 		E28CB95FEBFA4840A539070C /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4C625EF3CBD7417FABBD5884 /* MaterialCommunityIcons.ttf */; };
+		E5D4448C29F10EDC504E0779 /* libPods-DollarLoggerTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B5AC4359F8560C9E207EEA8 /* libPods-DollarLoggerTests.a */; };
 		E91A82784EFD4DC29C8CEF3F /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 92A7ED2CDB2047F794B68552 /* Foundation.ttf */; };
-		EBE62537CCDDC253F6F40E4B /* libPods-DollarLogger-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1343BF85532B57616BC295F7 /* libPods-DollarLogger-tvOSTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -346,62 +347,6 @@
 			remoteGlobalIDString = 134814201AA4EA6300B7C361;
 			remoteInfo = RNFirebase;
 		};
-		B8B662172137C5B2004218EC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = EBF21BDC1FC498900052F4D5;
-			remoteInfo = jsinspector;
-		};
-		B8B662192137C5B2004218EC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = EBF21BFA1FC4989A0052F4D5;
-			remoteInfo = "jsinspector-tvOS";
-		};
-		B8B6621B2137C5B2004218EC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 139D7ECE1E25DB7D00323FB7;
-			remoteInfo = "third-party";
-		};
-		B8B6621D2137C5B2004218EC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3D383D3C1EBD27B6005632C8;
-			remoteInfo = "third-party-tvOS";
-		};
-		B8B6621F2137C5B2004218EC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 139D7E881E25C6D100323FB7;
-			remoteInfo = "double-conversion";
-		};
-		B8B662212137C5B2004218EC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3D383D621EBD27B9005632C8;
-			remoteInfo = "double-conversion-tvOS";
-		};
-		B8B662232137C5B2004218EC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 9936F3131F5F2E4B0010BF04;
-			remoteInfo = privatedata;
-		};
-		B8B662252137C5B2004218EC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 9936F32F1F5F2E5B0010BF04;
-			remoteInfo = "privatedata-tvOS";
-		};
 		B8B662282137C5B2004218EC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B0E260C8D7AC49B2BF1F109E /* RNVectorIcons.xcodeproj */;
@@ -480,7 +425,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */,
-				42BDE923953DFBFF1E301971 /* libPods-DollarLoggerTests.a in Frameworks */,
+				E5D4448C29F10EDC504E0779 /* libPods-DollarLoggerTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -506,7 +451,6 @@
 				B82056882138FBE9002B1148 /* FBSDKShareKit.framework in Frameworks */,
 				B82056852138FBE8002B1148 /* Bolts.framework in Frameworks */,
 				2A17467BAE00468CA883EF55 /* libRNFirebase.a in Frameworks */,
-				11BB4B064E5F405BA1A63523 /* libRCTFBSDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -522,7 +466,7 @@
 				2D02E4C61E0B4AEC006451C7 /* libRCTSettings-tvOS.a in Frameworks */,
 				2D02E4C71E0B4AEC006451C7 /* libRCTText-tvOS.a in Frameworks */,
 				2D02E4C81E0B4AEC006451C7 /* libRCTWebSocket-tvOS.a in Frameworks */,
-				45045C9BDD639A3E34DFB490 /* libPods-DollarLogger-tvOS.a in Frameworks */,
+				7B8C2F9B6D777BB59C03AF05 /* libPods-DollarLogger-tvOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -531,6 +475,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */,
+				361C16F771B8692938512F37 /* libPods-DollarLogger-tvOSTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1283,62 +1228,6 @@
 			remoteRef = B8A521392137EA670086018F /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		B8B662182137C5B2004218EC /* libjsinspector.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libjsinspector.a;
-			remoteRef = B8B662172137C5B2004218EC /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		B8B6621A2137C5B2004218EC /* libjsinspector-tvOS.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libjsinspector-tvOS.a";
-			remoteRef = B8B662192137C5B2004218EC /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		B8B6621C2137C5B2004218EC /* libthird-party.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libthird-party.a";
-			remoteRef = B8B6621B2137C5B2004218EC /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		B8B6621E2137C5B2004218EC /* libthird-party.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libthird-party.a";
-			remoteRef = B8B6621D2137C5B2004218EC /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		B8B662202137C5B2004218EC /* libdouble-conversion.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libdouble-conversion.a";
-			remoteRef = B8B6621F2137C5B2004218EC /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		B8B662222137C5B2004218EC /* libdouble-conversion.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libdouble-conversion.a";
-			remoteRef = B8B662212137C5B2004218EC /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		B8B662242137C5B2004218EC /* libprivatedata.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libprivatedata.a;
-			remoteRef = B8B662232137C5B2004218EC /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		B8B662262137C5B2004218EC /* libprivatedata-tvOS.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libprivatedata-tvOS.a";
-			remoteRef = B8B662252137C5B2004218EC /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		B8B662292137C5B2004218EC /* libRNVectorIcons.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1370,8 +1259,6 @@
 				1C0E53731E7C4C93BC4BCF78 /* Ionicons.ttf in Resources */,
 				E28CB95FEBFA4840A539070C /* MaterialCommunityIcons.ttf in Resources */,
 				D41D1F1688E4425386920889 /* MaterialIcons.ttf in Resources */,
-				80235ED0D21343A5BEB178D4 /* Octicons.ttf in Resources */,
-				775BEA538E6D4C9B866F5122 /* SimpleLineIcons.ttf in Resources */,
 				214CD56F5E054FDF84BBA694 /* Zocial.ttf in Resources */,
 				B8A5213D2137EB5F0086018F /* GoogleService-Info.plist in Resources */,
 			);
@@ -1635,6 +1522,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"~/Documents/FacebookSDK/**",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1667,6 +1555,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"~/Documents/FacebookSDK/**",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
