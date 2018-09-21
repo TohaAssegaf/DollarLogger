@@ -1,17 +1,7 @@
 {
   "presets": [
-    "babel-preset-react-native-stage-0/decorator-support",
-    "flow",
     "module:metro-react-native-babel-preset",
-    "react-native",
   ],
-  "env": {
-    "development": {
-      "plugins": [
-        "transform-react-jsx-source",
-      ]
-    },
-  },
   "plugins": [
     [
       "babel-plugin-root-import",
