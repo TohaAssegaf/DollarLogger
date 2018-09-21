@@ -8,7 +8,7 @@ import React from 'react';
 import { Text, View } from 'react-native'
 
 export default class Login extends React.Component {
-  static navigationOptions = ({ navigation}) => {
+  static navigationOptions = ({ navigation }) => {
     return {
       title: 'Sign In',
       headerStyle: {

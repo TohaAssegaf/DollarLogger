@@ -31,9 +31,6 @@ exports[`does not include previous week payments 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "black",
@@ -43,11 +40,7 @@ exports[`does not include previous week payments 1`] = `
       >
         $250.00
       </Text>
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-      >
+      <Text>
         Remaining this week
       </Text>
     </View>
@@ -63,9 +56,6 @@ exports[`does not include previous week payments 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "black",
@@ -75,11 +65,7 @@ exports[`does not include previous week payments 1`] = `
       >
         $0.00
       </Text>
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-      >
+      <Text>
         Spent so far
       </Text>
     </View>
@@ -244,9 +230,6 @@ exports[`does not include previous week payments 1`] = `
               }
             >
               <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
                 style={
                   Object {
                     "backgroundColor": "transparent",
@@ -298,9 +281,6 @@ exports[`renders correctly 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "black",
@@ -310,11 +290,7 @@ exports[`renders correctly 1`] = `
       >
         $249.99
       </Text>
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-      >
+      <Text>
         Remaining this week
       </Text>
     </View>
@@ -330,9 +306,6 @@ exports[`renders correctly 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "black",
@@ -342,11 +315,7 @@ exports[`renders correctly 1`] = `
       >
         $0.01
       </Text>
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-      >
+      <Text>
         Spent so far
       </Text>
     </View>
@@ -421,9 +390,6 @@ exports[`renders correctly 1`] = `
               }
             >
               <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
                 style={
                   Object {
                     "fontSize": 16,
@@ -441,9 +407,6 @@ exports[`renders correctly 1`] = `
               }
             >
               <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
                 numberOfLines={2}
                 style={
                   Object {
@@ -464,9 +427,6 @@ exports[`renders correctly 1`] = `
               }
             >
               <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
                 style={
                   Object {
                     "fontSize": 16,
@@ -615,9 +575,6 @@ exports[`renders correctly 1`] = `
               }
             >
               <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
                 style={
                   Object {
                     "backgroundColor": "transparent",
