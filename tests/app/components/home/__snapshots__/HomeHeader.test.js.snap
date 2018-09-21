@@ -23,9 +23,6 @@ exports[`renders correctly 1`] = `
     }
   >
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "black",
@@ -35,11 +32,7 @@ exports[`renders correctly 1`] = `
     >
       $249.99
     </Text>
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-    >
+    <Text>
       Remaining this week
     </Text>
   </View>
@@ -55,9 +48,6 @@ exports[`renders correctly 1`] = `
     }
   >
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "black",
@@ -67,11 +57,7 @@ exports[`renders correctly 1`] = `
     >
       $0.01
     </Text>
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-    >
+    <Text>
       Spent so far
     </Text>
   </View>

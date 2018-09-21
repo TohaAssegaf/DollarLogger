@@ -91,9 +91,6 @@ exports[`renders correctly 1`] = `
               }
             >
               <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
                 style={
                   Object {
                     "fontSize": 16,
@@ -111,9 +108,6 @@ exports[`renders correctly 1`] = `
               }
             >
               <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
                 numberOfLines={2}
                 style={
                   Object {
@@ -134,9 +128,6 @@ exports[`renders correctly 1`] = `
               }
             >
               <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
                 style={
                   Object {
                     "fontSize": 16,
@@ -185,9 +176,6 @@ exports[`renders correctly 1`] = `
               }
             >
               <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
                 style={
                   Object {
                     "fontSize": 16,
@@ -205,9 +193,6 @@ exports[`renders correctly 1`] = `
               }
             >
               <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
                 numberOfLines={2}
                 style={
                   Object {
@@ -228,9 +213,6 @@ exports[`renders correctly 1`] = `
               }
             >
               <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
                 style={
                   Object {
                     "fontSize": 16,
@@ -279,9 +261,6 @@ exports[`renders correctly 1`] = `
               }
             >
               <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
                 style={
                   Object {
                     "fontSize": 16,
@@ -299,9 +278,6 @@ exports[`renders correctly 1`] = `
               }
             >
               <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
                 numberOfLines={2}
                 style={
                   Object {
@@ -322,9 +298,6 @@ exports[`renders correctly 1`] = `
               }
             >
               <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
                 style={
                   Object {
                     "fontSize": 16,
