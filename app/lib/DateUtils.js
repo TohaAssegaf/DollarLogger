@@ -2,7 +2,7 @@ export function getShortFormat(date: Date): string {
   return (date.getMonth() + 1) + "/" + date.getDate()
 }
 
-ONE_DAY = 86400000
+const ONE_DAY = 86400000
 
 export function getLastMonday(date: Date): Date {
   let resultDate = date
