@@ -14,55 +14,17 @@ import thunk from 'redux-thunk'
 const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares)
 
-let mockPayments = []
-let mockId = 1
-jest.mock('../../../app/store/models/payment', () => {
-  return {
-    addPayment: jest.fn((payment) => {
-      return new Promise((resolve, reject) => {
-        mockPayments.push(payment)
-        resolve(mockPayments)
-      })
-    }),
-    updatePayment: jest.fn((item, payment) => {
-      return new Promise((resolve, reject) => {
-        mockPayments = mockPayments.map(
-          storedPayment => storedPayment.id === mockId ? payment : storedPayment)
-        resolve(mockPayments)
-      })
-    }),
-    deletePayment: jest.fn((item, paymentId) => {
-      return new Promise((resolve, reject) => {
-        mockPayments = mockPayments.filter(
-          storedPayment => storedPayment.id !== paymentId)
-        resolve(mockPayments)
-      })
-    }),
-    getPayments: jest.fn((item) => {
-      return new Promise((resolve, reject) => {
-        resolve(mockPayments);
-      })
-    })
-  }
-})
- 
 describe('PaymentActions', () => {
-  beforeEach(() => {
-    mockPayments = []
-    mockId = 1
-  })
-
   it('should dispatch request and success for successful create payment', () => {
     const total: number = 10000
     const name: string = "Test payment"
     const date: Date = new Date(2018, 4, 2)
     const payment = {
-      id: mockId,
+      id: 1,
       total,
       name,
       date
     }
-    mockId += 1
     const payments = [payment]
     const expectedActions = [actions.getPaymentsRequest(), actions.getPaymentsSuccess(payments)]
     const store = mockStore({ payment: { payments: [] }})
@@ -82,12 +44,11 @@ describe('PaymentActions', () => {
     const name: string = "Test payment"
     const date: Date = new Date(2018, 4, 2)
     const payment = {
-      id: mockId,
+      id: 1,
       total,
       name,
       date
     }
-    mockId += 1
     await PaymentModel.addPayment(payment)
     const newPayment = Object.assign({}, payment, { total: newTotal })
     const payments = [newPayment]
@@ -108,12 +69,11 @@ describe('PaymentActions', () => {
     const name: string = "Test payment"
     const date: Date = new Date(2018, 4, 2)
     const payment = {
-      id: mockId,
+      id: 1,
       total,
       name,
       date
     }
-    mockId += 1
     await PaymentModel.addPayment(payment)
     const expectedActions = [actions.getPaymentsRequest(), actions.getPaymentsSuccess([])]
     const store = mockStore({ payment: { payments: [] }})
@@ -166,7 +126,7 @@ describe('PaymentActions', () => {
     const name: string = "Test payment"
     const date: Date = new Date(2018, 4, 2)
     const payment = {
-      id: mockId,
+      id: 1,
       total,
       name,
       date
