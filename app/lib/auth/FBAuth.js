@@ -8,7 +8,6 @@ export const login = (error, result) => {
   if (result.isCancelled) {
     throw new Error('User cancelled request.')
   }
-  console.log(`Login success with permissions: ${result.grantedPermissions.toString()}`)
   return AccessToken.getCurrentAccessToken().then(data => {
     if (!data) {
       throw new Error('Access token could not be obtained.')
