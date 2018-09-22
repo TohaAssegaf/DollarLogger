@@ -73,11 +73,7 @@ exports[`renders correctly 1`] = `
         }
       >
         <View>
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-          >
+          <Text>
             Loading...
           </Text>
         </View>
