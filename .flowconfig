@@ -38,9 +38,15 @@
 <PROJECT_ROOT>/node_modules/metro-bundler/.*
 <PROJECT_ROOT>/node_modules/metro/.*
 <PROJECT_ROOT>/node_modules/react-native/.*
+<PROJECT_ROOT>/node_modules/react-native-fbsdk/.*
+<PROJECT_ROOT>/node_modules/react-native-firebase/.*
 <PROJECT_ROOT>/node_modules/react-native-tab-view/.*
 <PROJECT_ROOT>/node_modules/react-navigation/.*
 <PROJECT_ROOT>/node_modules/react-navigation-redux-helpers/.*
+
+; Ignore node_modules
+<PROJECT_ROOT>/node_modules/.*
+
 [include]
 
 [libs]
@@ -52,9 +58,6 @@ tests/
 
 [options]
 emoji=true
-
-esproposal.optional_chaining=enable
-esproposal.nullish_coalescing=enable
 
 module.system=haste
 module.system.haste.use_name_reducers=true
@@ -92,4 +95,4 @@ suppress_comment=\\(.\\|\n\\)*\\$FlowFixedInNextDeploy
 suppress_comment=\\(.\\|\n\\)*\\$FlowExpectedError
 
 [version]
-^0.78.0
+^0.56.0
