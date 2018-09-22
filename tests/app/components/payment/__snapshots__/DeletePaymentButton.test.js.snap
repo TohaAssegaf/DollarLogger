@@ -9,13 +9,9 @@ exports[`renders correctly 1`] = `
   }
 >
   <View
-    accessibilityComponentType="button"
     accessibilityLabel="Save payment"
-    accessibilityTraits={
-      Array [
-        "button",
-      ]
-    }
+    accessibilityRole="button"
+    accessibilityStates={Array []}
     accessible={true}
     isTVSelectable={true}
     onResponderGrant={[Function]}
@@ -38,9 +34,6 @@ exports[`renders correctly 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {

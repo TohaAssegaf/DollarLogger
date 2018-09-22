@@ -13,9 +13,6 @@ exports[`renders correctly 1`] = `
   }
 >
   <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
     style={
       Object {
         "color": "#222222",
@@ -26,9 +23,6 @@ exports[`renders correctly 1`] = `
     What is your weekly budget?
   </Text>
   <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
     style={
       Object {
         "fontSize": 15,
@@ -53,9 +47,6 @@ exports[`renders correctly 1`] = `
     }
   >
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Array [
           Object {
@@ -106,13 +97,9 @@ exports[`renders correctly 1`] = `
       }
     >
       <View
-        accessibilityComponentType="button"
         accessibilityLabel="Update weekly budget"
-        accessibilityTraits={
-          Array [
-            "button",
-          ]
-        }
+        accessibilityRole="button"
+        accessibilityStates={Array []}
         accessible={true}
         isTVSelectable={true}
         onResponderGrant={[Function]}
@@ -135,9 +122,6 @@ exports[`renders correctly 1`] = `
           }
         >
           <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Array [
                 Object {

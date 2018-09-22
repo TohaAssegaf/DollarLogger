@@ -9,12 +9,17 @@ exports[`renders correctly 1`] = `
     }
   }
 >
-  <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
-  >
-    Skeleton login screen
-  </Text>
+  <View>
+    <RCTFBLoginButton
+      onChange={[Function]}
+      onLoginFinished={[Function]}
+      style={
+        Object {
+          "height": 30,
+          "width": 190,
+        }
+      }
+    />
+  </View>
 </View>
 `;

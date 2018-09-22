@@ -1,4 +1,5 @@
 import styles from './styles'
+import FBAuthButton from '~/app/components/login/FBAuthButton'
 import {
   HEADER_BACKGROUND_COLOR,
   HEADER_TEXT_COLOR,
@@ -7,7 +8,7 @@ import React from 'react';
 import { Text, View } from 'react-native'
 
 export default class Login extends React.Component {
-  static navigationOptions = ({ navigation}) => {
+  static navigationOptions = ({ navigation }) => {
     return {
       title: 'Sign In',
       headerStyle: {
@@ -16,10 +17,15 @@ export default class Login extends React.Component {
       headerTintColor: HEADER_TEXT_COLOR,
     }
   }
+
+  handleUser(user) {
+    this.props.navigation.goBack()
+  }
+
   render() {
     return (
       <View style={styles.screen}>
-        <Text>Skeleton login screen</Text>
+        <FBAuthButton onLoginComplete={user => this.handleUser(user)} />
       </View>
     );
   }

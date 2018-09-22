@@ -21,7 +21,6 @@ it('dispatches given action and navigates back', () => {
       onSubmit={
         (total, name, date, splitCount) => mockSubmitCallback(total, name, date, splitCount)}
     />)
-  const render = wrapper.dive()
   const expectedTotal = 10000
   const expectedName = "Test payment"
   const expectedDate = new Date(2018, 4, 2)
@@ -31,17 +30,20 @@ it('dispatches given action and navigates back', () => {
   expect(wrapper.state().name).toEqual("")
   expect(wrapper.state().splitCount).toEqual("")
 
-  render.find('MoneyField').simulate('change', expectedTotal)
-  render.find('TextInput').at(0).simulate('changeText', expectedName)
-  render.find('DatePicker').simulate('dateChange', expectedDate)
-  render.find('TextInput').at(1).simulate('changeText', expectedSplitCount.toString())
+  console.log("BASE PAYMENT FORM DEBUG")
+  console.log(wrapper.debug())
+
+  wrapper.find('MoneyField').simulate('change', expectedTotal)
+  wrapper.find('TextInput').at(0).simulate('changeText', expectedName)
+  wrapper.find('DatePicker').simulate('dateChange', expectedDate)
+  wrapper.find('TextInput').at(1).simulate('changeText', expectedSplitCount.toString())
 
   expect(wrapper.state().total).toEqual(expectedTotal)
   expect(wrapper.state().name).toEqual(expectedName)
   expect(wrapper.state().date).toEqual(expectedDate)
   expect(wrapper.state().splitCount).toEqual(expectedSplitCount.toString())
 
-  render.find('Button').simulate('press')
+  wrapper.find('Button').simulate('press')
 
   expect(mockSubmitCallback.mock.calls).toEqual(
     [[expectedTotal, expectedName, expectedDate, expectedSplitCount]])

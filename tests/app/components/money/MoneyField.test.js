@@ -15,33 +15,29 @@ it('renders correctly', () => {
 
 it('allows valid input', () => {
   const wrapper = shallow(<MoneyField onChange={onChange} />)
-  const render = wrapper.dive()
-  render.find('TextInput').simulate('changeText', '100')
+  wrapper.find('TextInput').simulate('changeText', '100')
   expect(wrapper.state().total).toEqual(10000)
   expect(onChange).toHaveBeenLastCalledWith(10000)
 });
 
 it('allows ambiguous input', () => {
   const wrapper = shallow(<MoneyField onChange={onChange} />)
-  const render = wrapper.dive()
-  render.find('TextInput').simulate('changeText', '100.')
+  wrapper.find('TextInput').simulate('changeText', '100.')
   expect(wrapper.state().total).toEqual(10000)
   expect(onChange).toHaveBeenLastCalledWith(10000)
 });
 
 it('allows ambiguous . input', () => {
   const wrapper = shallow(<MoneyField onChange={onChange} />)
-  const render = wrapper.dive()
-  render.find('TextInput').simulate('changeText', '1') // Change to non-zero input first
-  render.find('TextInput').simulate('changeText', '.')
+  wrapper.find('TextInput').simulate('changeText', '1') // Change to non-zero input first
+  wrapper.find('TextInput').simulate('changeText', '.')
   expect(wrapper.state().total).toEqual(0)
   expect(onChange).toHaveBeenLastCalledWith(0)
 });
 
 it('allows ambiguous <1 input', () => {
   const wrapper = shallow(<MoneyField onChange={onChange} />)
-  const render = wrapper.dive()
-  render.find('TextInput').simulate('changeText', '.37')
+  wrapper.find('TextInput').simulate('changeText', '.37')
   expect(wrapper.state().total).toEqual(37)
   expect(onChange).toHaveBeenLastCalledWith(37)
 });

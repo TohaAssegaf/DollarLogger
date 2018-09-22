@@ -31,11 +31,7 @@ exports[`renders correctly 1`] = `
         }
       }
     >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-      >
+      <Text>
         Update budget
       </Text>
     </View>
@@ -62,11 +58,7 @@ exports[`renders correctly 1`] = `
         }
       }
     >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-      >
+      <Text>
         Sign in to back-up your data
       </Text>
     </View>

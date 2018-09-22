@@ -19,22 +19,6 @@ import thunk from 'redux-thunk'
 
 const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares)
-jest.mock('../../../app/store/models/budget', () => {
-  let total: number = 0
-  return {
-    setTotal: jest.fn((item, value) => {
-      return new Promise((resolve, reject) => {
-        total = value
-        resolve(value)
-      })
-    }),
-    getTotal: jest.fn((item) => {
-      return new Promise((resolve, reject) => {
-        resolve(total);
-      })
-    })
-  }
-})
  
 describe('BudgetActions', () => {
   it('should create an action to set new budget total request', () => {

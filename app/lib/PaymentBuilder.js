@@ -1,7 +1,7 @@
 import * as DateUtils from './DateUtils'
 
-ONE_DAY = 86400000
-ONE_WEEK = ONE_DAY * 7
+const ONE_DAY = 86400000
+const ONE_WEEK = ONE_DAY * 7
 
 export default class PaymentBuilder {
   id: number
