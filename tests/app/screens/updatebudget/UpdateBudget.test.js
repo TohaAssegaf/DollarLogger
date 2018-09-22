@@ -29,16 +29,15 @@ it('dispatches request on submit', () => {
   const store = mockStore({ budget: { total: 0, isWriting: false, errorMessage: "" } })
   const wrapper = shallow(<UpdateBudget store={store} navigation={navigation} />)
       .dive({ context: { store } })
-  const render = wrapper.dive()
   const expectedTotal = 10000
 
   expect(wrapper.state().total).toEqual(0)
 
-  render.find('MoneyField').simulate('change', expectedTotal)
+  wrapper.find('MoneyField').simulate('change', expectedTotal)
 
   expect(wrapper.state().total).toEqual(expectedTotal)
 
-  render.find('Button').simulate('press')
+  wrapper.find('Button').simulate('press')
 
   expect(store.getActions()).toContainEqual(actions.setBudgetTotalRequest())
   expect(navigation.goBack.mock.calls).toHaveLength(1)
