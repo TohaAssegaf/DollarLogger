@@ -38,11 +38,15 @@
 		2D02E4C81E0B4AEC006451C7 /* libRCTWebSocket-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3E991DF850E9000B6D8A /* libRCTWebSocket-tvOS.a */; };
 		2DCD954D1E0B4F2C00145EB5 /* DollarLoggerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* DollarLoggerTests.m */; };
 		2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
+		3DBD128B26C30914B20D2216 /* libPods-DollarLogger-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 132815252B83B62E55580A3A /* libPods-DollarLogger-tvOSTests.a */; };
+		610DAFD93B1EEDD91DE8672B /* libPods-DollarLoggerTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 09E6501B1ED603BEC7AD7A36 /* libPods-DollarLoggerTests.a */; };
+		6C5AEED6A8642FA06F6492D7 /* libPods-DollarLogger-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 72C0B076A04B50169BB4FB5A /* libPods-DollarLogger-tvOS.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		8C1C745A964E4504B4E15083 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A34EFF5AB41846F9BC0A5F56 /* Entypo.ttf */; };
 		96F7EAC13F1C4D1F8AE48992 /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 859CA8006DA54F77AFB9F513 /* libRNVectorIcons.a */; };
 		988CDE799076415DA73AA024 /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DDE9F0EB7B864601B14F0C00 /* Feather.ttf */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
+		B0E3B0BB07F11087D8F6B438 /* libPods-DollarLogger.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 89AA85B85F8A0F09218FBE1B /* libPods-DollarLogger.a */; };
 		B82056852138FBE8002B1148 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B82056812138FBE8002B1148 /* Bolts.framework */; };
 		B82056862138FBE9002B1148 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B82056822138FBE8002B1148 /* FBSDKCoreKit.framework */; };
 		B82056882138FBE9002B1148 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B82056842138FBE8002B1148 /* FBSDKShareKit.framework */; };
@@ -374,6 +378,8 @@
 		011F6023D7959A6F0E3439B4 /* Pods-DollarLoggerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DollarLoggerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DollarLoggerTests/Pods-DollarLoggerTests.release.xcconfig"; sourceTree = "<group>"; };
 		053DE3B39F3041B7A0C15676 /* RCTFBSDK.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTFBSDK.xcodeproj; path = "../node_modules/react-native-fbsdk/ios/RCTFBSDK.xcodeproj"; sourceTree = "<group>"; };
 		05E50939EFD719BF4D183338 /* Pods-DollarLogger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DollarLogger.release.xcconfig"; path = "Pods/Target Support Files/Pods-DollarLogger/Pods-DollarLogger.release.xcconfig"; sourceTree = "<group>"; };
+		09E6501B1ED603BEC7AD7A36 /* libPods-DollarLoggerTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DollarLoggerTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		132815252B83B62E55580A3A /* libPods-DollarLogger-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DollarLogger-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
 		139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* DollarLogger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DollarLogger.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -396,11 +402,13 @@
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		6B3E1F656FAD4FC495A02FF0 /* libRCTFBSDK.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTFBSDK.a; sourceTree = "<group>"; };
 		6C84AABA00D95BF27B9097AF /* Pods-DollarLogger-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DollarLogger-tvOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DollarLogger-tvOSTests/Pods-DollarLogger-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		72C0B076A04B50169BB4FB5A /* libPods-DollarLogger-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DollarLogger-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		76919BAB418C404629DEF7DF /* Pods-DollarLogger-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DollarLogger-tvOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DollarLogger-tvOSTests/Pods-DollarLogger-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		7BF99CD8374D413DB9FF530D /* RNFirebase.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNFirebase.xcodeproj; path = "../node_modules/react-native-firebase/ios/RNFirebase.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		859CA8006DA54F77AFB9F513 /* libRNVectorIcons.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNVectorIcons.a; sourceTree = "<group>"; };
+		89AA85B85F8A0F09218FBE1B /* libPods-DollarLogger.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DollarLogger.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92A7ED2CDB2047F794B68552 /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
 		A34EFF5AB41846F9BC0A5F56 /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
@@ -426,6 +434,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */,
+				610DAFD93B1EEDD91DE8672B /* libPods-DollarLoggerTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,6 +462,7 @@
 				B82056882138FBE9002B1148 /* FBSDKShareKit.framework in Frameworks */,
 				B82056852138FBE8002B1148 /* Bolts.framework in Frameworks */,
 				2A17467BAE00468CA883EF55 /* libRNFirebase.a in Frameworks */,
+				B0E3B0BB07F11087D8F6B438 /* libPods-DollarLogger.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,6 +477,7 @@
 				2D02E4C61E0B4AEC006451C7 /* libRCTSettings-tvOS.a in Frameworks */,
 				2D02E4C71E0B4AEC006451C7 /* libRCTText-tvOS.a in Frameworks */,
 				2D02E4C81E0B4AEC006451C7 /* libRCTWebSocket-tvOS.a in Frameworks */,
+				6C5AEED6A8642FA06F6492D7 /* libPods-DollarLogger-tvOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -475,6 +486,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */,
+				3DBD128B26C30914B20D2216 /* libPods-DollarLogger-tvOSTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -623,6 +635,10 @@
 				B82056822138FBE8002B1148 /* FBSDKCoreKit.framework */,
 				B82056832138FBE8002B1148 /* FBSDKLoginKit.framework */,
 				B82056842138FBE8002B1148 /* FBSDKShareKit.framework */,
+				89AA85B85F8A0F09218FBE1B /* libPods-DollarLogger.a */,
+				72C0B076A04B50169BB4FB5A /* libPods-DollarLogger-tvOS.a */,
+				132815252B83B62E55580A3A /* libPods-DollarLogger-tvOSTests.a */,
+				09E6501B1ED603BEC7AD7A36 /* libPods-DollarLoggerTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
