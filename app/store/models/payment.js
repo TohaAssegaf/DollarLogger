@@ -43,3 +43,13 @@ export function deletePayment(id: number) {
       .then(() => updatedPayments)
   })
 }
+
+export function syncPayments() {
+  return getPayments().then(payments =>{
+    return FirebaseUtils.fetchPayments(dbPayments => {
+      const syncedPayments: Array<Payment> = DatabaseUtils.syncPayments(payments, dbPayments)
+      return AsyncStorage.setItem(PAYMENTS_ASYNC_STORAGE_KEY, JSON.stringify(syncedPayments))
+        .then(() => syncedPayments)
+    })
+  })
+}
