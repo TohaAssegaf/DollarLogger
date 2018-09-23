@@ -7,7 +7,7 @@ import {
 import React from 'react';
 import { Text, View } from 'react-native'
 
-export default class Login extends React.Component {
+class Login extends React.Component {
   static navigationOptions = ({ navigation }) => {
     return {
       title: 'Sign In',
@@ -19,6 +19,7 @@ export default class Login extends React.Component {
   }
 
   handleUser(user) {
+    this.props.syncPayments()
     this.props.navigation.goBack()
   }
 
@@ -30,3 +31,13 @@ export default class Login extends React.Component {
     );
   }
 }
+
+const mapDispatchToProps = dispatch => {
+  return {
+    syncPayments: () => {
+      dispatch(actions.syncPayments())
+    }
+  }
+}
+
+export default connect((state) => ({}), mapDispatchToProps)(Login)
