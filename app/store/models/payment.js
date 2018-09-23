@@ -1,4 +1,6 @@
 import { PAYMENTS_ASYNC_STORAGE_KEY } from '~/app/config/storage'
+import * as DatabaseUtils from '~/app/lib/database/DatabaseUtils'
+import * as FirebaseUtils from '~/app/lib/database/FirebaseUtils'
 import { AsyncStorage } from 'react-native'
 
 export function getPayments() {
@@ -45,9 +47,10 @@ export function deletePayment(id: number) {
 }
 
 export function syncPayments() {
-  return getPayments().then(payments =>{
+  return getPayments().then(payments => {
     return FirebaseUtils.fetchPayments(dbPayments => {
       const syncedPayments: Array<Payment> = DatabaseUtils.syncPayments(payments, dbPayments)
+      FirebaseUtils.pushPayments(syncedPayments)
       return AsyncStorage.setItem(PAYMENTS_ASYNC_STORAGE_KEY, JSON.stringify(syncedPayments))
         .then(() => syncedPayments)
     })

@@ -20,7 +20,7 @@ class Login extends React.Component {
     }
   }
 
-  handleUser(user) {
+  handleUser() {
     this.props.syncPayments()
     this.props.navigation.goBack()
   }
@@ -28,7 +28,7 @@ class Login extends React.Component {
   render() {
     return (
       <View style={styles.screen}>
-        <FBAuthButton onLoginComplete={user => this.handleUser(user)} />
+        <FBAuthButton onLoginComplete={() => this.handleUser()} />
       </View>
     );
   }
