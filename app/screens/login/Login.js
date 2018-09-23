@@ -6,6 +6,7 @@ import {
 } from '~/app/config/colors'
 import React from 'react';
 import { Text, View } from 'react-native'
+import { connect } from 'react-redux'
 
 class Login extends React.Component {
   static navigationOptions = ({ navigation }) => {
