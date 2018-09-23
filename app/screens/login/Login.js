@@ -1,4 +1,5 @@
 import styles from './styles'
+import actions from '~/app/actions'
 import FBAuthButton from '~/app/components/login/FBAuthButton'
 import {
   HEADER_BACKGROUND_COLOR,
