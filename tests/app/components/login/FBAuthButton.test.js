@@ -4,6 +4,6 @@ import renderer from 'react-test-renderer';
 
 it('renders correctly', () => {
   const rendered = renderer.create(
-    <FBAuthButton onLoginComplete={user => console.log(user)}/>).toJSON();
+    <FBAuthButton onLoginComplete={() => {}}/>).toJSON();
   expect(rendered).toMatchSnapshot();
 })
