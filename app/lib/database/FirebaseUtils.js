@@ -36,7 +36,7 @@ function parsePayment(payment) {
 /** Converts payments list to a map for Firebase storage. */
 function convertToFirebaseObject(payments: Array<Payment>) {
   let firebaseObject = {}
-  for (payment of payments) {
+  for (const payment of payments) {
     firebaseObject[payment.id] = payment
   }
   return firebaseObject

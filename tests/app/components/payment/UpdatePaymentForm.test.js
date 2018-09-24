@@ -16,64 +16,53 @@ const navigation = { goBack: jest.fn() }
 const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares)
 
-let mockPayments = []
-jest.mock('../../../../app/store/models/payment', () => {
-  return {
-    updatePayment: jest.fn((item, payment) => {
-      return new Promise((resolve, reject) => {
-        mockPayments = mockPayments.map(
-          mockPayment => mockPayment.id === payment.id ? payment : mockPayment)
-        resolve(mockPayments)
-      })
-    })
-  }
-})
-
-it('renders correctly', () => {
-  const payment = new PaymentBuilder()
-    .setId(1)
-    .setTotal(1000)
-    .setName("Test payment")
-    .setDate(new Date(2018, 4, 3))
-    .build()
-  const store = mockStore({ payment: { payments: [payment] } })
-  const rendered = renderer.create(<UpdatePaymentForm
-    payment={payment}
-    store={store}
-    navigation={navigation}
-  />).toJSON();
-  expect(rendered).toMatchSnapshot();
-});
-
-it('dispatches update payment action and navigates back', () => {
-  const payment =
-    new PaymentBuilder()
+describe('UpdatePaymentForm', () => {
+  it('renders correctly', () => {
+    const payment = new PaymentBuilder()
       .setId(1)
       .setTotal(1000)
       .setName("Test payment")
-      .setDate(new Date(2018, 4, 2))
-      .setSplitCount(4)
+      .setDate(new Date(2018, 4, 3))
       .build()
-  const newTotal = 20000
-  const newName = "New name"
-  const newDate = new Date(2018, 4, 3)
-  const newSplitCount = 1
-  const updatedPayment =
-    new PaymentBuilder()
-      .setId(1)
-      .setTotal(newTotal)
-      .setName(newName)
-      .setDate(newDate)
-      .setSplitCount(newSplitCount)
-      .build()
-  const store = mockStore({ payment: { payments: [payment] } })
-  const wrapper = shallow(
-    <UpdatePaymentForm payment={payment} store={store} navigation={navigation} />)
-    .dive({ context: { store } })
+    const store = mockStore({ payment: { payments: [payment] } })
+    const rendered = renderer.create(<UpdatePaymentForm
+      payment={payment}
+      store={store}
+      navigation={navigation}
+    />).toJSON();
+    expect(rendered).toMatchSnapshot();
+  });
 
-  wrapper.simulate('submit', newTotal, newName, newDate, newSplitCount)
+  it('dispatches update payment action and navigates back', () => {
+    const spy = jest.spyOn(PaymentModel, 'updatePayment')
+    const payment =
+      new PaymentBuilder()
+        .setId(1)
+        .setTotal(1000)
+        .setName("Test payment")
+        .setDate(new Date(2018, 4, 2))
+        .setSplitCount(4)
+        .build()
+    const newTotal = 20000
+    const newName = "New name"
+    const newDate = new Date(2018, 4, 3)
+    const newSplitCount = 1
+    const updatedPayment =
+      new PaymentBuilder(payment)
+        .setTotal(newTotal)
+        .setName(newName)
+        .setDate(newDate)
+        .setSplitCount(newSplitCount)
+        .build()
+    const store = mockStore({ payment: { payments: [payment] } })
+    const wrapper = shallow(
+      <UpdatePaymentForm payment={payment} store={store} navigation={navigation} />)
+      .dive({ context: { store } })
 
-  expect(store.getActions()).toContainEqual(actions.getPaymentsRequest())
-  expect(PaymentModel.updatePayment.mock.calls).toEqual([[updatedPayment]])
-  expect(navigation.goBack.mock.calls).toHaveLength(1)
-});
+    wrapper.simulate('submit', newTotal, newName, newDate, newSplitCount)
+
+    expect(store.getActions()).toContainEqual(actions.getPaymentsRequest())
+    expect(spy).toBeCalledWith(updatedPayment)
+    expect(navigation.goBack.mock.calls).toHaveLength(1)
+  });
+})
