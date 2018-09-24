@@ -10,7 +10,7 @@ export function syncPayments(
 
   // Add all local payments that have not been synced for any reason.
   const dbIds = dbPayments.map(payment => payment.id)
-  for (localPayment of localPayments) {
+  for (const localPayment of localPayments) {
     if (!dbIds.includes(localPayment.id)) {
       syncedPayments.push(localPayment)
     }
