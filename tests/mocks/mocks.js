@@ -46,6 +46,11 @@ jest.mock('../../app/store/models/payment', () => {
       return new Promise((resolve, reject) => {
         resolve(mockPayments);
       })
+    }),
+    syncPayments: jest.fn((item) => {
+      return new Promise((resolve, reject) => {
+        resolve(mockPayments);
+      })
     })
   }
 })
