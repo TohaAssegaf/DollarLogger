@@ -19,18 +19,6 @@ jest.mock('react-native', () => ({
   }
 }))
 
-let mockDbPayments = []
-jest.mock('../../../../app/lib/database/FirebaseUtils', () => ({
-  fetchPayments: jest.fn(() => {
-    return new Promise((resolve, reject) => {
-      console.log("HIII")
-      console.log(mockDbPayments)
-      resolve(mockDbPayments)
-    })
-  }),
-  pushPayments: jest.fn()
-}))
-
 describe('PaymentModel', () => {
   beforeEach(() => {
     mockDbPayments = []

@@ -55,6 +55,7 @@ describe('PaymentActions', () => {
   beforeEach(() => {
     mockPayments = []
   })
+
   it('should dispatch request and success for successful create payment', () => {
     const payment = new PaymentBuilder()
       .setTotal(10000)
