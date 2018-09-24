@@ -4,7 +4,7 @@ export function syncPayments(
   let syncedPayments: Array<Payment> = []
 
   // Add all DB payments (source of truth, overriding any local edits for now).
-  for (dbPayment of dbPayments) {
+  for (const dbPayment of dbPayments) {
     syncedPayments.push(dbPayment)
   }
 

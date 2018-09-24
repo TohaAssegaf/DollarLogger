@@ -21,7 +21,6 @@ jest.mock('react-native', () => ({
 
 describe('PaymentModel', () => {
   beforeEach(() => {
-    mockDbPayments = []
     mockStorage = {}
   })
 
