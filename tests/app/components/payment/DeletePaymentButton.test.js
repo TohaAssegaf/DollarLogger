@@ -1,5 +1,6 @@
 import actions from '~/app/actions'
 import DeletePaymentButton from '~/app/components/payment/DeletePaymentButton'
+import PaymentBuilder from '~/app/lib/PaymentBuilder'
 import * as PaymentModel from '~/app/store/models/payment'
 import enzyme from 'enzyme'
 import { shallow } from 'enzyme'
@@ -15,18 +16,6 @@ const navigation = { goBack: jest.fn() }
 Alert.alert = jest.fn()
 const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares)
-
-let mockPayments = []
-jest.mock('../../../../app/store/models/payment', () => {
-  return {
-    deletePayment: jest.fn((item, paymentId) => {
-      return new Promise((resolve, reject) => {
-        mockPayments = mockPayments.filter(mockPayment => mockPayment.id !== paymentId)
-        resolve(mockPayments)
-      })
-    })
-  }
-})
 
 it('renders correctly', () => {
   const payment = {
@@ -45,11 +34,12 @@ it('renders correctly', () => {
 });
 
 it('dispatches delete payment action and navigates back', () => {
-  const id = 1
-  const total = 10000
-  const name = "Test payment"
-  const date = new Date(2018, 4, 2)
-  const payment = { id, total, name, date }
+  const spy = jest.spyOn(PaymentModel, 'deletePayment')
+  const payment = new PaymentBuilder()
+    .setTotal(10000)
+    .setName("Test payment")
+    .setDate(new Date(2018, 4, 2))
+    .build()
   const store = mockStore({ payment: { payments: [payment] } })
   const wrapper = shallow(
     <DeletePaymentButton
@@ -64,6 +54,6 @@ it('dispatches delete payment action and navigates back', () => {
   Alert.alert.mock.calls[0][2][1].onPress()
 
   expect(store.getActions()).toContainEqual(actions.getPaymentsRequest())
-  expect(PaymentModel.deletePayment.mock.calls).toEqual([[id]])
+  expect(spy).toBeCalledWith(payment.id)
   expect(navigation.goBack.mock.calls).toHaveLength(1)
 });

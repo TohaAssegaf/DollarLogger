@@ -1,3 +1,5 @@
+import PaymentBuilder from '~/app/lib/PaymentBuilder'
+import * as FirebaseUtils from '~/app/lib/database/FirebaseUtils'
 import * as PaymentModel from '~/app/store/models/payment'
 
 let mockStorage = {}
@@ -88,5 +90,22 @@ describe('PaymentModel', () => {
     expect(payments).toHaveLength(1)
     const updatedPayments = await PaymentModel.deletePayment(id)
     expect(updatedPayments).toHaveLength(0)
+  })
+
+  it('should sync empty list if nothing is in database', () => {
+    PaymentModel.syncPayments().then(payments => expect(payments).toEqual([]))
+  })
+
+  it('should sync payment if nothing is in local', async () => {
+    const payment = new PaymentBuilder()
+      .setTotal(10000)
+      .setName("Test payment")
+      .setDate(new Date(2018, 4, 2))
+      .build()
+    await FirebaseUtils.pushPayments([payment])
+
+    const syncedPayments = await PaymentModel.syncPayments()
+
+    expect(syncedPayments).toEqual([payment])
   })
 })

@@ -15,7 +15,7 @@ export default class FBAuthButton extends React.Component {
           onLoginFinished={
             (error, result) =>
               FBAuth.login(error, result)
-                .then(user => this.props.onLoginComplete(user))
+                .then(() => this.props.onLoginComplete())
                 .catch(error => this.handleError(error))
           } />
       </View>

@@ -30,9 +30,6 @@ it('dispatches given action and navigates back', () => {
   expect(wrapper.state().name).toEqual("")
   expect(wrapper.state().splitCount).toEqual("")
 
-  console.log("BASE PAYMENT FORM DEBUG")
-  console.log(wrapper.debug())
-
   wrapper.find('MoneyField').simulate('change', expectedTotal)
   wrapper.find('TextInput').at(0).simulate('changeText', expectedName)
   wrapper.find('DatePicker').simulate('dateChange', expectedDate)

@@ -1,6 +1,48 @@
+let mockDbPayments = []
+let mockUser = {
+  currentUser: {
+    uid: 1
+  }
+}
 jest.mock('react-native-firebase', () => {
-  return {}
+  return {
+    auth: jest.fn(() => {
+      return {
+        currentUser: mockUser
+      }
+    }),
+    database: jest.fn(() => {
+      return {
+        ref: jest.fn(() => {
+          return {
+            child: jest.fn(() => {
+              return {
+                once: jest.fn(() => {
+                  return new Promise((resolve, reject) => {
+                    resolve(mockDbPayments)
+                  })
+                }),
+                set: jest.fn((payments) => {
+                  return new Promise((resolve, reject) => {
+                    mockDbPayments = []
+                    for (const paymentId in payments) {
+                      mockDbPayments.push(createFakePaymentSnapshot(payments[paymentId]))
+                    }
+                    resolve(mockDbPayments)
+                  })
+                })
+              }
+            })
+          }
+        })
+      }
+    })
+  }
 })
+
+function createFakePaymentSnapshot(payment) {
+  return { toJSON: () => payment }
+}
 
 jest.mock('../../app/store/models/budget', () => {
   let total: number = 0
@@ -19,37 +61,6 @@ jest.mock('../../app/store/models/budget', () => {
   }
 })
 
-let mockPayments = []
-jest.mock('../../app/store/models/payment', () => {
-  return {
-    addPayment: jest.fn((payment) => {
-      return new Promise((resolve, reject) => {
-        mockPayments.push(payment)
-        resolve(mockPayments)
-      })
-    }),
-    updatePayment: jest.fn((payment) => {
-      return new Promise((resolve, reject) => {
-        mockPayments = mockPayments.map(
-          storedPayment => storedPayment.id === payment.id ? payment : storedPayment)
-        resolve(mockPayments)
-      })
-    }),
-    deletePayment: jest.fn((paymentId) => {
-      return new Promise((resolve, reject) => {
-        mockPayments = mockPayments.filter(
-          storedPayment => storedPayment.id !== paymentId)
-        resolve(mockPayments)
-      })
-    }),
-    getPayments: jest.fn((item) => {
-      return new Promise((resolve, reject) => {
-        resolve(mockPayments);
-      })
-    })
-  }
-})
-
 beforeEach(() => {
-  mockPayments = []
+  mockDbPayments = []
 });

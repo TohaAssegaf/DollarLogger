@@ -1,4 +1,5 @@
 import styles from './styles'
+import actions from '~/app/actions'
 import FBAuthButton from '~/app/components/login/FBAuthButton'
 import {
   HEADER_BACKGROUND_COLOR,
@@ -6,8 +7,9 @@ import {
 } from '~/app/config/colors'
 import React from 'react';
 import { Text, View } from 'react-native'
+import { connect } from 'react-redux'
 
-export default class Login extends React.Component {
+class Login extends React.Component {
   static navigationOptions = ({ navigation }) => {
     return {
       title: 'Sign In',
@@ -18,15 +20,26 @@ export default class Login extends React.Component {
     }
   }
 
-  handleUser(user) {
+  handleUser() {
+    this.props.syncPayments()
     this.props.navigation.goBack()
   }
 
   render() {
     return (
       <View style={styles.screen}>
-        <FBAuthButton onLoginComplete={user => this.handleUser(user)} />
+        <FBAuthButton onLoginComplete={() => this.handleUser()} />
       </View>
     );
   }
 }
+
+const mapDispatchToProps = dispatch => {
+  return {
+    syncPayments: () => {
+      dispatch(actions.syncPayments())
+    }
+  }
+}
+
+export default connect((state) => ({}), mapDispatchToProps)(Login)
