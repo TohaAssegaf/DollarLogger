@@ -3,11 +3,11 @@ import firebase from 'react-native-firebase'
 const PAYMENTS_KEY = 'payments'
 const VALUE_EVENT_TYPE = 'value'
 
-/** Fetch payments from firebase, then run given callback. */
-export function fetchPayments(successCallback: Array<Payment> => void) {
+/** Fetch payments from firebase. */
+export function fetchPayments() {
   return getPaymentsRef()
     .once(VALUE_EVENT_TYPE)
-    .then(snapshot => successCallback(getPaymentsListFromSnapshot(snapshot)))
+    .then(snapshot => getPaymentsListFromSnapshot(snapshot))
 }
 
 /** Push payments to firebase. */
