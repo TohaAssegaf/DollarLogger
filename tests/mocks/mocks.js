@@ -1,5 +1,34 @@
+let mockDbPayments = []
+let mockUser = {
+  currentUser: {
+    uid: 1
+  }
+}
 jest.mock('react-native-firebase', () => {
-  return {}
+  return {
+    auth: jest.fn(() => {
+      return {
+        currentUser: mockUser
+      }
+    }),
+    database: jest.fn(() => {
+      return {
+        ref: jest.fn(() => {
+          return {
+            child: jest.fn(() => {
+              return {
+                once: jest.fn(() => {
+                  return new Promise((resolve, reject) => {
+                    resolve(mockDbPayments)
+                  })
+                })
+              }
+            })
+          }
+        })
+      }
+    })
+  }
 })
 
 jest.mock('../../app/store/models/budget', () => {
@@ -56,5 +85,6 @@ jest.mock('../../app/store/models/payment', () => {
 })
 
 beforeEach(() => {
+  mockDbPayments = []
   mockPayments = []
 });
