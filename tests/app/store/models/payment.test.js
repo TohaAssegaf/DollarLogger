@@ -4,28 +4,7 @@ import * as FirebaseUtils from '~/app/lib/database/FirebaseUtils'
 import * as PaymentModel from '~/app/store/models/payment'
 import { AsyncStorage } from 'react-native'
 
-let mockStorage = {}
-jest.mock('react-native', () => ({
-  AsyncStorage: {
-    setItem: jest.fn((item, value) => {
-      return new Promise((resolve, reject) => {
-        mockStorage[item] = value;
-        resolve(value);
-      });
-    }),
-    getItem: jest.fn((item, value) => {
-      return new Promise((resolve, reject) => {
-        resolve(mockStorage[item]);
-      });
-    }),
-  }
-}))
-
 describe('PaymentModel', () => {
-  beforeEach(() => {
-    mockStorage = {}
-  })
-
   it('should return empty list if nothing is in storage', () => {
     PaymentModel.getPayments().then(payments => expect(payments).toEqual([]))
   })

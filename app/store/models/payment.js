@@ -1,8 +1,8 @@
 import { PAYMENTS_ASYNC_STORAGE_KEY } from '~/app/config/storage'
+import AsyncStorage from '~/app/lib/AsyncStorage'
 import * as PaymentUtils from '~/app/lib/PaymentUtils'
 import * as DatabaseUtils from '~/app/lib/database/DatabaseUtils'
 import * as FirebaseUtils from '~/app/lib/database/FirebaseUtils'
-import { AsyncStorage } from 'react-native'
 
 export function getPayments() {
   return AsyncStorage.getItem(PAYMENTS_ASYNC_STORAGE_KEY)

@@ -82,6 +82,23 @@ jest.mock('../../app/store/models/budget', () => {
   }
 })
 
+let mockStorage = {}
+jest.mock('../../app/lib/AsyncStorage', () => ({
+    setItem: jest.fn((item, value) => {
+      return new Promise((resolve, reject) => {
+        mockStorage[item] = value;
+        resolve(value);
+      });
+    }),
+    getItem: jest.fn((item, value) => {
+      return new Promise((resolve, reject) => {
+        resolve(mockStorage[item]);
+      });
+    }),
+  }
+))
+
 beforeEach(() => {
   mockDbPayments = []
+  mockStorage = {}
 });
