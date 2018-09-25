@@ -1,4 +1,6 @@
 import actions from '~/app/actions'
+import PaymentBuilder from '~/app/lib/PaymentBuilder'
+import * as PaymentUtils from '~/app/lib/PaymentUtils'
 import reducer from '~/app/reducers'
 import State from '~/app/store/state'
 
@@ -11,25 +13,33 @@ describe('PaymentReducer', () => {
   })
 
   it('should get payments successfully', () => {
-    const payment: Payment = {
-      id: 1,
-      total: 10000,
-      name: "Test payment",
-      date: new Date(2018, 4, 2),
-      paymentContributions: [
-        {
-          displayName: "Test payment",
-          total: 10000,
-          date: new Date(2018, 4, 2),
-          paymentId: 1,
-        },
-      ]
-    }
+    const payment: Payment =
+      new PaymentBuilder()
+        .setTotal(10000)
+        .setName("Test payment")
+        .setDate(new Date(2018, 4, 2))
+        .build()
     const payments = [payment]
     const originalState: State = { payment: createPaymentState([], true, '') }
     const expectedState: State = createPaymentState(payments, false, '')
     expect(
       reducer(originalState, actions.getPaymentsSuccess(payments)).payment)
+          .toEqual(expectedState)
+  })
+
+  it('should remove deleted payments from state', () => {
+    const payment: Payment =
+      PaymentUtils.setDeleted(
+        new PaymentBuilder()
+          .setTotal(10000)
+          .setName("Test payment")
+          .setDate(new Date(2018, 4, 2))
+          .build())
+    const originalState: State = { payment: createPaymentState([], true, '') }
+    const expectedState: State = createPaymentState([], false, '')
+
+    expect(
+      reducer(originalState, actions.getPaymentsSuccess([payment])).payment)
           .toEqual(expectedState)
   })
 
