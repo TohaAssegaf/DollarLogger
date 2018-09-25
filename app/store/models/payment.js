@@ -10,9 +10,7 @@ export function getPayments() {
       if (!payments) {
         return []
       }
-      return JSON.parse(payments)
-        .map(payment => parsePayment(payment))
-        .filter(payment => !payment.isDeleted)
+      return JSON.parse(payments).map(payment => parsePayment(payment))
     })
 }
 
