@@ -9,7 +9,9 @@ export function getPayments() {
       if (!payments) {
         return []
       }
-      return JSON.parse(payments).map(payment => parsePayment(payment))
+      return JSON.parse(payments)
+        .map(payment => parsePayment(payment))
+        .filter(payment => !payment.isDeleted)
     })
 }
 
@@ -40,7 +42,8 @@ export function updatePayment(payment: Payment) {
 
 export function deletePayment(id: number) {
   return getPayments().then(payments => {
-    const updatedPayments = payments.filter(payment => payment.id != id)
+    const updatedPayments = payments.map(
+      payment => payment.id !== id ? payment : PaymentUtils.setDeleted(payment))
     return AsyncStorage.setItem(PAYMENTS_ASYNC_STORAGE_KEY, JSON.stringify(updatedPayments))
       .then(() => updatedPayments)
   })

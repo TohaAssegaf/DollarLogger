@@ -10,6 +10,7 @@ export type Payment = {
   name: string,
   date: Date,
   paymentContributions: Array<PaymentContribution>,
+  isDeleted: boolean,
 }
 
 export type PaymentContribution = {

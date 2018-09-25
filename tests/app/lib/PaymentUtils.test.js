@@ -163,4 +163,17 @@ it('gets all sorted paymentContributions', () => {
     ...payment1.paymentContributions.slice(1)]
   expect(PaymentUtils.getSortedPaymentContributions([payment1, payment2]))
     .toEqual(expectedPaymentContributions)
-});
+})
+
+it('deletes a payment', () => {
+  const payment =
+    new PaymentBuilder()
+      .setTotal(8)
+      .setDate(new Date(2018, 9, 22))
+      .setSplitCount(8)
+      .setName('first payment with future installments')
+      .build()
+  const expectedPayment = Object.assign({}, payment, { isDeleted: true })
+
+  expect(PaymentUtils.setDeleted(payment)).toEqual(expectedPayment)
+})
