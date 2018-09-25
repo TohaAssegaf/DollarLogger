@@ -56,6 +56,7 @@ export default class PaymentBuilder {
       name: this.name,
       date: this.date,
       paymentContributions,
+      isDeleted: false,
     }
   }
 

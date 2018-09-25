@@ -1,5 +1,5 @@
 import { BUDGET_ASYNC_STORAGE_KEY } from '~/app/config/storage'
-import { AsyncStorage } from 'react-native'
+import AsyncStorage from '~/app/lib/AsyncStorage'
 
 export function getTotal() {
   return AsyncStorage.getItem(BUDGET_ASYNC_STORAGE_KEY)

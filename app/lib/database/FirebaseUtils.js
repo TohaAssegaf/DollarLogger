@@ -15,6 +15,11 @@ export function pushPayments(payments: Array<Payment>) {
   getPaymentsRef().set(convertToFirebaseObject(payments))
 }
 
+/** Push single payment to firebase. */
+export function pushPayment(payment: Payment) {
+  getPaymentRef(payment).set(payment)
+}
+
 /** Given the payments snapshot, convert it to a list of Payments. */
 function getPaymentsListFromSnapshot(snapshot): Array<Payment> {
   let payments: Array<Payment> = []
@@ -48,4 +53,8 @@ function getUserRef() {
 
 function getPaymentsRef() {
   return getUserRef().child(PAYMENTS_KEY)
+}
+
+function getPaymentRef(payment: Payment) {
+  return getPaymentsRef().child(payment.id)
 }

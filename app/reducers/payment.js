@@ -38,7 +38,7 @@ function getPaymentsRequest(
 
 function getPaymentsSuccess(
   state: PaymentState, action: GetPaymentsSuccessAction): PaymentState {
-  let payments = action.payments.slice()
+  let payments = action.payments.slice().filter(payment => !payment.isDeleted)
   return Object.assign({}, state, {
     payments,
     isLoading: false,

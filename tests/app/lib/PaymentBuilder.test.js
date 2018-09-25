@@ -12,6 +12,7 @@ it('creates a normal single contribution payment', () => {
     total,
     name,
     date,
+    isDeleted: false,
     paymentContributions: [
       {
         displayName: name,
@@ -45,6 +46,7 @@ it('creates an even split payment over 2 weeks', () => {
     total,
     name,
     date,
+    isDeleted: false,
     paymentContributions: [
       {
         displayName: displayName1,
@@ -93,6 +95,7 @@ it('creates an uneven split payment over 3 weeks', () => {
     total,
     name,
     date,
+    isDeleted: false,
     paymentContributions: [
       {
         displayName: displayName1,

@@ -1,7 +1,8 @@
 import { PAYMENTS_ASYNC_STORAGE_KEY } from '~/app/config/storage'
+import AsyncStorage from '~/app/lib/AsyncStorage'
+import * as PaymentUtils from '~/app/lib/PaymentUtils'
 import * as DatabaseUtils from '~/app/lib/database/DatabaseUtils'
 import * as FirebaseUtils from '~/app/lib/database/FirebaseUtils'
-import { AsyncStorage } from 'react-native'
 
 export function getPayments() {
   return AsyncStorage.getItem(PAYMENTS_ASYNC_STORAGE_KEY)
@@ -24,6 +25,7 @@ function parsePayment(payment) {
 export function addPayment(payment: Payment) {
   return getPayments().then(payments => {
     payments.push(payment)
+    FirebaseUtils.pushPayment(payment)
     return AsyncStorage.setItem(PAYMENTS_ASYNC_STORAGE_KEY, JSON.stringify(payments))
       .then(() => payments)
   })
@@ -32,7 +34,13 @@ export function addPayment(payment: Payment) {
 export function updatePayment(payment: Payment) {
   return getPayments().then(payments => {
     const updatedPayments = payments.map(
-      storedPayment => storedPayment.id === payment.id ? payment : storedPayment)
+      storedPayment => {
+        if (storedPayment.id !== payment.id) {
+          return storedPayment
+        }
+        FirebaseUtils.pushPayment(payment)
+        return payment
+      })
     return AsyncStorage.setItem(PAYMENTS_ASYNC_STORAGE_KEY, JSON.stringify(updatedPayments))
       .then(() => updatedPayments)
   })
@@ -40,7 +48,15 @@ export function updatePayment(payment: Payment) {
 
 export function deletePayment(id: number) {
   return getPayments().then(payments => {
-    const updatedPayments = payments.filter(payment => payment.id != id)
+    const updatedPayments = payments.map(
+      payment => {
+        if (payment.id !== id) {
+          return payment
+        }
+        const deletedPayment: Payment = PaymentUtils.setDeleted(payment)
+        FirebaseUtils.pushPayment(deletedPayment)
+        return deletedPayment
+      })
     return AsyncStorage.setItem(PAYMENTS_ASYNC_STORAGE_KEY, JSON.stringify(updatedPayments))
       .then(() => updatedPayments)
   })

@@ -23,6 +23,10 @@ export function getSortedPaymentContributions(payments: Array<Payment>) {
     .sort(comparePaymentContributions)
 }
 
+export function setDeleted(payment: Payment): Payment {
+  return Object.assign({}, payment, { isDeleted: true })
+}
+
 function comparePaymentContributions(pc1: PaymentContribution, pc2: PaymentContribution) {
   if (pc1.date < pc2.date) {
     return -1
