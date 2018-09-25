@@ -29,7 +29,6 @@
     "test": "TZ=America/New_York node node_modules/jest/bin/jest.js"
   },
   "jest": {
-    "automock": false,
     "preset": "react-native",
     "setupTestFrameworkScriptFile": "<rootDir>/tests/mocks/mocks",
     "transform": {

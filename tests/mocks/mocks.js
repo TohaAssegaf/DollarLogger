@@ -17,6 +17,27 @@ jest.mock('react-native-firebase', () => {
           return {
             child: jest.fn(() => {
               return {
+                child: jest.fn((paymentId) => {
+                  return {
+                    set: jest.fn((payment) => {
+                      return new Promise((resolve, reject) => {
+                        // If payment does not exist yet, add it. Otherwise, update it.
+                        if (!mockDbPayments.find(
+                            mockPaymentSnap => mockPaymentSnap.toJSON().id === payment.id)) {
+                          mockDbPayments.push(createFakePaymentSnapshot(payment))
+                        } else {
+                          mockDbPayments = mockDbPayments.map(
+                            mockPaymentSnap =>
+                              mockPaymentSnap.toJSON().id === payment.id
+                                ? createFakePaymentSnapshot(payment)
+                                : mockPaymentSnap)
+
+                        }
+                        resolve(payment)
+                      })
+                    })
+                  }
+                }),
                 once: jest.fn(() => {
                   return new Promise((resolve, reject) => {
                     resolve(mockDbPayments)

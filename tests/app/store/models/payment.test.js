@@ -1,6 +1,8 @@
 import PaymentBuilder from '~/app/lib/PaymentBuilder'
+import * as PaymentUtils from '~/app/lib/PaymentUtils'
 import * as FirebaseUtils from '~/app/lib/database/FirebaseUtils'
 import * as PaymentModel from '~/app/store/models/payment'
+import { AsyncStorage } from 'react-native'
 
 let mockStorage = {}
 jest.mock('react-native', () => ({
@@ -71,25 +73,18 @@ describe('PaymentModel', () => {
   })
 
   it('should successfully delete payment', async () => {
-    const id = 1
-    const payment = {
-      total: 10000,
-      name: "Fake payment",
-      date: new Date(2018, 4, 2),
-      id,
-      paymentContributions: [
-        {
-          total: 10000,
-          displayName: "Fake payment",
-          date: new Date(2018, 4, 2),
-          paymentId: id
-        }
-      ]
-    }
+    const payment = new PaymentBuilder()
+      .setTotal(10000)
+      .setName("Fake payment")
+      .setDate(new Date(2018, 4, 2))
+      .build()
+
     const payments = await PaymentModel.addPayment(payment)
-    expect(payments).toHaveLength(1)
-    const updatedPayments = await PaymentModel.deletePayment(id)
-    expect(updatedPayments).toHaveLength(0)
+    expect(payments).toEqual([payment])
+    const updatedPayments = await PaymentModel.deletePayment(payment.id)
+    expect(updatedPayments).toEqual([PaymentUtils.setDeleted(payment)])
+    const dbPayments = await FirebaseUtils.fetchPayments()
+    expect(dbPayments).toEqual([PaymentUtils.setDeleted(payment)])
   })
 
   it('should sync empty list if nothing is in database', () => {
