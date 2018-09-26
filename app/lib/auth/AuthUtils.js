@@ -13,3 +13,7 @@ export function logout() {
     strategy.logout()
   }
 }
+
+export function onAuthStateChanged(listener: Function) {
+  return firebase.auth().onAuthStatChanged(listener)
+}

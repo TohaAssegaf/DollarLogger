@@ -1,10 +1,10 @@
 import styles from './styles'
 import SettingsCell from '~/app/components/settings/SettingsCell'
+import * as AuthUtils from '~/app/lib/auth/AuthUtils'
 import * as SettingsUtils from '~/app/lib/settings/SettingsUtils'
 import { HEADER_BACKGROUND_COLOR, HEADER_TEXT_COLOR} from '~/app/config/colors'
 import React from 'react';
 import { FlatList, View } from 'react-native'
-import firebase from 'react-native-firebase'
 
 export default class Settings extends React.Component {
   static navigationOptions = {
@@ -16,7 +16,7 @@ export default class Settings extends React.Component {
   }
 
   componentDidMount() {
-    firebase.auth().onAuthStateChanged(() => this.forceUpdate())
+    AuthUtils.onAuthStateChanged(() => this.forceUpdate())
   }
 
   renderSettingCell(setting: Setting) {
