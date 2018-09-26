@@ -25,7 +25,7 @@ export function createSettings(navigationProp): Array<Setting> {
   } else {
     settings.push(
       createSetting(
-        'Sign in',
+        'Sign in to backup your data',
         () => navigationProp.navigate(Routes.LOGIN)))
   }
 
