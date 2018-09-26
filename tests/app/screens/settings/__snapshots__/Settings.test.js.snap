@@ -9,59 +9,107 @@ exports[`renders correctly 1`] = `
     }
   }
 >
-  <View
-    accessible={true}
-    isTVSelectable={true}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={null}
-  >
-    <View
-      style={
+  <RCTScrollView
+    data={
+      Array [
         Object {
-          "borderBottomColor": "#222222",
-          "borderBottomWidth": 0.5,
-          "height": 70,
-          "justifyContent": "center",
-          "paddingHorizontal": 20,
-        }
-      }
-    >
-      <Text>
-        Update budget
-      </Text>
-    </View>
-  </View>
-  <View
-    accessible={true}
-    isTVSelectable={true}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={null}
-  >
-    <View
-      style={
+          "action": [Function],
+          "displayName": "Update budget",
+        },
         Object {
-          "borderBottomColor": "#222222",
-          "borderBottomWidth": 0.5,
-          "height": 70,
-          "justifyContent": "center",
-          "paddingHorizontal": 20,
-        }
-      }
-    >
-      <Text>
-        Sign in to back-up your data
-      </Text>
+          "action": [Function],
+          "displayName": "Sign out",
+        },
+      ]
+    }
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    numColumns={1}
+    onContentSizeChange={[Function]}
+    onEndReachedThreshold={2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    stickyHeaderIndices={Array []}
+    updateCellsBatchingPeriod={50}
+    viewabilityConfigCallbackPairs={Array []}
+    windowSize={21}
+  >
+    <View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          isTVSelectable={true}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={null}
+        >
+          <View
+            style={
+              Object {
+                "borderBottomColor": "#222222",
+                "borderBottomWidth": 0.5,
+                "height": 70,
+                "justifyContent": "center",
+                "paddingHorizontal": 20,
+              }
+            }
+          >
+            <Text>
+              Update budget
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          isTVSelectable={true}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={null}
+        >
+          <View
+            style={
+              Object {
+                "borderBottomColor": "#222222",
+                "borderBottomWidth": 0.5,
+                "height": 70,
+                "justifyContent": "center",
+                "paddingHorizontal": 20,
+              }
+            }
+          >
+            <Text>
+              Sign out
+            </Text>
+          </View>
+        </View>
+      </View>
     </View>
-  </View>
+  </RCTScrollView>
 </View>
 `;

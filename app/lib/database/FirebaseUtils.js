@@ -1,3 +1,4 @@
+import * as AuthUtils from '~/app/lib/auth/AuthUtils'
 import firebase from 'react-native-firebase'
 
 const PAYMENTS_KEY = 'payments'
@@ -12,14 +13,14 @@ export function fetchPayments() {
 
 /** Push payments to firebase. */
 export function pushPayments(payments: Array<Payment>) {
-  if (isLoggedIn()) {
+  if (AuthUtils.isLoggedIn()) {
     getPaymentsRef().set(convertToFirebaseObject(payments))
   }
 }
 
 /** Push single payment to firebase. */
 export function pushPayment(payment: Payment) {
-  if (isLoggedIn()) {
+  if (AuthUtils.isLoggedIn()) {
     getPaymentRef(payment).set(payment)
   }
 }
@@ -61,8 +62,4 @@ function getPaymentsRef() {
 
 function getPaymentRef(payment: Payment) {
   return getPaymentsRef().child(payment.id)
-}
-
-function isLoggedIn() {
-  return firebase.auth().currentUser !== null
 }
