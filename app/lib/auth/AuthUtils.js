@@ -15,5 +15,5 @@ export function logout() {
 }
 
 export function onAuthStateChanged(listener: Function) {
-  return firebase.auth().onAuthStatChanged(listener)
+  return firebase.auth().onAuthStateChanged(listener)
 }
