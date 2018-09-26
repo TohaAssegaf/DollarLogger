@@ -12,12 +12,16 @@ export function fetchPayments() {
 
 /** Push payments to firebase. */
 export function pushPayments(payments: Array<Payment>) {
-  getPaymentsRef().set(convertToFirebaseObject(payments))
+  if (isLoggedIn()) {
+    getPaymentsRef().set(convertToFirebaseObject(payments))
+  }
 }
 
 /** Push single payment to firebase. */
 export function pushPayment(payment: Payment) {
-  getPaymentRef(payment).set(payment)
+  if (isLoggedIn()) {
+    getPaymentRef(payment).set(payment)
+  }
 }
 
 /** Given the payments snapshot, convert it to a list of Payments. */
@@ -57,4 +61,8 @@ function getPaymentsRef() {
 
 function getPaymentRef(payment: Payment) {
   return getPaymentsRef().child(payment.id)
+}
+
+function isLoggedIn() {
+  return firebase.auth().currentUser !== null
 }

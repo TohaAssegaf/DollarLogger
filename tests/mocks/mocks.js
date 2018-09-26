@@ -8,7 +8,17 @@ jest.mock('react-native-firebase', () => {
   return {
     auth: jest.fn(() => {
       return {
-        currentUser: mockUser
+        currentUser: mockUser,
+        signOut: jest.fn(() => {
+          mockUser = null
+        }),
+        signInWithCredential: jest.fn(() => {
+          mockUser = {
+            currentUser: {
+              uid: 1
+            }
+          }
+        }),
       }
     }),
     database: jest.fn(() => {
@@ -100,5 +110,10 @@ jest.mock('../../app/lib/AsyncStorage', () => ({
 
 beforeEach(() => {
   mockDbPayments = []
+  mockUser = {
+    currentUser: {
+      uid: 1
+    }
+  }
   mockStorage = {}
 });
