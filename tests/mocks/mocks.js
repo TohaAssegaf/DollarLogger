@@ -4,6 +4,7 @@ let mockUser = {
     uid: 1
   }
 }
+let onAuthStateChangedListeners = []
 jest.mock('react-native-firebase', () => {
   return {
     auth: jest.fn(() => {
@@ -11,6 +12,9 @@ jest.mock('react-native-firebase', () => {
         currentUser: mockUser,
         signOut: jest.fn(() => {
           mockUser = null
+          for (const listener of onAuthStateChangedListeners) {
+            listener(mockUser)
+          }
         }),
         signInWithCredential: jest.fn(() => {
           mockUser = {
@@ -18,7 +22,13 @@ jest.mock('react-native-firebase', () => {
               uid: 1
             }
           }
+          for (const listener of onAuthStateChangedListeners) {
+            listener(mockUser)
+          }
         }),
+        onAuthStateChanged: jest.fn((listener) => {
+          onAuthStateChangedListeners.push(listener)
+        })
       }
     }),
     database: jest.fn(() => {
@@ -108,6 +118,10 @@ jest.mock('../../app/lib/AsyncStorage', () => ({
   }
 ))
 
+jest.mock('../../app/lib/auth/FBAuth', () => ({
+  logout: jest.fn()
+}))
+
 beforeEach(() => {
   mockDbPayments = []
   mockUser = {
@@ -115,5 +129,6 @@ beforeEach(() => {
       uid: 1
     }
   }
+  onAuthStateChangedListeners = []
   mockStorage = {}
 });
