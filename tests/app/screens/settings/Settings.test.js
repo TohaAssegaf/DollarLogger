@@ -8,7 +8,14 @@ it('renders correctly', () => {
   const loggedInRender = renderer.create(component).toJSON()
   expect(loggedInRender).toMatchSnapshot()
 
-  AuthUtils.logout()
-  const loggedOutRender = renderer.create(component).toJSON()
-  expect(loggedOutRender).toMatchSnapshot()
 });
+
+it('triggers force update listener on logout', () => {
+  const component = <Settings />
+  AuthUtils.logout()
+
+  const loggedOutRender = renderer.create(component).toJSON()
+
+  expect(loggedOutRender).toMatchSnapshot()
+
+})

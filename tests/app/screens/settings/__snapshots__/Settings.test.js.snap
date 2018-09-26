@@ -114,7 +114,7 @@ exports[`renders correctly 1`] = `
 </View>
 `;
 
-exports[`renders correctly 2`] = `
+exports[`triggers force update listener on logout 1`] = `
 <View
   style={
     Object {
