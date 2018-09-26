@@ -15,8 +15,6 @@ export default class Settings extends React.Component {
   }
 
   renderSettingCell(setting: Setting) {
-    console.log(setting)
-    console.log("XXX")
     return <SettingsCell text={setting.displayName} onTap={() => setting.action()} />
   }
 
