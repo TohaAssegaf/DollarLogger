@@ -72,3 +72,7 @@ export function syncPayments() {
     })
   })
 }
+
+export function clearLocalPayments() {
+  return AsyncStorage.setItem(PAYMENTS_ASYNC_STORAGE_KEY, JSON.stringify([])).then(() => [])
+}
