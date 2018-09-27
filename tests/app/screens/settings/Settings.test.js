@@ -1,8 +1,21 @@
+import * as AuthUtils from '~/app/lib/auth/AuthUtils'
 import Settings from '~/app/screens/settings/Settings'
 import React from 'react';
 import renderer from 'react-test-renderer';
 
 it('renders correctly', () => {
-  const rendered = renderer.create(<Settings />).toJSON();
-  expect(rendered).toMatchSnapshot();
+  const component = <Settings />
+  const loggedInRender = renderer.create(component).toJSON()
+  expect(loggedInRender).toMatchSnapshot()
+
 });
+
+it('triggers force update listener on logout', () => {
+  const component = <Settings />
+  AuthUtils.logout()
+
+  const loggedOutRender = renderer.create(component).toJSON()
+
+  expect(loggedOutRender).toMatchSnapshot()
+
+})

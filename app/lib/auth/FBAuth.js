@@ -16,3 +16,7 @@ export const login = (error, result) => {
     return firebase.auth().signInAndRetrieveDataWithCredential(credential)
   })
 }
+
+export const logout = () => {
+  LoginManager.logOut()
+}

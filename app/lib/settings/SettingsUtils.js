@@ -21,7 +21,10 @@ export function createSettings(navigationProp): Array<Setting> {
     settings.push(
       createSetting(
         'Sign out',
-        () => navigationProp.goBack())) // TODO(renzobautista): Implement this for real.
+        () => {
+          AuthUtils.logout()
+          navigationProp.goBack()
+        }))
   } else {
     settings.push(
       createSetting(

@@ -1,5 +1,6 @@
 import styles from './styles'
 import SettingsCell from '~/app/components/settings/SettingsCell'
+import * as AuthUtils from '~/app/lib/auth/AuthUtils'
 import * as SettingsUtils from '~/app/lib/settings/SettingsUtils'
 import { HEADER_BACKGROUND_COLOR, HEADER_TEXT_COLOR} from '~/app/config/colors'
 import React from 'react';
@@ -12,6 +13,10 @@ export default class Settings extends React.Component {
       backgroundColor: HEADER_BACKGROUND_COLOR,
     },
     headerTintColor: HEADER_TEXT_COLOR
+  }
+
+  componentDidMount() {
+    AuthUtils.onAuthStateChanged(() => this.forceUpdate())
   }
 
   renderSettingCell(setting: Setting) {

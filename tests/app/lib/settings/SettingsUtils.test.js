@@ -1,5 +1,6 @@
 import * as Routes from '~/app/config/Routes'
 import * as SettingsUtils from '~/app/lib/settings/SettingsUtils'
+import * as AuthUtils from '~/app/lib/auth/AuthUtils'
 import firebase from 'react-native-firebase'
 
 const navigationProp = {
@@ -26,7 +27,10 @@ describe('SettingsUtils', () => {
     expect(navigationProp.navigate.mock.calls).toEqual(
       [[Routes.UPDATE_BUDGET, { isUpdateExistingBudget: true }]])
 
+    // Mock firebase starts logged in
+    expect(AuthUtils.isLoggedIn()).toBe(true)
     settings[1].action()
+    expect(AuthUtils.isLoggedIn()).toBe(false)
     expect(navigationProp.goBack.mock.calls).toEqual([[]])
   })
 
