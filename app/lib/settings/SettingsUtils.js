@@ -1,3 +1,4 @@
+import actions from '~/app/actions'
 import * as Routes from '~/app/config/Routes'
 import * as AuthUtils from '~/app/lib/auth/AuthUtils'
 import { FlatList } from 'react-native'
@@ -7,7 +8,7 @@ export type Setting = {
   action: Function,
 }
 
-export function createSettings(navigationProp): Array<Setting> {
+export function createSettings(navigationProp, dispatch): Array<Setting> {
   let settings = []
 
   // Always have update budget setting.
@@ -23,6 +24,7 @@ export function createSettings(navigationProp): Array<Setting> {
         'Sign out',
         () => {
           AuthUtils.logout()
+          dispatch(actions.clearLocalPayments())
           navigationProp.goBack()
         }))
   } else {
