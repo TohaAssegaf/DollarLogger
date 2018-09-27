@@ -75,3 +75,12 @@ export function syncPayments() {
       .catch(error => dispatch(getPaymentsFailure(error.message)))
   }
 }
+
+export function clearLocalPayments() {
+  return function (dispatch) {
+    dispatch(getPaymentsRequest())
+    return PaymentModel.clearLocalPayments()
+      .then(payments => dispatch(getPaymentsSuccess(payments)))
+      .catch(error => dispatch(getPaymentsFailure(error.message)))
+  }
+}

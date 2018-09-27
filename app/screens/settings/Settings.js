@@ -5,8 +5,9 @@ import * as SettingsUtils from '~/app/lib/settings/SettingsUtils'
 import { HEADER_BACKGROUND_COLOR, HEADER_TEXT_COLOR} from '~/app/config/colors'
 import React from 'react';
 import { FlatList, View } from 'react-native'
+import { connect } from 'react-redux'
 
-export default class Settings extends React.Component {
+class Settings extends React.Component {
   static navigationOptions = {
     title: 'Settings',
     headerStyle: {
@@ -27,10 +28,18 @@ export default class Settings extends React.Component {
     return (
       <View style={styles.screen}>
         <FlatList
-          data={SettingsUtils.createSettings(this.props.navigation)}
+          data={SettingsUtils.createSettings(this.props.navigation, this.props.dispatch)}
           keyExtractor={setting => setting.displayName}
           renderItem={({item}) => this.renderSettingCell(item)} />
       </View>
     );
   }
 }
+
+const mapDispatchToProps = dispatch => {
+  return {
+    dispatch
+  }
+}
+
+export default connect(state => ({}), mapDispatchToProps)(Settings)

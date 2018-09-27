@@ -79,6 +79,21 @@ describe('PaymentModel', () => {
     expect(syncedPayments).toEqual([payment])
   })
 
+  it('should clear local payments', async () => {
+    const payment = new PaymentBuilder()
+      .setTotal(10000)
+      .setName("Fake payment")
+      .setDate(new Date(2018, 4, 2))
+      .build()
+    await PaymentModel.addPayment(payment)
+    expect(await PaymentModel.getPayments()).toEqual([payment])
+
+    const payments = await PaymentModel.clearLocalPayments()
+
+    expect(payments).toEqual([])
+    expect(await PaymentModel.getPayments()).toEqual([])
+  })
+
   it('[user logged out] should successfully add payment', async () => {
     firebase.auth().signOut()
     const payment = new PaymentBuilder()

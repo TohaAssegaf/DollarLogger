@@ -15,47 +15,7 @@ import thunk from 'redux-thunk'
 const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares)
 
-let mockPayments = []
-jest.mock('../../../app/store/models/payment', () => {
-  return {
-    addPayment: jest.fn((payment) => {
-      return new Promise((resolve, reject) => {
-        mockPayments.push(payment)
-        resolve(mockPayments)
-      })
-    }),
-    updatePayment: jest.fn((payment) => {
-      return new Promise((resolve, reject) => {
-        mockPayments = mockPayments.map(
-          storedPayment => storedPayment.id === payment.id ? payment : storedPayment)
-        resolve(mockPayments)
-      })
-    }),
-    deletePayment: jest.fn((paymentId) => {
-      return new Promise((resolve, reject) => {
-        mockPayments = mockPayments.filter(
-          storedPayment => storedPayment.id !== paymentId)
-        resolve(mockPayments)
-      })
-    }),
-    getPayments: jest.fn((item) => {
-      return new Promise((resolve, reject) => {
-        resolve(mockPayments);
-      })
-    }),
-    syncPayments: jest.fn((item) => {
-      return new Promise((resolve, reject) => {
-        resolve(mockPayments);
-      })
-    })
-  }
-})
-
 describe('PaymentActions', () => {
-  beforeEach(() => {
-    mockPayments = []
-  })
-
   it('should dispatch request and success for successful create payment', () => {
     const payment = new PaymentBuilder()
       .setTotal(10000)
@@ -177,5 +137,20 @@ describe('PaymentActions', () => {
         expect(store.getActions()).toEqual(expectedActions)
       })
     })
+  })
+
+  it('should dispatch request and success for successful clear local payments', async () => {
+    const payment = new PaymentBuilder()
+      .setTotal(10000)
+      .setName("Test payment")
+      .setDate(new Date(2018, 4, 2))
+      .build()
+    const expectedActions = [actions.getPaymentsRequest(), actions.getPaymentsSuccess([])]
+    const store = mockStore({ payment: { payments: [] }})
+    await PaymentModel.addPayment(payment)
+
+    await store.dispatch(actions.clearLocalPayments())
+
+    expect(store.getActions()).toEqual(expectedActions)
   })
 })
