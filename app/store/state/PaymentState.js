@@ -11,6 +11,7 @@ export type Payment = {
   date: Date,
   paymentContributions: Array<PaymentContribution>,
   isDeleted: boolean,
+  updateTimestamp: number,
 }
 
 export type PaymentContribution = {

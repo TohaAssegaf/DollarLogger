@@ -34,6 +34,7 @@ describe('UpdatePaymentForm', () => {
   });
 
   it('dispatches update payment action and navigates back', () => {
+    MockDate.set(new Date(Date.UTC(2018, 4, 2)))
     const spy = jest.spyOn(PaymentModel, 'updatePayment')
     const payment =
       new PaymentBuilder()
@@ -47,6 +48,8 @@ describe('UpdatePaymentForm', () => {
     const newName = "New name"
     const newDate = new Date(2018, 4, 3)
     const newSplitCount = 1
+    // Increment clock to simulate an update made at a later time than creation date.
+    MockDate.set(new Date(Date.UTC(2018, 4, 3)))
     const updatedPayment =
       new PaymentBuilder(payment)
         .setTotal(newTotal)
