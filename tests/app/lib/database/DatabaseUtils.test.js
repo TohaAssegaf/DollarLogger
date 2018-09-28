@@ -49,8 +49,7 @@ it('sets unsynced deleted DB payment to be deleted', () => {
     .setDate(new Date(4, 4, 2018))
     .setName("Test payment")
     .build()
-  const deletedDbPayment: Payment = PaymentUtils.setDeleted(
-    new PaymentBuilder(localPayment).build())
+  const deletedDbPayment: Payment = PaymentUtils.setDeleted(localPayment)
 
   const payments = DatabaseUtils.syncPayments([localPayment], [deletedDbPayment])
 

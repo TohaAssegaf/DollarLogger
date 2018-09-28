@@ -57,6 +57,7 @@ export default class PaymentBuilder {
       date: this.date,
       paymentContributions,
       isDeleted: false,
+      updateTimestamp: Date.now(),
     }
   }
 

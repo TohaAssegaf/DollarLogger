@@ -13,6 +13,7 @@ it('creates a normal single contribution payment', () => {
     name,
     date,
     isDeleted: false,
+    updateTimestamp: date.getTime(),
     paymentContributions: [
       {
         displayName: name,
@@ -47,6 +48,7 @@ it('creates an even split payment over 2 weeks', () => {
     name,
     date,
     isDeleted: false,
+    updateTimestamp: date.getTime(),
     paymentContributions: [
       {
         displayName: displayName1,
@@ -96,6 +98,7 @@ it('creates an uneven split payment over 3 weeks', () => {
     name,
     date,
     isDeleted: false,
+    updateTimestamp: date.getTime(),
     paymentContributions: [
       {
         displayName: displayName1,
@@ -124,6 +127,37 @@ it('creates an uneven split payment over 3 weeks', () => {
     .setDate(date)
     .setSplitCount(3)
     .build()
+
+  expect(payment).toEqual(expectedPayment)
+})
+
+it('updates an existing payment with a new timestamp', () => {
+  const date = new Date(2018, 3, 8)
+  MockDate.set(date)
+  const id = date.getTime()
+  const total = 1
+  const name = "Test payment"
+  const existingPayment = {
+    id,
+    total,
+    name,
+    date,
+    isDeleted: false,
+    updateTimestamp: date.getTime(),
+    paymentContributions: [
+      {
+        displayName: name,
+        total,
+        date,
+        paymentId: id,
+      },
+    ],
+  }
+  const newDate = new Date(2018, 3, 9)
+  MockDate.set(newDate)
+  const expectedPayment = Object.assign({}, existingPayment, { updateTimestamp: newDate.getTime() })
+
+  const payment = new PaymentBuilder(existingPayment).build()
 
   expect(payment).toEqual(expectedPayment)
 })
