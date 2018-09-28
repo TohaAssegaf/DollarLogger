@@ -17,16 +17,10 @@ export function syncPayments(
 
   // Add all DB payments, deferring to local payments if they were updated more recently.
   for (let dbPayment of dbPayments) {
-    // Not all DB payments have updateTimestamp yet
-    // TODO(renzobautista): Clean up when all payments are migrated.
-    const dbUpdateTimestamp = dbPayment.updateTimestamp ? dbPayment.updateTimestamp : dbPayment.id
     if (dbPayment.id in localPaymentsMap
-        && localPaymentsMap[dbPayment.id].updateTimestamp > dbUpdateTimestamp) {
+        && localPaymentsMap[dbPayment.id].updateTimestamp > dbPayment.updateTimestamp) {
       syncedPayments.push(localPaymentsMap[dbPayment.id])
     } else {
-      if (!('updateTimestamp' in dbPayment)) {
-        dbPayment.updateTimestamp = dbUpdateTimestamp
-      }
       syncedPayments.push(dbPayment)
     }
   }

@@ -86,18 +86,3 @@ it('prioritizes unsynced updated DB payment over local payment', () => {
 
   expect(payments).toEqual([dbPayment])
 })
-
-it('adds updateTimestamp field to DB payment if none exists', () => {
-  MockDate.set(new Date(2018, 3, 9))
-  const expectedDbPayment: Payment = new PaymentBuilder()
-    .setTotal(10000)
-    .setDate(new Date(4, 4, 2018))
-    .setName("Test payment")
-    .build()
-  let initialDbPayment: Payment = Object.assign({}, expectedDbPayment)
-  delete initialDbPayment['updateTimestamp']
-
-  const payments = DatabaseUtils.syncPayments([], [initialDbPayment])
-
-  expect(payments).toEqual([expectedDbPayment])
-})
