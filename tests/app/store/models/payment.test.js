@@ -1,7 +1,9 @@
 import PaymentBuilder from '~/app/lib/PaymentBuilder'
 import * as PaymentUtils from '~/app/lib/PaymentUtils'
 import * as FirebaseUtils from '~/app/lib/database/FirebaseUtils'
+import store from '~/app/store'
 import * as PaymentModel from '~/app/store/models/payment'
+import MockDate from 'mockdate'
 import { AsyncStorage } from 'react-native'
 import firebase from 'react-native-firebase'
 
@@ -77,6 +79,33 @@ describe('PaymentModel', () => {
     const syncedPayments = await PaymentModel.syncPayments()
 
     expect(syncedPayments).toEqual([payment])
+  })
+
+  it('should sync local payments if fetch fails', async () => {
+    const date = new Date(2018, 10, 24)
+    MockDate.set(date)
+    const payment = new PaymentBuilder()
+      .setTotal(10000)
+      .setName("Test payment")
+      .setDate(new Date(2018, 4, 2))
+      .build()
+    await PaymentModel.addPayment(payment)
+    firebase.database.mockImplementationOnce(() => {
+      return {
+        ref: () => ({
+          child: () => ({
+            once: () => {
+              return new Promise((resolve, reject) => { throw expectedError })
+            }
+          })
+        })
+      }
+    })
+
+    const syncedPayments = await PaymentModel.syncPayments()
+
+    expect(syncedPayments).toEqual([payment])
+    expect(store.getState().payment.fetchFailureTimestamp).toBe(date.getTime())
   })
 
   it('should clear local payments', async () => {

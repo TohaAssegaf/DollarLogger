@@ -1,27 +1,41 @@
+import actions from '~/app/actions'
 import * as AuthUtils from '~/app/lib/auth/AuthUtils'
+import store from '~/app/store'
 import firebase from 'react-native-firebase'
 
 const PAYMENTS_KEY = 'payments'
 const VALUE_EVENT_TYPE = 'value'
 
 /** Fetch payments from firebase. */
-export function fetchPayments() {
+export function fetchPayments(): Promise<Array<Payment>> {
   return getPaymentsRef()
     .once(VALUE_EVENT_TYPE)
+    .catch(error => {
+      store.dispatch(actions.fetchPaymentsFailure())
+      throw error
+    })
     .then(snapshot => getPaymentsListFromSnapshot(snapshot))
+    .then(payments => {
+      store.dispatch(actions.fetchPaymentsSuccess())
+      return payments
+    })
 }
 
 /** Push payments to firebase. */
-export function pushPayments(payments: Array<Payment>) {
+export function pushPayments(payments: Array<Payment>): void {
   if (AuthUtils.isLoggedIn()) {
-    getPaymentsRef().set(convertToFirebaseObject(payments))
+    getPaymentsRef()
+      .set(convertToFirebaseObject(payments))
+      .catch(error => store.dispatch(actions.pushPaymentsFailure()))
   }
 }
 
 /** Push single payment to firebase. */
-export function pushPayment(payment: Payment) {
+export function pushPayment(payment: Payment): void {
   if (AuthUtils.isLoggedIn()) {
-    getPaymentRef(payment).set(payment)
+    getPaymentRef(payment)
+      .set(payment)
+      .catch(error => store.dispatch(actions.pushPaymentsFailure()))
   }
 }
 

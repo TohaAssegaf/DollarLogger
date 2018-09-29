@@ -64,12 +64,16 @@ export function deletePayment(id: number) {
 
 export function syncPayments() {
   return getPayments().then(payments => {
-    return FirebaseUtils.fetchPayments().then(dbPayments => {
-      const syncedPayments: Array<Payment> = DatabaseUtils.syncPayments(payments, dbPayments)
-      FirebaseUtils.pushPayments(syncedPayments)
-      return AsyncStorage.setItem(PAYMENTS_ASYNC_STORAGE_KEY, JSON.stringify(syncedPayments))
-        .then(() => syncedPayments)
-    })
+    return FirebaseUtils.fetchPayments()
+      .then(dbPayments => {
+        const syncedPayments: Array<Payment> = DatabaseUtils.syncPayments(payments, dbPayments)
+        FirebaseUtils.pushPayments(syncedPayments)
+        return AsyncStorage.setItem(PAYMENTS_ASYNC_STORAGE_KEY, JSON.stringify(syncedPayments))
+          .then(() => syncedPayments)
+      })
+      // Firebase fetchPayments handles its own error and propagates it up, where we should silently
+      // return the local payments.
+      .catch(error => payments)
   })
 }
 
