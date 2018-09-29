@@ -2,6 +2,9 @@ export type PaymentState = {
   payments: Array<Payment>,
   isLoading: boolean,
   errorMessage: string,
+  fetchSuccessTimestamp: number,
+  fetchFailureTimestamp: number,
+  pushFailureTimestamp: number,
 }
 
 export type Payment = {
