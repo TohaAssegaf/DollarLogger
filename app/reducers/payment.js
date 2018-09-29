@@ -48,7 +48,7 @@ function getPaymentsRequest(
 function getPaymentsSuccess(
     state: PaymentState, action: GetPaymentsSuccessAction): PaymentState {
   let payments = action.payments.slice().filter(payment => !payment.isDeleted)
-  return Object.assign({}, state, { payments, isLoading: false, }, action.options)
+  return Object.assign({}, state, { payments, isLoading: false, })
 }
 
 function getPaymentsFailure(
@@ -56,8 +56,7 @@ function getPaymentsFailure(
   return Object.assign(
     {},
     state,
-    { errorMessage: action.errorMessage, isLoading: false, },
-    action.options)
+    { errorMessage: action.errorMessage, isLoading: false, })
 }
 
 function fetchPaymentsSuccess(

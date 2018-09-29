@@ -74,9 +74,7 @@ export function syncPayments() {
   return function (dispatch) {
     dispatch(getPaymentsRequest())
     return PaymentModel.syncPayments()
-      .then(payments => dispatch(getPaymentsSuccess(payments, {
-        latestSyncTimestamp: Date.now(),
-      })))
+      .then(payments => dispatch(getPaymentsSuccess(payments)))
       .catch(error => dispatch(getPaymentsFailure(error.message)))
   }
 }
