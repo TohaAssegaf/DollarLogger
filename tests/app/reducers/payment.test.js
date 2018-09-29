@@ -7,8 +7,8 @@ import MockDate from 'mockdate'
 
 describe('PaymentReducer', () => {
   it('should make get payments request', () => {
-    const originalState: State = { payment: createPaymentState([], false, '') }
-    const expectedState: State = createPaymentState([], true, '')
+    const originalState: State = { payment: createPaymentState([], false, '', 0, 0, 0) }
+    const expectedState: State = createPaymentState([], true, '', 0, 0, 0)
     expect(
         reducer(originalState, actions.getPaymentsRequest()).payment)
       .toEqual(expectedState)
@@ -22,8 +22,8 @@ describe('PaymentReducer', () => {
         .setDate(new Date(2018, 4, 2))
         .build()
     const payments = [payment]
-    const originalState: State = { payment: createPaymentState([], true, '') }
-    const expectedState: State = createPaymentState(payments, false, '')
+    const originalState: State = { payment: createPaymentState([], true, '', 0, 0, 0) }
+    const expectedState: State = createPaymentState(payments, false, '', 0, 0, 0)
     expect(
         reducer(originalState, actions.getPaymentsSuccess(payments)).payment)
       .toEqual(expectedState)
@@ -37,8 +37,8 @@ describe('PaymentReducer', () => {
           .setName("Test payment")
           .setDate(new Date(2018, 4, 2))
           .build())
-    const originalState: State = { payment: createPaymentState([], true, '') }
-    const expectedState: State = createPaymentState([], false, '')
+    const originalState: State = { payment: createPaymentState([], true, '', 0, 0, 0) }
+    const expectedState: State = createPaymentState([], false, '', 0, 0, 0)
 
     expect(
         reducer(originalState, actions.getPaymentsSuccess([payment])).payment)
@@ -47,8 +47,8 @@ describe('PaymentReducer', () => {
 
   it('should set error message on add payment failure', () => {
     const errorMessage = "Test error"
-    const originalState: State = { payment: createPaymentState([], true, '') }
-    const expectedState: State = createPaymentState([], false, errorMessage)
+    const originalState: State = { payment: createPaymentState([], true, '', 0, 0, 0) }
+    const expectedState: State = createPaymentState([], false, errorMessage, 0, 0, 0)
     expect(
         reducer(originalState, actions.getPaymentsFailure(errorMessage)).payment)
       .toEqual(expectedState)
@@ -85,7 +85,7 @@ function createPaymentState(
     errorMessage: string,
     fetchSuccessTimestamp: number,
     fetchFailureTimestamp: number,
-    pushFailureTimestamp: number): State {
+    pushFailureTimestamp: number): PaymentState {
   return {
     payments,
     isLoading,
