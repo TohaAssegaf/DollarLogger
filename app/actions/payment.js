@@ -2,6 +2,9 @@ import {
   GET_PAYMENTS_REQUEST,
   GET_PAYMENTS_SUCCESS,
   GET_PAYMENTS_FAILURE,
+  FETCH_PAYMENTS_SUCCESS,
+  FETCH_PAYMENTS_FAILURE,
+  PUSH_PAYMENTS_FAILURE,
   GetPaymentsRequestAction,
   GetPaymentsSuccessAction,
   GetPaymentsFailureAction,
@@ -20,14 +23,14 @@ export function getPaymentsRequest(): GetPaymentsRequestAction {
 export function getPaymentsSuccess(payments: Array<Payment>): GetPaymentsSuccessAction {
   return {
     type: GET_PAYMENTS_SUCCESS,
-    payments
+    payments,
   }
 }
 
 export function getPaymentsFailure(errorMessage: string): GetPaymentsFailureAction {
   return {
     type: GET_PAYMENTS_FAILURE,
-    errorMessage
+    errorMessage,
   }
 }
 
@@ -71,7 +74,9 @@ export function syncPayments() {
   return function (dispatch) {
     dispatch(getPaymentsRequest())
     return PaymentModel.syncPayments()
-      .then(payments => dispatch(getPaymentsSuccess(payments)))
+      .then(payments => dispatch(getPaymentsSuccess(payments, {
+        latestSyncTimestamp: Date.now(),
+      })))
       .catch(error => dispatch(getPaymentsFailure(error.message)))
   }
 }
@@ -82,5 +87,26 @@ export function clearLocalPayments() {
     return PaymentModel.clearLocalPayments()
       .then(payments => dispatch(getPaymentsSuccess(payments)))
       .catch(error => dispatch(getPaymentsFailure(error.message)))
+  }
+}
+
+export function fetchPaymentsSuccess(): FetchPaymentsSuccessAction {
+  return {
+    type: FETCH_PAYMENTS_SUCCESS,
+    fetchSuccessTimestamp: Date.now(),
+  }
+}
+
+export function fetchPaymentsFailure(): FetchPaymentsFailureAction {
+  return {
+    type: FETCH_PAYMENTS_FAILURE,
+    fetchFailureTimestamp: Date.now(),
+  }
+}
+
+export function pushPaymentsFailure(): PushPaymentsFailureAction {
+  return {
+    type: PUSH_PAYMENTS_FAILURE,
+    pushFailureTimestamp: Date.now(),
   }
 }
