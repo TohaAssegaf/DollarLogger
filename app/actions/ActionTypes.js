@@ -42,12 +42,29 @@ export type GetPaymentsRequestAction = {
 export const GET_PAYMENTS_SUCCESS = 'GET_PAYMENTS_SUCCESS'
 export type GetPaymentsSuccessAction = {
   type: GET_PAYMENTS_SUCCESS,
-  payments: Array<Payment>
+  payments: Array<Payment>,
 }
 export const GET_PAYMENTS_FAILURE = 'GET_PAYMENTS_FAILURE'
 export type GetPaymentsFailureAction = {
   type: GET_PAYMENTS_FAILURE,
-  errorMessage: string
+  errorMessage: string,
+}
+
+// DB push/pull timestamp actions.
+export const FETCH_PAYMENTS_SUCCESS = 'FETCH_PAYMENTS_SUCCESS'
+export type FetchPaymentsSuccessAction = {
+  type: FETCH_PAYMENTS_SUCCESS,
+  fetchSuccessTimestamp: number
+}
+export const FETCH_PAYMENTS_FAILURE = 'FETCH_PAYMENTS_FAILURE'
+export type FetchPaymentsFailureAction = {
+  type: FETCH_PAYMENTS_FAILURE,
+  fetchFailureTimestamp: number
+}
+export const PUSH_PAYMENTS_FAILURE = 'PUSH_PAYMENTS_FAILURE'
+export type PushPaymentsFailureAction = {
+  type: PUSH_PAYMENTS_FAILURE,
+  pushFailureTimestamp: number
 }
 
 export type Action = |
@@ -59,4 +76,7 @@ export type Action = |
   GetBudgetTotalFailureAction |
   GetPaymentsRequestAction |
   GetPaymentsSuccessAction |
-  GetPaymentsFailureAction
+  GetPaymentsFailureAction |
+  FetchPaymentsSuccessAction |
+  FetchPaymentsFailureAction |
+  PushPaymentsFailureAction
