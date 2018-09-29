@@ -31,13 +31,13 @@ it('prioritizes database payments over local payments', () => {
 })
 
 it('sets unsynced deleted local payment to be deleted', () => {
-  const deletedLocalPayment: Payment = PaymentUtils.setDeleted(
+  const dbPayment: Payment =
     new PaymentBuilder()
       .setTotal(10000)
       .setDate(new Date(4, 4, 2018))
       .setName("Test payment")
-      .build())
-  const dbPayment: Payment = new PaymentBuilder(deletedLocalPayment).build()
+      .build()
+  const deletedLocalPayment: Payment = PaymentUtils.setDeleted(dbPayment)
 
   const payments = DatabaseUtils.syncPayments([deletedLocalPayment], [dbPayment])
 

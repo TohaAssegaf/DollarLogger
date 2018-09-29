@@ -3,12 +3,16 @@ import {
   GET_PAYMENTS_REQUEST,
   GET_PAYMENTS_SUCCESS,
   GET_PAYMENTS_FAILURE,
+  FETCH_PAYMENTS_SUCCESS,
+  FETCH_PAYMENTS_FAILURE,
+  PUSH_PAYMENTS_FAILURE,
   GetPaymentsRequestAction,
   GetPaymentsSuccessAction,
   GetPaymentsFailureAction,
 } from '~/app/actions/ActionTypes'
 import PaymentBuilder from '~/app/lib/PaymentBuilder'
 import * as PaymentModel from '~/app/store/models/payment'
+import MockDate from 'mockdate'
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
 
@@ -152,5 +156,35 @@ describe('PaymentActions', () => {
     await store.dispatch(actions.clearLocalPayments())
 
     expect(store.getActions()).toEqual(expectedActions)
+  })
+
+  it('should create an action to fetch payments success', () => {
+    const date = new Date(2018, 3, 3)
+    MockDate.set(date)
+    const expectedAction: FetchPaymentsSuccessAction = {
+      type: FETCH_PAYMENTS_SUCCESS,
+      fetchSuccessTimestamp: date.getTime(),
+    }
+    expect(actions.fetchPaymentsSuccess()).toEqual(expectedAction)
+  })
+
+  it('should create an action to fetch payments failure', () => {
+    const date = new Date(2018, 3, 3)
+    MockDate.set(date)
+    const expectedAction: FetchPaymentsFailureAction = {
+      type: FETCH_PAYMENTS_FAILURE,
+      fetchFailureTimestamp: date.getTime(),
+    }
+    expect(actions.fetchPaymentsFailure()).toEqual(expectedAction)
+  })
+
+  it('should create an action to push payments failure', () => {
+    const date = new Date(2018, 3, 3)
+    MockDate.set(date)
+    const expectedAction: PushPaymentsFailureAction = {
+      type: PUSH_PAYMENTS_FAILURE,
+      pushFailureTimestamp: date.getTime(),
+    }
+    expect(actions.pushPaymentsFailure()).toEqual(expectedAction)
   })
 })
