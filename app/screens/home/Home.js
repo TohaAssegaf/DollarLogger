@@ -1,4 +1,5 @@
 import styles from './styles'
+import actions from '~/app/actions'
 import HomeHeader from '~/app/components/home/HomeHeader'
 import PaymentContributionList from '~/app/components/payment/PaymentContributionList'
 import * as Routes from '~/app/config/Routes'
@@ -52,9 +53,16 @@ class Home extends React.Component {
 const mapStateToProps = state => {
   return {
     payments: PaymentUtils.filterCurrentWeekPayments(state.payment.payments),
-    paymentContributions: PaymentUtils.filterCurrentWeekPaymentContributions(state.payment.payments)
+    paymentContributions:
+      PaymentUtils.filterCurrentWeekPaymentContributions(state.payment.payments),
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    syncPayments: dispatch(actions.syncPayments())
   }
 }
 
 
-export default connect(mapStateToProps)(Home)
+export default connect(mapStateToProps, mapDispatchToProps)(Home)
