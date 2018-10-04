@@ -1,5 +1,6 @@
 import actions from '~/app/actions'
 import * as Routes from '~/app/config/Routes'
+import * as AuthUtils from '~/app/lib/auth/AuthUtils'
 import React from 'react';
 import { Text, View } from 'react-native'
 import { NavigationActions } from 'react-navigation'
@@ -12,11 +13,17 @@ class Loading extends React.Component {
 
   componentDidMount() {
     this.props.getBudgetTotal()
-    this.props.getPayments()
+    AuthUtils.onAuthStateChanged(user => {
+      if (AuthUtils.isLoggedIn()) {
+        this.props.syncPayments()
+      } else {
+        this.props.getPayments()
+      }
+    })
   }
 
   componentDidUpdate() {
-    if (this.props.budget.isFetchComplete) {
+    if (this.props.budget.isFetchComplete && !this.props.payment.isLoading) {
       let navigationAction = NavigationActions.reset({
         index: 0,
         actions: [NavigationActions.navigate({ routeName: Routes.HOME })]
@@ -45,7 +52,8 @@ class Loading extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    budget: state.budget
+    budget: state.budget,
+    payment: state.payment,
   }
 }
  
@@ -56,6 +64,9 @@ const mapDispatchToProps = dispatch => {
     },
     getPayments: () => {
       dispatch(actions.getPayments())
+    },
+    syncPayments: () => {
+      dispatch(actions.syncPayments())
     }
   }
 }

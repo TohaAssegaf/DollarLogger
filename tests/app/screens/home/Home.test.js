@@ -8,6 +8,7 @@ import thunk from 'redux-thunk'
 
 const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares)
+jest.useFakeTimers()
 
 it('renders correctly', () => {
   MockDate.set(new Date(2018, 3, 8))
