@@ -11,6 +11,8 @@ import { Button, Text, TouchableOpacity, View } from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons';
 import { connect } from 'react-redux'
 
+const ONE_MINUTE = 60000
+
 class Home extends React.Component {
   static navigationOptions = ({ navigation }) => ({
     title: 'Home',
@@ -25,6 +27,25 @@ class Home extends React.Component {
         <Icon name="md-settings" size={25} color="white" />
       </TouchableOpacity>,
   })
+
+  componentDidMount() {
+    this.intervalId = setInterval(() => {
+      console.log("EEEE")
+      console.log(this.props)
+      if (this.props.fetchSuccessTimestamp < this.props.fetchFailureTimestamp)
+      this.props.syncPayments()
+    }, ONE_MINUTE)
+  }
+
+  /** Should sync payments if last successful fetch was before last failed fetch or push. */
+  shouldSyncPayments() {
+    return this.props.fetchSuccessTimestamp < this.props.fetchFailureTimestamp ||
+      this.props.fetchSuccessTimestamp < this.props.pushFailureTimestamp
+  }
+
+  componentWillUnmount() {
+    this.clearInterval(this.intervalId)
+  }
 
   navigateToUpdatePayment(paymentId: number) {
     this.props.navigation.navigate(
@@ -60,7 +81,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    syncPayments: dispatch(actions.syncPayments())
+    syncPayments: () => dispatch(actions.syncPayments())
   }
 }
 
