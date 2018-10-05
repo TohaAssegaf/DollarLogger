@@ -30,8 +30,6 @@ class Home extends React.Component {
 
   componentDidMount() {
     this.intervalId = setInterval(() => {
-      console.log("EEEE")
-      console.log(this.props)
       if (this.props.fetchSuccessTimestamp < this.props.fetchFailureTimestamp)
       this.props.syncPayments()
     }, ONE_MINUTE)
@@ -51,6 +49,13 @@ class Home extends React.Component {
     this.props.navigation.navigate(
       Routes.UPDATE_PAYMENT,
       { payment: this.props.payments.find(payment => payment.id == paymentId) })
+  }
+
+  getPaymentWeeks() {
+    return [...new Set(
+      this.props.paymentContributions.map(
+        paymentContribution => DateUtils.getLastMonday(paymentContribution.date)))
+    ].sort()
   }
 
   render() {
