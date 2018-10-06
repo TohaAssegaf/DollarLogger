@@ -9,7 +9,8 @@ const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares)
 
 it('renders correctly', () => {
-  MockDate.set(new Date(2018, 3, 8))
+  const date = new Date(2018, 3, 8)
+  MockDate.set(date)
   const store = mockStore({
     budget: { total: 25000 },
     payment: { payments: [
@@ -17,15 +18,15 @@ it('renders correctly', () => {
         id: 1,
         total: 1,
         name: "Test payment",
-        date: new Date(2018, 3, 8),
+        date: date,
         paymentContributions: [
           {
             total: 1,
-            date: new Date(2018, 3, 8),
+            date: date,
           },
         ],
       }
     ]}})
-  const rendered = renderer.create(<HomeHeader store={store} />).toJSON();
+  const rendered = renderer.create(<HomeHeader store={store} date={date}/>).toJSON();
   expect(rendered).toMatchSnapshot();
 });

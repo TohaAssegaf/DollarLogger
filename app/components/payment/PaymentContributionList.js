@@ -5,7 +5,7 @@ import { FlatList } from 'react-native'
 
 export default class PaymentContributionList extends React.Component {
   keyExtractor(paymentContribution, index) {
-    return index
+    return String(index)
   }
 
   renderItem(paymentContribution) {

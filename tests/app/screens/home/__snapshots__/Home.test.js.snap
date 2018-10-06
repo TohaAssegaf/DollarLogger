@@ -10,92 +10,257 @@ exports[`does not include previous week payments 1`] = `
   }
 >
   <View
+    onLayout={[Function]}
     style={
-      Object {
-        "alignItems": "center",
-        "borderBottomColor": "#222222",
-        "borderBottomWidth": 0.5,
-        "flexDirection": "row",
-      }
+      Array [
+        Object {
+          "backgroundColor": "transparent",
+          "flex": 1,
+          "position": "relative",
+        },
+        undefined,
+      ]
     }
   >
-    <View
-      style={
+    <RCTScrollView
+      automaticallyAdjustContentInsets={false}
+      autoplay={false}
+      autoplayDirection={true}
+      autoplayTimeout={2.5}
+      bounces={false}
+      contentContainerStyle={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+          },
+          undefined,
+        ]
+      }
+      contentOffset={
         Object {
-          "alignItems": "center",
-          "flex": 0.5,
-          "flexDirection": "column",
-          "height": 100,
-          "justifyContent": "center",
+          "x": -750,
         }
       }
+      disableNextButton={false}
+      horizontal={true}
+      index={-1}
+      loadMinimal={false}
+      loadMinimalSize={1}
+      loop={false}
+      onIndexChanged={[Function]}
+      onMomentumScrollEnd={[Function]}
+      onScrollBeginDrag={[Function]}
+      onScrollEndDrag={[Function]}
+      pagingEnabled={true}
+      removeClippedSubviews={true}
+      scrollsToTop={false}
+      showsButtons={false}
+      showsHorizontalScrollIndicator={false}
+      showsPagination={false}
+      showsVerticalScrollIndicator={false}
     >
-      <Text
-        style={
-          Object {
-            "color": "black",
-            "fontSize": 32,
+      <View>
+        <View
+          style={
+            Array [
+              Object {
+                "height": 1334,
+                "width": 750,
+              },
+              Object {
+                "backgroundColor": "transparent",
+              },
+            ]
           }
-        }
-      >
-        $250.00
-      </Text>
-      <Text>
-        Remaining this week
-      </Text>
-    </View>
-    <View
-      style={
-        Object {
-          "alignItems": "center",
-          "flex": 0.5,
-          "flexDirection": "column",
-          "height": 100,
-          "justifyContent": "center",
-        }
-      }
-    >
-      <Text
-        style={
-          Object {
-            "color": "black",
-            "fontSize": 32,
-          }
-        }
-      >
-        $0.00
-      </Text>
-      <Text>
-        Spent so far
-      </Text>
-    </View>
+        >
+          <View>
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "borderBottomColor": "#222222",
+                  "borderBottomWidth": 0.5,
+                  "flexDirection": "row",
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flex": 0.5,
+                    "flexDirection": "column",
+                    "height": 100,
+                    "justifyContent": "center",
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "color": "black",
+                      "fontSize": 32,
+                    }
+                  }
+                >
+                  $249.99
+                </Text>
+                <Text>
+                  Remaining this week
+                </Text>
+              </View>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flex": 0.5,
+                    "flexDirection": "column",
+                    "height": 100,
+                    "justifyContent": "center",
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "color": "black",
+                      "fontSize": 32,
+                    }
+                  }
+                >
+                  $0.01
+                </Text>
+                <Text>
+                  Spent so far
+                </Text>
+              </View>
+            </View>
+            <RCTScrollView
+              data={
+                Array [
+                  Object {
+                    "date": 2018-04-08T04:00:00.000Z,
+                    "displayName": "Test payment",
+                    "paymentId": 1,
+                    "total": 1,
+                  },
+                ]
+              }
+              disableVirtualization={false}
+              getItem={[Function]}
+              getItemCount={[Function]}
+              horizontal={false}
+              initialNumToRender={10}
+              keyExtractor={[Function]}
+              maxToRenderPerBatch={10}
+              numColumns={1}
+              onContentSizeChange={[Function]}
+              onEndReachedThreshold={2}
+              onLayout={[Function]}
+              onMomentumScrollEnd={[Function]}
+              onScroll={[Function]}
+              onScrollBeginDrag={[Function]}
+              onScrollEndDrag={[Function]}
+              renderItem={[Function]}
+              scrollEventThrottle={50}
+              stickyHeaderIndices={Array []}
+              updateCellsBatchingPeriod={50}
+              viewabilityConfigCallbackPairs={Array []}
+              windowSize={21}
+            >
+              <View>
+                <View
+                  onLayout={[Function]}
+                  style={null}
+                >
+                  <View
+                    accessible={true}
+                    isTVSelectable={true}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={null}
+                  >
+                    <View
+                      style={
+                        Object {
+                          "alignItems": "center",
+                          "borderBottomColor": "#222222",
+                          "borderBottomWidth": 0.5,
+                          "flexDirection": "row",
+                          "height": 60,
+                        }
+                      }
+                    >
+                      <View
+                        style={
+                          Object {
+                            "alignItems": "flex-start",
+                            "flex": 0.15,
+                            "paddingHorizontal": 20,
+                          }
+                        }
+                      >
+                        <Text
+                          style={
+                            Object {
+                              "fontSize": 16,
+                            }
+                          }
+                        >
+                          4/8
+                        </Text>
+                      </View>
+                      <View
+                        style={
+                          Object {
+                            "flex": 0.6,
+                          }
+                        }
+                      >
+                        <Text
+                          numberOfLines={2}
+                          style={
+                            Object {
+                              "fontSize": 16,
+                            }
+                          }
+                        >
+                          Test payment
+                        </Text>
+                      </View>
+                      <View
+                        style={
+                          Object {
+                            "alignItems": "flex-end",
+                            "flex": 0.25,
+                            "paddingRight": 20,
+                          }
+                        }
+                      >
+                        <Text
+                          style={
+                            Object {
+                              "fontSize": 16,
+                            }
+                          }
+                        >
+                          $0.01
+                        </Text>
+                      </View>
+                    </View>
+                  </View>
+                </View>
+              </View>
+            </RCTScrollView>
+          </View>
+        </View>
+      </View>
+    </RCTScrollView>
   </View>
-  <RCTScrollView
-    data={Array []}
-    disableVirtualization={false}
-    getItem={[Function]}
-    getItemCount={[Function]}
-    horizontal={false}
-    initialNumToRender={10}
-    keyExtractor={[Function]}
-    maxToRenderPerBatch={10}
-    numColumns={1}
-    onContentSizeChange={[Function]}
-    onEndReachedThreshold={2}
-    onLayout={[Function]}
-    onMomentumScrollEnd={[Function]}
-    onScroll={[Function]}
-    onScrollBeginDrag={[Function]}
-    onScrollEndDrag={[Function]}
-    renderItem={[Function]}
-    scrollEventThrottle={50}
-    stickyHeaderIndices={Array []}
-    updateCellsBatchingPeriod={50}
-    viewabilityConfigCallbackPairs={Array []}
-    windowSize={21}
-  >
-    <View />
-  </RCTScrollView>
   <View
     pointerEvents="box-none"
     style={
@@ -260,187 +425,257 @@ exports[`renders correctly 1`] = `
   }
 >
   <View
+    onLayout={[Function]}
     style={
-      Object {
-        "alignItems": "center",
-        "borderBottomColor": "#222222",
-        "borderBottomWidth": 0.5,
-        "flexDirection": "row",
-      }
-    }
-  >
-    <View
-      style={
-        Object {
-          "alignItems": "center",
-          "flex": 0.5,
-          "flexDirection": "column",
-          "height": 100,
-          "justifyContent": "center",
-        }
-      }
-    >
-      <Text
-        style={
-          Object {
-            "color": "black",
-            "fontSize": 32,
-          }
-        }
-      >
-        $249.99
-      </Text>
-      <Text>
-        Remaining this week
-      </Text>
-    </View>
-    <View
-      style={
-        Object {
-          "alignItems": "center",
-          "flex": 0.5,
-          "flexDirection": "column",
-          "height": 100,
-          "justifyContent": "center",
-        }
-      }
-    >
-      <Text
-        style={
-          Object {
-            "color": "black",
-            "fontSize": 32,
-          }
-        }
-      >
-        $0.01
-      </Text>
-      <Text>
-        Spent so far
-      </Text>
-    </View>
-  </View>
-  <RCTScrollView
-    data={
       Array [
         Object {
-          "date": 2018-04-08T04:00:00.000Z,
-          "displayName": "Test payment",
-          "paymentId": 1,
-          "total": 1,
+          "backgroundColor": "transparent",
+          "flex": 1,
+          "position": "relative",
         },
+        undefined,
       ]
     }
-    disableVirtualization={false}
-    getItem={[Function]}
-    getItemCount={[Function]}
-    horizontal={false}
-    initialNumToRender={10}
-    keyExtractor={[Function]}
-    maxToRenderPerBatch={10}
-    numColumns={1}
-    onContentSizeChange={[Function]}
-    onEndReachedThreshold={2}
-    onLayout={[Function]}
-    onMomentumScrollEnd={[Function]}
-    onScroll={[Function]}
-    onScrollBeginDrag={[Function]}
-    onScrollEndDrag={[Function]}
-    renderItem={[Function]}
-    scrollEventThrottle={50}
-    stickyHeaderIndices={Array []}
-    updateCellsBatchingPeriod={50}
-    viewabilityConfigCallbackPairs={Array []}
-    windowSize={21}
   >
-    <View>
-      <View
-        onLayout={[Function]}
-        style={null}
-      >
+    <RCTScrollView
+      automaticallyAdjustContentInsets={false}
+      autoplay={false}
+      autoplayDirection={true}
+      autoplayTimeout={2.5}
+      bounces={false}
+      contentContainerStyle={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+          },
+          undefined,
+        ]
+      }
+      contentOffset={
+        Object {
+          "x": 0,
+        }
+      }
+      disableNextButton={false}
+      horizontal={true}
+      index={0}
+      loadMinimal={false}
+      loadMinimalSize={1}
+      loop={false}
+      onIndexChanged={[Function]}
+      onMomentumScrollEnd={[Function]}
+      onScrollBeginDrag={[Function]}
+      onScrollEndDrag={[Function]}
+      pagingEnabled={true}
+      removeClippedSubviews={true}
+      scrollsToTop={false}
+      showsButtons={false}
+      showsHorizontalScrollIndicator={false}
+      showsPagination={false}
+      showsVerticalScrollIndicator={false}
+    >
+      <View>
         <View
-          accessible={true}
-          isTVSelectable={true}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={null}
-        >
-          <View
-            style={
+          style={
+            Array [
               Object {
-                "alignItems": "center",
-                "borderBottomColor": "#222222",
-                "borderBottomWidth": 0.5,
-                "flexDirection": "row",
-                "height": 60,
-              }
-            }
-          >
+                "height": 1334,
+                "width": 750,
+              },
+              Object {
+                "backgroundColor": "transparent",
+              },
+            ]
+          }
+        >
+          <View>
             <View
               style={
                 Object {
-                  "alignItems": "flex-start",
-                  "flex": 0.15,
-                  "paddingHorizontal": 20,
+                  "alignItems": "center",
+                  "borderBottomColor": "#222222",
+                  "borderBottomWidth": 0.5,
+                  "flexDirection": "row",
                 }
               }
             >
-              <Text
+              <View
                 style={
                   Object {
-                    "fontSize": 16,
+                    "alignItems": "center",
+                    "flex": 0.5,
+                    "flexDirection": "column",
+                    "height": 100,
+                    "justifyContent": "center",
                   }
                 }
               >
-                4/8
-              </Text>
-            </View>
-            <View
-              style={
-                Object {
-                  "flex": 0.6,
+                <Text
+                  style={
+                    Object {
+                      "color": "black",
+                      "fontSize": 32,
+                    }
+                  }
+                >
+                  $249.99
+                </Text>
+                <Text>
+                  Remaining this week
+                </Text>
+              </View>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flex": 0.5,
+                    "flexDirection": "column",
+                    "height": 100,
+                    "justifyContent": "center",
+                  }
                 }
+              >
+                <Text
+                  style={
+                    Object {
+                      "color": "black",
+                      "fontSize": 32,
+                    }
+                  }
+                >
+                  $0.01
+                </Text>
+                <Text>
+                  Spent so far
+                </Text>
+              </View>
+            </View>
+            <RCTScrollView
+              data={
+                Array [
+                  Object {
+                    "date": 2018-04-08T04:00:00.000Z,
+                    "displayName": "Test payment",
+                    "paymentId": 1,
+                    "total": 1,
+                  },
+                ]
               }
+              disableVirtualization={false}
+              getItem={[Function]}
+              getItemCount={[Function]}
+              horizontal={false}
+              initialNumToRender={10}
+              keyExtractor={[Function]}
+              maxToRenderPerBatch={10}
+              numColumns={1}
+              onContentSizeChange={[Function]}
+              onEndReachedThreshold={2}
+              onLayout={[Function]}
+              onMomentumScrollEnd={[Function]}
+              onScroll={[Function]}
+              onScrollBeginDrag={[Function]}
+              onScrollEndDrag={[Function]}
+              renderItem={[Function]}
+              scrollEventThrottle={50}
+              stickyHeaderIndices={Array []}
+              updateCellsBatchingPeriod={50}
+              viewabilityConfigCallbackPairs={Array []}
+              windowSize={21}
             >
-              <Text
-                numberOfLines={2}
-                style={
-                  Object {
-                    "fontSize": 16,
-                  }
-                }
-              >
-                Test payment
-              </Text>
-            </View>
-            <View
-              style={
-                Object {
-                  "alignItems": "flex-end",
-                  "flex": 0.25,
-                  "paddingRight": 20,
-                }
-              }
-            >
-              <Text
-                style={
-                  Object {
-                    "fontSize": 16,
-                  }
-                }
-              >
-                $0.01
-              </Text>
-            </View>
+              <View>
+                <View
+                  onLayout={[Function]}
+                  style={null}
+                >
+                  <View
+                    accessible={true}
+                    isTVSelectable={true}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={null}
+                  >
+                    <View
+                      style={
+                        Object {
+                          "alignItems": "center",
+                          "borderBottomColor": "#222222",
+                          "borderBottomWidth": 0.5,
+                          "flexDirection": "row",
+                          "height": 60,
+                        }
+                      }
+                    >
+                      <View
+                        style={
+                          Object {
+                            "alignItems": "flex-start",
+                            "flex": 0.15,
+                            "paddingHorizontal": 20,
+                          }
+                        }
+                      >
+                        <Text
+                          style={
+                            Object {
+                              "fontSize": 16,
+                            }
+                          }
+                        >
+                          4/8
+                        </Text>
+                      </View>
+                      <View
+                        style={
+                          Object {
+                            "flex": 0.6,
+                          }
+                        }
+                      >
+                        <Text
+                          numberOfLines={2}
+                          style={
+                            Object {
+                              "fontSize": 16,
+                            }
+                          }
+                        >
+                          Test payment
+                        </Text>
+                      </View>
+                      <View
+                        style={
+                          Object {
+                            "alignItems": "flex-end",
+                            "flex": 0.25,
+                            "paddingRight": 20,
+                          }
+                        }
+                      >
+                        <Text
+                          style={
+                            Object {
+                              "fontSize": 16,
+                            }
+                          }
+                        >
+                          $0.01
+                        </Text>
+                      </View>
+                    </View>
+                  </View>
+                </View>
+              </View>
+            </RCTScrollView>
           </View>
         </View>
       </View>
-    </View>
-  </RCTScrollView>
+    </RCTScrollView>
+  </View>
   <View
     pointerEvents="box-none"
     style={
