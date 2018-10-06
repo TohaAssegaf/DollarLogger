@@ -1,5 +1,3 @@
-import { StackNavigator } from 'react-navigation'
-
 let mockDbPayments = []
 let mockUser = {
   currentUser: {
