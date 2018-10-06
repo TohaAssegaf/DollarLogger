@@ -1,6 +1,7 @@
 import styles from './styles'
 import HomeHeader from './HomeHeader'
 import PaymentContributionList from '~/app/components/payment/PaymentContributionList'
+import * as Routes from '~/app/config/Routes'
 import * as PaymentUtils from '~/app/lib/PaymentUtils'
 import React from 'react'
 import { View } from 'react-native'
@@ -17,7 +18,7 @@ class HomeWeekDetails extends React.Component {
   render() {
     return (
       <View style={styles.screen}>
-        <HomeHeader />
+        <HomeHeader date={this.props.date} />
         <PaymentContributionList
           onTapCell={
             paymentContribution => this.navigateToUpdatePayment(paymentContribution.paymentId)}
@@ -28,11 +29,11 @@ class HomeWeekDetails extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
   return {
-    payments: PaymentUtils.filterCurrentWeekPayments(state.payment.payments),
+    payments: PaymentUtils.filterPaymentsForWeek(state.payment.payments, ownProps.date),
     paymentContributions:
-      PaymentUtils.filterCurrentWeekPaymentContributions(state.payment.payments),
+      PaymentUtils.filterPaymentContributionsForWeek(state.payment.payments, ownProps.date),
   }
 }
 

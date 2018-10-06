@@ -5,6 +5,7 @@ import PaymentContributionList from '~/app/components/payment/PaymentContributio
 import * as Routes from '~/app/config/Routes'
 import HomeActionButton from '~/app/components/home/HomeActionButton'
 import { HEADER_BACKGROUND_COLOR, HEADER_TEXT_COLOR} from '~/app/config/colors'
+import * as DateUtils from '~/app/lib/DateUtils'
 import * as PaymentUtils from '~/app/lib/PaymentUtils'
 import React from 'react';
 import { Button, Text, TouchableOpacity, View } from 'react-native'
@@ -49,16 +50,27 @@ class Home extends React.Component {
   }
 
   getPaymentWeeks() {
-    return [...new Set(
-      this.props.paymentContributions.map(
-        paymentContribution => DateUtils.getLastMonday(paymentContribution.date)))
-    ].sort()
+    let dates = []
+    let times = new Set()
+    let weekStarts = this.props.paymentContributions.map(
+      paymentContribution => DateUtils.getLastMonday(paymentContribution.date))
+    for (const date of weekStarts) {
+      if (!times.has(date.getTime())) {
+        times.add(date.getTime())
+        dates.push(date)
+      }
+    }
+    return dates.sort()
+  }
+
+  getHomeWeekDetailsList() {
+    return this.getPaymentWeeks().map(date => <HomeWeekDetails date={date} />)
   }
 
   render() {
     return (
       <View style={styles.screen}>
-        <HomeWeekDetails />
+        {this.getHomeWeekDetailsList()}
         <HomeActionButton
           addPaymentAction={() => this.props.navigation.navigate(Routes.ADD_PAYMENT)}
           historyAction={() => this.props.navigation.navigate(Routes.HISTORY)}
@@ -70,7 +82,6 @@ class Home extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    payments: PaymentUtils.filterCurrentWeekPayments(state.payment.payments),
     paymentContributions:
       PaymentUtils.filterCurrentWeekPaymentContributions(state.payment.payments),
   }

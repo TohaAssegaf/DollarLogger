@@ -4,11 +4,20 @@ const ONE_DAY = 86400000
 const ONE_WEEK = ONE_DAY * 7
 
 export function filterCurrentWeekPayments(payments: Array<Payment>) {
-  return payments.filter(isCurrentWeekPayment)
+  return filterPaymentsForWeek(payments, new Date())
 }
 
 export function filterCurrentWeekPaymentContributions(payments: Array<Payment>) {
-  return getSortedPaymentContributions(payments).filter(isCurrentWeekPaymentContribution)
+  return filterPaymentContributionsForWeek(payments, new Date())
+}
+
+export function filterPaymentsForWeek(payments: Array<Payment>, date: Date) {
+  return payments.filter(payment => isPaymentForWeek(payment, date))
+}
+
+export function filterPaymentContributionsForWeek(payments: Array<Payment>, date: Date) {
+  return getSortedPaymentContributions(payments)
+    .filter(paymentContribution => isPaymentContributionForWeek(paymentContribution, date))
 }
 
 export function getTotalSpend(paymentContributions: Array<PaymentContribution>) {
@@ -43,13 +52,13 @@ function comparePaymentContributions(pc1: PaymentContribution, pc2: PaymentContr
   return 0
 }
 
-function isCurrentWeekPayment(payment: Payment) {
+function isPaymentForWeek(payment: Payment, date: Date) {
   return payment.paymentContributions.some(
-    paymentContribution => isCurrentWeekPaymentContribution(paymentContribution))
+    paymentContribution => isPaymentContributionForWeek(paymentContribution, date))
 }
 
-function isCurrentWeekPaymentContribution(paymentContribution: PaymentContribution) {
-  const lastMonday = DateUtils.getLastMonday(new Date())
+function isPaymentContributionForWeek(paymentContribution: PaymentContribution, date: Date) {
+  const lastMonday = DateUtils.getLastMonday(date)
   const nextMonday = new Date(lastMonday.getTime() + ONE_WEEK)
   return paymentContribution.date >= lastMonday && paymentContribution.date < nextMonday
 }
