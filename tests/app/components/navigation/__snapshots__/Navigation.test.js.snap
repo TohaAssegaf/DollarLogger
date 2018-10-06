@@ -4,11 +4,9 @@ exports[`renders correctly 1`] = `
 <View
   onLayout={[Function]}
   style={
-    Array [
-      Object {
-        "flex": 1,
-      },
-    ]
+    Object {
+      "flex": 1,
+    }
   }
 >
   <View
@@ -29,6 +27,7 @@ exports[`renders correctly 1`] = `
         Object {
           "flex": 1,
           "flexDirection": "column-reverse",
+          "overflow": "hidden",
         },
         Object {
           "backgroundColor": "#000",
@@ -44,13 +43,15 @@ exports[`renders correctly 1`] = `
       }
     >
       <View
+        accessibilityElementsHidden={false}
         pointerEvents="auto"
         style={
           Object {
-            "backgroundColor": "#EFEFF4",
+            "backgroundColor": "#E9E9EF",
             "bottom": 0,
             "left": 0,
             "opacity": 1,
+            "paddingTop": 0,
             "position": "absolute",
             "right": 0,
             "shadowColor": "black",
@@ -76,6 +77,56 @@ exports[`renders correctly 1`] = `
           <Text>
             Loading...
           </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      onLayout={[Function]}
+      pointerEvents="box-none"
+      style={
+        Object {
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "#FFF",
+            "transform": Array [
+              Object {
+                "translateX": -750,
+              },
+            ],
+          }
+        }
+      >
+        <View
+          onLayout={[Function]}
+          pointerEvents="box-none"
+          style={
+            Object {
+              "backgroundColor": "#FFF",
+              "borderBottomColor": "#A7A7AA",
+              "borderBottomWidth": 0.5,
+              "height": 64,
+              "paddingBottom": 0,
+              "paddingLeft": 0,
+              "paddingRight": 0,
+              "paddingTop": 20,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "flex": 1,
+              }
+            }
+          />
         </View>
       </View>
     </View>

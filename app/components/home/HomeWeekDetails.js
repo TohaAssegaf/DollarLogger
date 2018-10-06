@@ -4,7 +4,6 @@ import * as Routes from '~/app/config/Routes'
 import * as PaymentUtils from '~/app/lib/PaymentUtils'
 import React from 'react'
 import { View } from 'react-native'
-import { withNavigation } from 'react-navigation';
 import { connect } from 'react-redux'
 
 class HomeWeekDetails extends React.Component {
@@ -36,4 +35,4 @@ const mapStateToProps = (state, ownProps) => {
   }
 }
 
-export default withNavigation(connect(mapStateToProps)(HomeWeekDetails))
+export default connect(mapStateToProps)(HomeWeekDetails)
