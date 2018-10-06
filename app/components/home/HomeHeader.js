@@ -8,7 +8,7 @@ import { connect } from 'react-redux'
 class HomeHeader extends React.Component {
   getCurrentSpend() {
     return PaymentUtils.getTotalSpend(
-      PaymentUtils.filterCurrentWeekPaymentContributions(this.props.payments))
+      PaymentUtils.filterPaymentContributionsForWeek(this.props.payments, this.props.date))
   }
 
   getRemainingBudget() {
