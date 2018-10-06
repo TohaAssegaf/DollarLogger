@@ -3,14 +3,6 @@ import * as DateUtils from './DateUtils'
 const ONE_DAY = 86400000
 const ONE_WEEK = ONE_DAY * 7
 
-export function filterCurrentWeekPayments(payments: Array<Payment>) {
-  return filterPaymentsForWeek(payments, new Date())
-}
-
-export function filterCurrentWeekPaymentContributions(payments: Array<Payment>) {
-  return filterPaymentContributionsForWeek(payments, new Date())
-}
-
 export function filterPaymentsForWeek(payments: Array<Payment>, date: Date) {
   return payments.filter(payment => isPaymentForWeek(payment, date))
 }
