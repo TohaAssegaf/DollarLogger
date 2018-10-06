@@ -58,7 +58,9 @@ class Home extends React.Component {
   }
 
   getHomeWeekDetailsList() {
-    return this.props.paymentWeeks.map((date, index) => <HomeWeekDetails date={date} key={index}/>)
+    return this.props.paymentWeeks.map(
+      (date, index) =>
+        <HomeWeekDetails date={date} navigation={this.props.navigation} key={index}/>)
   }
 
   changeNavigationTitle(title: string) {

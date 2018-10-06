@@ -3,7 +3,7 @@ import * as Routes from '~/app/config/Routes'
 import * as AuthUtils from '~/app/lib/auth/AuthUtils'
 import React from 'react';
 import { Text, View } from 'react-native'
-import { NavigationActions } from 'react-navigation'
+import { NavigationActions, StackActions } from 'react-navigation'
 import { connect } from 'react-redux'
 
 class Loading extends React.Component {
@@ -24,12 +24,12 @@ class Loading extends React.Component {
 
   componentDidUpdate() {
     if (this.props.budget.isFetchComplete && !this.props.payment.isLoading) {
-      let navigationAction = NavigationActions.reset({
+      let navigationAction = StackActions.reset({
         index: 0,
         actions: [NavigationActions.navigate({ routeName: Routes.HOME })]
       })
       if (this.props.budget.total === null) {
-        navigationAction = NavigationActions.reset({
+        navigationAction = StackActions.reset({
           index: 1,
           actions: [
             NavigationActions.navigate({ routeName: Routes.HOME }),
