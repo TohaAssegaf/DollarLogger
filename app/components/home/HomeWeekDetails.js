@@ -1,4 +1,3 @@
-import styles from './styles'
 import HomeHeader from './HomeHeader'
 import PaymentContributionList from '~/app/components/payment/PaymentContributionList'
 import * as Routes from '~/app/config/Routes'
@@ -17,7 +16,7 @@ class HomeWeekDetails extends React.Component {
 
   render() {
     return (
-      <View style={styles.screen}>
+      <View>
         <HomeHeader date={this.props.date} />
         <PaymentContributionList
           onTapCell={

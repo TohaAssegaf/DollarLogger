@@ -1,15 +1,13 @@
 import styles from './styles'
-import actions from '~/app/actions'
-import HomeWeekDetails from '~/app/components/home/HomeWeekDetails'
-import PaymentContributionList from '~/app/components/payment/PaymentContributionList'
-import * as Routes from '~/app/config/Routes'
 import HomeActionButton from '~/app/components/home/HomeActionButton'
+import HomeWeekDetails from '~/app/components/home/HomeWeekDetails'
 import { HEADER_BACKGROUND_COLOR, HEADER_TEXT_COLOR} from '~/app/config/colors'
+import * as Routes from '~/app/config/Routes'
 import * as DateUtils from '~/app/lib/DateUtils'
 import * as PaymentUtils from '~/app/lib/PaymentUtils'
 import moment from 'moment'
 import React from 'react'
-import { Button, Text, TouchableOpacity, View } from 'react-native'
+import { TouchableOpacity, View } from 'react-native'
 import Swiper from 'react-native-swiper';
 import Icon from 'react-native-vector-icons/Ionicons'
 import { connect } from 'react-redux'
@@ -23,7 +21,7 @@ class Home extends React.Component {
   static navigationOptions = ({ navigation }) => {
     const title = navigation.state.params && navigation.state.params.title
       ? navigation.state.params.title
-      : 'This week'
+      : THIS_WEEK
     return {
       title,
       headerStyle: {
@@ -59,13 +57,8 @@ class Home extends React.Component {
     this.clearInterval(this.intervalId)
   }
 
-  getCurrentWeekIndex() {
-    return this.props.paymentWeeks.map(
-      date => date.getTime()).indexOf(DateUtils.getLastMonday(new Date()).getTime())
-  }
-
   getHomeWeekDetailsList() {
-    return this.props.paymentWeeks.map(date => <HomeWeekDetails date={date} />)
+    return this.props.paymentWeeks.map((date, index) => <HomeWeekDetails date={date} key={index}/>)
   }
 
   changeNavigationTitle(title: string) {
@@ -74,13 +67,13 @@ class Home extends React.Component {
 
   onSwiperIndexChanged(index: number) {
     let title = moment(this.props.paymentWeeks[index]).format('MMMM Do YYYY')
-    if (index === this.getCurrentWeekIndex()) {
+    if (index === this.props.currentWeekIndex) {
       title = THIS_WEEK
     }
-    if (index === this.getCurrentWeekIndex() - 1) {
+    if (index === this.props.currentWeekIndex - 1) {
       title = LAST_WEEK
     }
-    if (index === this.getCurrentWeekIndex() + 1) {
+    if (index === this.props.currentWeekIndex + 1) {
       title = NEXT_WEEK
     }
     this.changeNavigationTitle(title)
@@ -91,7 +84,7 @@ class Home extends React.Component {
       <View style={styles.screen}>
         <Swiper
             loop={false}
-            index={this.getCurrentWeekIndex()}
+            index={this.props.currentWeekIndex}
             showsPagination={false}
             onIndexChanged={index => this.onSwiperIndexChanged(index)}>
           {this.getHomeWeekDetailsList()}
@@ -121,9 +114,13 @@ function getPaymentWeeks(paymentContributions: Array<PaymentContribution>): Arra
 
 const mapStateToProps = state => {
   const paymentContributions = PaymentUtils.getSortedPaymentContributions(state.payment.payments)
+  const paymentWeeks = getPaymentWeeks(paymentContributions)
+  const currentWeekIndex = paymentWeeks.map(
+    date => date.getTime()).indexOf(DateUtils.getLastMonday(new Date()).getTime())
   return {
-    paymentContributions: paymentContributions,
-    paymentWeeks: getPaymentWeeks(paymentContributions)
+    paymentContributions,
+    paymentWeeks,
+    currentWeekIndex,
   }
 }
 
