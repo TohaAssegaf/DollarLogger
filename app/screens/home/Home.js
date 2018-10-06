@@ -1,6 +1,6 @@
 import styles from './styles'
 import actions from '~/app/actions'
-import HomeHeader from '~/app/components/home/HomeHeader'
+import HomeWeekDetails from '~/app/components/home/HomeWeekDetails'
 import PaymentContributionList from '~/app/components/payment/PaymentContributionList'
 import * as Routes from '~/app/config/Routes'
 import HomeActionButton from '~/app/components/home/HomeActionButton'
@@ -29,10 +29,13 @@ class Home extends React.Component {
   })
 
   componentDidMount() {
-    this.intervalId = setInterval(() => {
-      if (this.props.fetchSuccessTimestamp < this.props.fetchFailureTimestamp)
-      this.props.syncPayments()
-    }, ONE_MINUTE)
+    this.intervalId = setInterval(
+      () => {
+        if (this.shouldSyncPayments()) {
+          this.props.syncPayments()
+        }
+      },
+      ONE_MINUTE)
   }
 
   /** Should sync payments if last successful fetch was before last failed fetch or push. */
@@ -45,12 +48,6 @@ class Home extends React.Component {
     this.clearInterval(this.intervalId)
   }
 
-  navigateToUpdatePayment(paymentId: number) {
-    this.props.navigation.navigate(
-      Routes.UPDATE_PAYMENT,
-      { payment: this.props.payments.find(payment => payment.id == paymentId) })
-  }
-
   getPaymentWeeks() {
     return [...new Set(
       this.props.paymentContributions.map(
@@ -61,12 +58,7 @@ class Home extends React.Component {
   render() {
     return (
       <View style={styles.screen}>
-        <HomeHeader />
-        <PaymentContributionList
-          onTapCell={
-            paymentContribution => this.navigateToUpdatePayment(paymentContribution.paymentId)}
-          paymentContributions={this.props.paymentContributions}
-        />
+        <HomeWeekDetails />
         <HomeActionButton
           addPaymentAction={() => this.props.navigation.navigate(Routes.ADD_PAYMENT)}
           historyAction={() => this.props.navigation.navigate(Routes.HISTORY)}
