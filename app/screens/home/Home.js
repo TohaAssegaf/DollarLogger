@@ -9,6 +9,7 @@ import * as DateUtils from '~/app/lib/DateUtils'
 import * as PaymentUtils from '~/app/lib/PaymentUtils'
 import React from 'react';
 import { Button, Text, TouchableOpacity, View } from 'react-native'
+import Swiper from 'react-native-swiper';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { connect } from 'react-redux'
 
@@ -70,7 +71,9 @@ class Home extends React.Component {
   render() {
     return (
       <View style={styles.screen}>
-        {this.getHomeWeekDetailsList()}
+        <Swiper>
+          {this.getHomeWeekDetailsList()}
+        </Swiper>
         <HomeActionButton
           addPaymentAction={() => this.props.navigation.navigate(Routes.ADD_PAYMENT)}
           historyAction={() => this.props.navigation.navigate(Routes.HISTORY)}
@@ -82,8 +85,7 @@ class Home extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    paymentContributions:
-      PaymentUtils.filterCurrentWeekPaymentContributions(state.payment.payments),
+    paymentContributions: PaymentUtils.getSortedPaymentContributions(state.payment.payments),
   }
 }
 
