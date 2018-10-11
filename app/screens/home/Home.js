@@ -13,6 +13,8 @@ import Icon from 'react-native-vector-icons/Ionicons'
 import { connect } from 'react-redux'
 
 const ONE_MINUTE = 60000
+const ONE_DAY = 86400000
+const ONE_WEEK = ONE_DAY * 7
 const THIS_WEEK = 'This week'
 const LAST_WEEK = 'Last week'
 const NEXT_WEEK = 'Next week'
@@ -100,18 +102,19 @@ class Home extends React.Component {
   }
 }
 
+// TODO(renzobautista): Fix this to do an infinite scroll instead of doing 52 weeks before/after.
 function getPaymentWeeks(paymentContributions: Array<PaymentContribution>): Array<Date> {
+  const extraWeekCount: number = 52
+  const currentMonday = DateUtils.getLastMonday(new Date())
   let dates = []
-  let times = new Set()
-  let weekStarts = paymentContributions.map(
-    paymentContribution => DateUtils.getLastMonday(paymentContribution.date))
-  for (const date of weekStarts) {
-    if (!times.has(date.getTime())) {
-      times.add(date.getTime())
-      dates.push(date)
-    }
+  for (let i = extraWeekCount; i > 0; i--) {
+    dates.push(new Date(currentMonday.getTime() - ONE_WEEK * i))
   }
-  return dates.sort((a, b) => a - b)
+  dates.push(currentMonday)
+  for (let i = 1; i <= extraWeekCount; i++) {
+    dates.push(new Date(currentMonday.getTime() + ONE_WEEK * i))
+  }
+  return dates
 }
 
 const mapStateToProps = state => {
