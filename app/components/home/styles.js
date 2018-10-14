@@ -32,5 +32,9 @@ export default StyleSheet.create({
     fontSize: 20,
     height: 22,
     color: 'white',
+  },
+
+  homeWeekDetails: {
+    flex: 1,
   }
 })

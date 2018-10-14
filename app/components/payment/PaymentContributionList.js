@@ -21,6 +21,7 @@ export default class PaymentContributionList extends React.Component {
         data={this.props.paymentContributions}
         keyExtractor={(paymentContribution, index) => this.keyExtractor(paymentContribution, index)}
         renderItem={({item}) => this.renderItem(item)}
+        style={styles.paymentContributionList}
       />
     );
   }

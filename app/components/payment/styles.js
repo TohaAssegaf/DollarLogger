@@ -85,5 +85,9 @@ export default StyleSheet.create({
 
   deletePaymentButton: {
     marginHorizontal: generalSpacing
+  },
+
+  paymentContributionList: {
+    flex: 1,
   }
 })
