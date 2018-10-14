@@ -1,7 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`does not include previous week payments 1`] = `
-<View>
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
   <View
     style={
       Object {
@@ -83,6 +89,11 @@ exports[`does not include previous week payments 1`] = `
     renderItem={[Function]}
     scrollEventThrottle={50}
     stickyHeaderIndices={Array []}
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
     updateCellsBatchingPeriod={50}
     viewabilityConfigCallbackPairs={Array []}
     windowSize={21}
@@ -93,7 +104,13 @@ exports[`does not include previous week payments 1`] = `
 `;
 
 exports[`renders correctly 1`] = `
-<View>
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
   <View
     style={
       Object {
@@ -184,6 +201,11 @@ exports[`renders correctly 1`] = `
     renderItem={[Function]}
     scrollEventThrottle={50}
     stickyHeaderIndices={Array []}
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
     updateCellsBatchingPeriod={50}
     viewabilityConfigCallbackPairs={Array []}
     windowSize={21}
